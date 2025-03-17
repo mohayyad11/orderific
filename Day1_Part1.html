@@ -2,210 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Comprehensive HTML5 Learning Platform">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Dev Learning Portal</title>
+    <title>My Perfect Webpage</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
+            line-height: 1.6;
         }
         nav {
-            background: linear-gradient(90deg, #2c3e50, #3498db);
-            padding: 15px 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        nav li {
-            margin: 0 20px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-bottom: 20px;
         }
         nav a {
-            color: white;
+            margin-right: 15px;
             text-decoration: none;
-            font-weight: 600;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            color: #333;
         }
         nav a:hover {
-            background-color: rgba(255,255,255,0.2);
+            color: #0066cc;
         }
-        section {
-            margin: 80px 0 40px;
-            padding: 25px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        h1 { color: #2c3e50; }
-        h2, h3 { color: #34495e; }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 15px 0;
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #fafafa;
+            border-radius: 5px;
         }
         button {
-            background-color: #e74c3c;
+            padding: 10px 20px;
+            background-color: #0066cc;
             color: white;
-            padding: 12px 25px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #c0392b;
-        }
-        form {
-            margin: 20px 0;
-            padding: 20px;
-            background: #ecf0f1;
-            border-radius: 5px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        /* Media Queries for Responsive Design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav li {
-                margin: 10px 0;
-            }
-            section {
-                padding: 15px;
-            }
+            background-color: #0052a3;
         }
     </style>
 </head>
 <body>
-    <!-- Enhanced Navigation Bar -->
+    <!-- Navigation Bar Section -->
     <nav>
-        <ul>
-            <li><a href="#welcome">Learning Hub</a></li>
-            <li><a href="#resources">Dev Resources</a></li>
-            <li><a href="#profile">About Developer</a></li>
-            <li><a href="#blog">Tech Blog</a></li>
-        </ul>
+        <a href="#home">Home</a>
+        <a href="#profile">Profile</a>
+        <a href="#blog">Blog</a>
+        <a href="#books">Books</a>
     </nav>
 
-    <!-- Learning Hub Section -->
-    <section id="welcome">
-        <h1>Learning Hub</h1>
-        <h2>Web Development Basics</h2>
-        <h3>Start Your Journey</h3>
-        <p>Begin your web development adventure! Explore our 
-           <a href="#blog">tech articles</a> for expert insights.</p>
-        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="Laptop with code">
+    <!-- Home Section -->
+    <div class="section" id="home">
+        <h1>Welcome to My Webpage</h1>
+        <h2>Subtitle Level 2</h2>
+        <h3>Subtitle Level 3</h3>
+        <h4>Subtitle Level 4</h4>
+        <h5>Subtitle Level 5</h5>
+        <h6>Subtitle Level 6</h6>
         
-        <form>
-            <h3>Get in Touch</h3>
-            <label for="fullname">Full Name:</label>
-            <input type="text" id="fullname" name="fullname">
-            <label for="query">Your Query:</label>
-            <textarea id="query" name="query"></textarea>
-            <input type="submit" value="Submit Query">
-        </form>
-    </section>
+        <p>This is a paragraph with a <a href="https://www.example.com" target="_blank">hyperlink</a> 
+        that opens in a new tab. You can explore <b>bold</b>, <i>italic</i>, and 
+        <u>underlined</u> text here.</p>
+        
+        <img src="https://via.placeholder.com/300x200" alt="A beautiful placeholder image">
+    </div>
 
     <hr>
 
-    <!-- Dev Resources Section -->
-    <section id="resources">
-        <h1>Developer Resources</h1>
-        <p>Access <strong>crucial</strong> tools and <em>tutorials</em>. 
-           Visit <a href="https://developer.mozilla.org" target="_blank">Mozilla Developer Network</a>.</p>
-        
-        <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97fd7" alt="Development tools">
-        
-        <h3>Essential Tools</h3>
-        <ol>
-            <li>Sublime Text</li>
-            <li>GitHub</li>
-            <li>Firefox Developer Edition</li>
-        </ol>
-        
-        <h3>Learning Sites</h3>
-        <ul>
-            <li>Udemy</li>
-            <li>Coursera</li>
-            <li>Pluralsight</li>
-        </ul>
-        
-        <form>
-            <h3>Rate Our Resources</h3>
-            <label for="score">Score (1-10):</label>
-            <input type="number" id="score" name="score" min="1" max="10">
-            <label for="feedback">Feedback:</label>
-            <textarea id="feedback" name="feedback"></textarea>
-            <input type="submit" value="Send Feedback">
-        </form>
-    </section>
+    <!-- Profile Section -->
+    <div class="section" id="profile">
+        <h2>My Profile</h2>
+        <div>
+            <img src="https://via.placeholder.com/150" alt="Profile picture">
+            <p><strong>Hello!</strong> I'm a web enthusiast learning HTML. 
+            I <em>love</em> creating structured layouts and nesting elements.</p>
+        </div>
+        <br>
+        <a href="mailto:yourname@example.com">Email Me</a>
+    </div>
 
     <hr>
 
-    <!-- About Developer Section -->
-    <section id="profile">
-        <h1>About the Developer</h1>
-        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7" alt="Developer working">
-        <p>I'm dedicated to <b>innovative</b> coding and <i>clean</i> design. 
-           I build <u>user-friendly</u> websites.
-           <br>
-           Reach me: <a href="mailto:developer@example.com">Contact Me</a>
-        </p>
-        <button onclick="window.location.href='#blog'">Read My Blog</button>
-    </section>
+    <!-- Blog Section -->
+    <div class="section" id="blog">
+        <h2>Blog Post</h2>
+        <div>
+            <h3>A Great Day for Coding</h3>
+            <p>Today I learned about HTML structure and styling. Here's a quote that inspires me:</p>
+            <blockquote>
+                "The only way to do great work is to love what you do." 
+                <cite>- Steve Jobs</cite>
+            </blockquote>
+            <button onclick="window.location.href='#books'">See My Books</button>
+        </div>
+    </div>
 
     <hr>
 
-    <!-- Tech Blog Section -->
-    <section id="blog">
-        <h1>Technology Blog</h1>
-        <p>Latest insights on web development trends:</p>
-        <blockquote>
-            "Technology evolves with every line of code." 
-            - <cite>Mike Johnson</cite>
-        </blockquote>
-        
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f45a133" alt="Tech blog writing">
-        
-        <p>Focusing on <strong>modern</strong> techniques and <em>efficient</em> solutions.</p>
-        
-        <form>
-            <h3>Newsletter Signup</h3>
-            <label for="subscriber-email">Your Email:</label>
-            <input type="email" id="subscriber-email" name="subscriber-email">
-            <input type="submit" value="Join Now">
-        </form>
-    </section>
-
-    <!-- Comments -->
-    <!-- Enhanced nav bar with gradient and responsive design -->
-    <!-- Content optimized for all devices with meaningful images -->
-    <!-- Cross-browser compatible with modern CSS practices -->
+    <!-- Books Section -->
+    <div class="section" id="books">
+        <h2>Favorite Books</h2>
+        <div>
+            <h3>Ordered List:</h3>
+            <ol>
+                <li>The Great Gatsby</li>
+                <li>To Kill a Mockingbird</li>
+                <li>1984</li>
+            </ol>
+            
+            <h3>Unordered List:</h3>
+            <ul>
+                <li>Pride and Prejudice</li>
+                <li>The Catcher in the Rye</li>
+                <li>Brave New World</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
