@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Task Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #1a73e8;
+            margin-top: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input:invalid {
+            border-color: #ff4444;
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1557b0;
+        }
+        .media-player {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        video, audio {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+        .svg-container {
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+            border-radius: 5px;
+        }
+        .error {
+            color: #ff4444;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .section {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            input, button {
+                font-size: 14px;
+            }
+            video, audio {
+                max-width: 100%;
+            }
+            iframe {
+                height: 200px;
+            }
+        }
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.3em;
+            }
+            .section {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Task 1: User Registration Form with Validation -->
+        <div class="section">
+            <h2>User Registration</h2>
+            <form id="registrationForm" onsubmit="return validateForm(event)">
+                <input type="text" id="username" placeholder="Username" required minlength="3" pattern="[A-Za-z0-9]+" title="Only letters and numbers allowed">
+                <div class="error" id="usernameError">Username must be at least 3 characters (letters and numbers only).</div>
+                
+                <input type="email" id="email" placeholder="Email" required>
+                <div class="error" id="emailError">Please enter a valid email address.</div>
+                
+                <input type="password" id="password" placeholder="Password" required minlength="6" pattern="(?=.*\d)(?=.*[a-zA-Z]).*">
+                <div class="error" id="passwordError">Password must be at least 6 characters with letters and numbers.</div>
+                
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <!-- Task 2: Video and Audio Player with Controls -->
+        <div class="section">
+            <h2>Media Players</h2>
+            <div class="media-player">
+                <video controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <audio controls>
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mp3">
+                    Your browser does not support the audio tag.
+                </audio>
+            </div>
+        </div>
+
+        <!-- Task 3: SVG Icon from Figma (Using a sample SVG) -->
+        <div class="section">
+            <h2>SVG Icon</h2>
+            <div class="svg-container">
+                <!-- Sample SVG from Figma community (e.g., a star icon) -->
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21L12 17.77L5.82 21L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#1a73e8"/>
+                </svg>
+                <p>A star icon sourced from Figma-style design principles.</p>
+            </div>
+        </div>
+
+        <!-- Task 4: Embed YouTube Video with Iframe -->
+        <div class="section">
+            <h2>YouTube Video</h2>
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+
+        <!-- Task 5: WSP Sign-in Form (No Styling as Requested) -->
+        <div class="section">
+            <h2>WSP Sign-in</h2>
+            <form>
+                <input type="text" placeholder="WSP Username">
+                <input type="password" placeholder="WSP Password">
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            // Username validation
+            const username = document.getElementById('username');
+            const usernameError = document.getElementById('usernameError');
+            if (!username.checkValidity()) {
+                usernameError.style.display = 'block';
+                isValid = false;
+            } else {
+                usernameError.style.display = 'none';
+            }
+
+            // Email validation
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            if (!email.checkValidity()) {
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+
+            // Password validation
+            const password = document.getElementById('password');
+            const passwordError = document.getElementById('passwordError');
+            if (!password.checkValidity()) {
+                passwordError.style.display = 'block';
+                isValid = false;
+            } else {
+                passwordError.style.display = 'none';
+            }
+
+            if (isValid) {
+                alert('Registration successful!');
+                document.getElementById('registrationForm').reset();
+            }
+            return isValid;
+        }
+    </script>
+</body>
+</html>
