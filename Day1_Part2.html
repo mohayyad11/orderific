@@ -3,221 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Task Webpage</title>
+    <title>My Enhanced Webpage with Notifications</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f2f5;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
             margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 8px;
             display: flex;
-            flex-direction: column;
-            gap: 40px;
+            justify-content: space-around;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffd700;
         }
         .section {
-            background-color: white;
+            margin-bottom: 40px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        h2 {
-            color: #1a73e8;
-            margin-top: 0;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input, button {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        input:invalid {
-            border-color: #ff4444;
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
         }
         button {
-            background-color: #1a73e8;
+            padding: 12px 25px;
+            background-color: #0066cc;
             color: white;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #1557b0;
+            background-color: #004d99;
         }
-        .media-player {
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 30px 0;
+        }
+        blockquote {
+            border-left: 4px solid #0066cc;
+            padding-left: 15px;
+            color: #666;
+            font-style: italic;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .notifications {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+        }
+        .notifications-list {
+            flex: 3;
+        }
+        .notifications-settings {
+            flex: 1;
+            padding-left: 20px;
+        }
+        .notification-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        .tabs {
+            display: flex;
             gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tab.active {
+            background-color: #0066cc;
+            color: white;
+        }
+        .settings-item {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            margin-bottom: 10px;
         }
-        video, audio {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 5px;
+        .toggle {
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
         }
-        .svg-container {
-            text-align: center;
+        .toggle.active {
+            background-color: #28a745;
         }
-        iframe {
-            width: 100%;
-            max-width: 560px;
-            height: 315px;
-            border: none;
-            border-radius: 5px;
+        .toggle-circle {
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            transition: transform 0.3s;
         }
-        .error {
-            color: #ff4444;
-            font-size: 14px;
-            display: none;
+        .toggle.active .toggle-circle {
+            transform: translateX(20px);
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .container {
+            body {
                 padding: 10px;
+            }
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav a {
+                padding: 10px;
+                display: block;
             }
             .section {
                 padding: 15px;
             }
-            h2 {
-                font-size: 1.5em;
+            h1 { font-size: 1.5em; }
+            h2 { font-size: 1.3em; }
+            h3 { font-size: 1.2em; }
+            p { font-size: 0.95em; }
+            .notifications {
+                flex-direction: column;
             }
-            input, button {
-                font-size: 14px;
-            }
-            video, audio {
-                max-width: 100%;
-            }
-            iframe {
-                height: 200px;
+            .notifications-settings {
+                padding-left: 0;
+                margin-top: 20px;
             }
         }
         @media (max-width: 480px) {
-            h2 {
-                font-size: 1.3em;
+            nav a {
+                font-size: 0.9em;
+                letter-spacing: 1px;
             }
             .section {
-                padding: 10px;
+                margin-bottom: 20px;
+            }
+            button {
+                padding: 8px 15px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Task 1: User Registration Form with Validation -->
-        <div class="section">
-            <h2>User Registration</h2>
-            <form id="registrationForm" onsubmit="return validateForm(event)">
-                <input type="text" id="username" placeholder="Username" required minlength="3" pattern="[A-Za-z0-9]+" title="Only letters and numbers allowed">
-                <div class="error" id="usernameError">Username must be at least 3 characters (letters and numbers only).</div>
-                
-                <input type="email" id="email" placeholder="Email" required>
-                <div class="error" id="emailError">Please enter a valid email address.</div>
-                
-                <input type="password" id="password" placeholder="Password" required minlength="6" pattern="(?=.*\d)(?=.*[a-zA-Z]).*">
-                <div class="error" id="passwordError">Password must be at least 6 characters with letters and numbers.</div>
-                
-                <button type="submit">Register</button>
-            </form>
-        </div>
+    <!-- Navigation Bar Section (Task 6) -->
+    <nav>
+        <a href="#home">H O M E</a>
+        <a href="#profile">P R O F I L E</a>
+        <a href="#blog">B L O G</a>
+        <a href="#books">B O O K S</a>
+        <a href="#notifications">N O T I F I C A T I O N S</a>
+    </nav>
 
-        <!-- Task 2: Video and Audio Player with Controls -->
-        <div class="section">
-            <h2>Media Players</h2>
-            <div class="media-player">
-                <video controls>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <audio controls>
-                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mp3">
-                    Your browser does not support the audio tag.
-                </audio>
-            </div>
-        </div>
-
-        <!-- Task 3: SVG Icon from Figma (Using a sample SVG) -->
-        <div class="section">
-            <h2>SVG Icon</h2>
-            <div class="svg-container">
-                <!-- Sample SVG from Figma community (e.g., a star icon) -->
-                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21L12 17.77L5.82 21L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#1a73e8"/>
-                </svg>
-                <p>A star icon sourced from Figma-style design principles.</p>
-            </div>
-        </div>
-
-        <!-- Task 4: Embed YouTube Video with Iframe -->
-        <div class="section">
-            <h2>YouTube Video</h2>
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                    title="YouTube video player" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe>
-        </div>
-
-        <!-- Task 5: WSP Sign-in Form (No Styling as Requested) -->
-        <div class="section">
-            <h2>WSP Sign-in</h2>
-            <form>
-                <input type="text" placeholder="WSP Username">
-                <input type="password" placeholder="WSP Password">
-                <button type="submit">Sign In</button>
-            </form>
-        </div>
+    <!-- Home Section (Tasks 1, 2, 3, 4, 8, 10, 11, 12, 18) -->
+    <div class="section" id="home">
+        <h1>Welcome to My Enhanced Webpage</h1>
+        <h2>Exploring HTML Structure</h2>
+        <h3>Different Heading Sizes</h3>
+        <h4>With More Details</h4>
+        <h5>And Styling Options</h5>
+        <h6>Smallest Heading</h6>
+        
+        <p>This is an enhanced paragraph showcasing <a href="https://www.example.com" target="_blank">external links</a> 
+        that open in new tabs. Enjoy some <b>bold text</b>, <i>italic styling</i>, and 
+        <u>underlined content</u> to make it visually appealing.</p>
+        
+        <img src="https://via.placeholder.com/400x250" alt="A stunning landscape placeholder image">
+        <p>Above is a sample image demonstrating proper sizing and alt text usage.</p>
+        
+        <br>
+        <hr>
     </div>
 
-    <script>
-        function validateForm(event) {
-            event.preventDefault();
-            let isValid = true;
+    <!-- Profile Section (Tasks 7, 11, 12, 13, 16) -->
+    <div class="section" id="profile">
+        <h2>My Detailed Profile</h2>
+        <div>
+            <img src="https://via.placeholder.com/200" alt="Detailed profile picture" style="float:left; margin-right:15px; border-radius:50%;">
+            <p><strong>Greetings!</strong> I'm a passionate web developer exploring HTML and CSS. 
+            I <em>absolutely love</em> creating well-structured layouts and experimenting with nested elements. 
+            My journey in web development started recently, and I'm excited to share my progress!</p>
+            <br style="clear:both;">
+            <p>Contact me at: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+        </div>
+        <hr>
+    </div>
 
-            // Username validation
-            const username = document.getElementById('username');
-            const usernameError = document.getElementById('usernameError');
-            if (!username.checkValidity()) {
-                usernameError.style.display = 'block';
-                isValid = false;
-            } else {
-                usernameError.style.display = 'none';
-            }
+    <!-- Blog Section (Tasks 14, 17, 19) -->
+    <div class="section" id="blog">
+        <h2>Latest Blog Post</h2>
+        <div>
+            <h3>A Wonderful Day in Web Development</h3>
+            <p>Today, I dove deeper into HTML structuring and CSS styling. I learned about semantic elements, 
+            responsive design, and how to create engaging content layouts. Here's an inspiring quote:</p>
+            <blockquote>
+                "The only way to do great work is to love what you do." 
+                <cite>- Steve Jobs</cite>
+            </blockquote>
+            <p>This quote motivates me to keep learning and improving my skills daily.</p>
+            <button onclick="window.location.href='#books'">Explore My Favorite Books</button>
+        </div>
+        <hr>
+    </div>
 
-            // Email validation
-            const email = document.getElementById('email');
-            const emailError = document.getElementById('emailError');
-            if (!email.checkValidity()) {
-                emailError.style.display = 'block';
-                isValid = false;
-            } else {
-                emailError.style.display = 'none';
-            }
+    <!-- Books Section (Tasks 15, 13) -->
+    <div class="section" id="books">
+        <h2>My Favorite Books Collection</h2>
+        <div>
+            <h3>Top 3 in Order:</h3>
+            <ol>
+                <li><b>The Great Gatsby</b> - F. Scott Fitzgerald</li>
+                <li><i>To Kill a Mockingbird</i> - Harper Lee</li>
+                <li><u>1984</u> - George Orwell</li>
+            </ol>
+            
+            <h3>Other Favorites:</h3>
+            <ul style="list-style-type: square;">
+                <li><strong>Pride and Prejudice</strong> - Jane Austen</li>
+                <li><em>The Catcher in the Rye</em> - J.D. Salinger</li>
+                <li>Brave New World - Aldous Huxley</li>
+            </ul>
+            <p>These books have inspired me in various ways, from storytelling to critical thinking.</p>
+        </div>
+        <hr>
+    </div>
 
-            // Password validation
-            const password = document.getElementById('password');
-            const passwordError = document.getElementById('passwordError');
-            if (!password.checkValidity()) {
-                passwordError.style.display = 'block';
-                isValid = false;
-            } else {
-                passwordError.style.display = 'none';
-            }
-
-            if (isValid) {
-                alert('Registration successful!');
-                document.getElementById('registrationForm').reset();
-            }
-            return isValid;
-        }
-    </script>
+    <!-- Notifications Section (Figma Data, Task 5, 9) -->
+    <div class="section" id="notifications">
+        <h2>Notifications</h2>
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active">Unread <span style="background:#0066cc; color:white; padding:2px 6px; border-radius:10px;">8</span></div>
+            <div class="tab">All</div>
+        </div>
+        <div class="notifications">
+            <!-- Notifications List -->
+            <div class="notifications-list">
+                <div class="notification-item">
+                    <p>#202 order, "mushroom burger" was "accepted". <span style="float:right;">11:32</span><br>6 Jan 2024</p>
+                </div>
+                <div class="notification-item">
+                    <p>#588 order, "Soda" was Ready. <span style="float:right;">11:11</span><br>6 Jan 2024</p>
+                </div>
+                <div class="notification-item">
+                    <p>#164 order for "Table A101" Placed. <span style="float:right;">10:59</span><br>6 Jan 2024</p>
+                </div>
+                <div class="notification-item">
+                    <p>#202 order was Completed. <span style="float:right;">18:36</span><br>5 Jan 2024</p>
+                </div>
+                <div class="notification-item">
+                    <p>#202 order, "mushroom burger" was "Served". <span style="float:right;">18:07</span><br>5 Jan 2024</p>
+                </div>
+                <div class="notification-item">
+                    <p>#202 order was Completed. <span style="float:right;">17:17</span><br>5 Jan 2024</p>
+                </div>
+                <div class="notification-item">
+                    <p>#164 order for "Table A101" Placed. <span style="float:right;">17:01</span><br>5 Jan 2024</p>
+                </div>
+                <div class="notification-item">
+                    <p>#164 order for "Table A101" Placed. <span style="float:right;">16:24</span><br>5 Jan 2024</p>
+                </div>
+                <div class="notification-item">
+                    <p>#202 order was Completed. <span style="float:right;">16:20</span><br>5 Jan 2024</p>
+                </div>
+                <div class="notification-item">
+                    <p>#588 order, "Soda" was Ready. <span style="float:right;">16:10</span><br>5 Jan 2024</p>
+                </div>
+                <p style="text-align:center; color:#666;">Loading More...</p>
+            </div>
+            <!-- Notifications Settings -->
+            <div class="notifications-settings">
+                <h3>Settings</h3>
+                <div class="settings-item">
+                    <span>Banner and sound</span>
+                    <div class="toggle active"><div class="toggle-circle"></div></div>
+                </div>
+                <div class="settings-item">
+                    <span>Banner only</span>
+                    <div class="toggle"><div class="toggle-circle"></div></div>
+                </div>
+                <div class="settings-item">
+                    <span>Sound only</span>
+                    <div class="toggle"><div class="toggle-circle"></div></div>
+                </div>
+                <div class="settings-item">
+                    <span>None</span>
+                    <div class="toggle"><div class="toggle-circle"></div></div>
+                </div>
+                <div class="settings-item">
+                    <span>Play Repeatedly</span>
+                    <div class="toggle"><div class="toggle-circle"></div></div>
+                </div>
+                <div class="settings-item">
+                    <span>Table Notifications</span>
+                    <div class="toggle active"><div class="toggle-circle"></div></div>
+                </div>
+                <div class="settings-item">
+                    <span>Order Notifications</span>
+                    <div class="toggle"><div class="toggle-circle"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
