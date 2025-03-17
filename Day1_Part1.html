@@ -2,92 +2,165 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="HTML5 Learning Tasks">
+    <meta name="description" content="Advanced HTML5 Learning Platform">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My HTML5 Profile and Blog</title>
+    <title>HTML5 Learning Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            left: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        section {
+            margin-top: 60px;
+            padding: 20px;
+        }
+        .profile-img {
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        form {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation bar section -->
-    <div id="nav">
-        <nav>
-            <a href="#profile">Profile</a> |
-            <a href="#blog">Blog</a> |
-            <a href="#books">Favorite Books</a>
-        </nav>
-    </div>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#section1">Section 1</a>
+        <a href="#section2">Section 2</a>
+        <a href="#myprofile">My Profile</a>
+        <a href="#blogpost">Blog Post</a>
+    </nav>
 
-    <hr>
-
-    <!-- Profile section -->
-    <div id="profile">
-        <h1>My Profile</h1>
-        <h2>Web Developer</h2>
-        <h3>Experience</h3>
-        <h4>Skills</h4>
-        <h5>Education</h5>
-        <h6>Contact</h6>
+    <!-- Section 1 -->
+    <section id="section1">
+        <h1>Welcome to Learning Zone</h1>
+        <h2>Introduction</h2>
+        <h3>Getting Started</h3>
+        <h4>Basic Concepts</h4>
+        <h5>Key Features</h5>
+        <h6>Quick Tips</h6>
         
-        <img src="https://via.placeholder.com/150" alt="Profile picture of developer">
-        
-        <p>Hello! I'm a web developer learning HTML5. 
-           Check out my <a href="#blog">blog</a> or 
-           <a href="https://www.example.com" target="_blank">visit this external site</a>.
-           <br>
-           I love <strong>coding</strong> and creating <em>beautiful</em> websites.
+        <p>Explore the world of web development with us! 
+           Visit our <a href="#blogpost">latest articles</a> for more insights.
         </p>
         
-        <button onclick="window.location.href='#blog'">Read My Blog</button>
-    </div>
+        <!-- Form 1 -->
+        <form>
+            <h3>Contact Form</h3>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message"></textarea><br>
+            <input type="submit" value="Send">
+        </form>
+    </section>
 
     <hr>
 
-    <!-- Blog section -->
-    <div id="blog">
-        <h1>My First Blog Post</h1>
-        <p>This is my blog about learning HTML5. Here's what I think about coding:</p>
-        <blockquote>
-            "The best way to learn is by doing." 
-            - <cite>John Doe</cite>
-        </blockquote>
+    <!-- Section 2 -->
+    <section id="section2">
+        <h1>Resources & Tools</h1>
+        <p>Discover <strong>essential</strong> tools and <em>resources</em> for developers.
+           Check out <a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a>.
+        </p>
         
-        <p>I enjoy <b>building</b> websites and <i>styling</i> them with <u>CSS</u>.</p>
-    </div>
-
-    <hr>
-
-    <!-- Favorite books section -->
-    <div id="books">
-        <h2>My Favorite Books</h2>
-        
-        <!-- Ordered list -->
-        <h3>Top 3 Technical Books</h3>
+        <!-- Favorite Resources Lists -->
+        <h3>Development Resources</h3>
         <ol>
-            <li>HTML5: Up and Running</li>
-            <li>CSS: The Definitive Guide</li>
-            <li>JavaScript: The Good Parts</li>
+            <li>VS Code Editor</li>
+            <li>Git Version Control</li>
+            <li>Chrome DevTools</li>
         </ol>
         
-        <!-- Unordered list -->
-        <h3>Top Fiction Books</h3>
+        <h3>Learning Platforms</h3>
         <ul>
-            <li>The Hobbit</li>
-            <li>1984</li>
-            <li>To Kill a Mockingbird</li>
+            <li>FreeCodeCamp</li>
+            <li>Codecademy</li>
+            <li>W3Schools</li>
         </ul>
-    </div>
+        
+        <!-- Form 2 -->
+        <form>
+            <h3>Feedback Form</h3>
+            <label for="rating">Rate Us (1-5):</label><br>
+            <input type="number" id="rating" name="rating" min="1" max="5"><br>
+            <label for="comments">Comments:</label><br>
+            <textarea id="comments" name="comments"></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
 
     <hr>
 
-    <!-- Contact section -->
-    <div>
-        <p>Contact me at: 
-           <a href="mailto:yourname@example.com">Email Me</a>
+    <!-- My Profile -->
+    <section id="myprofile">
+        <h1>About Me</h1>
+        <img src="https://via.placeholder.com/200" alt="Developer portrait" class="profile-img">
+        <p>Hi! I'm passionate about <b>web technologies</b> and <i>modern design</i>. 
+           I specialize in creating <u>responsive</u> websites.
+           <br>
+           Contact me: <a href="mailto:dev@example.com">Send Email</a>
         </p>
-    </div>
+        <button onclick="window.location.href='#blogpost'">View My Articles</button>
+    </section>
+
+    <hr>
+
+    <!-- Blog Post -->
+    <section id="blogpost">
+        <h1>Tech Insights</h1>
+        <p>Welcome to my technology blog where I share development experiences:</p>
+        <blockquote>
+            "Code is poetry when written with passion." 
+            - <cite>Jane Smith</cite>
+        </blockquote>
+        
+        <p>I focus on <strong>practical</strong> solutions and <em>innovative</em> approaches.</p>
+        
+        <!-- Form 3 -->
+        <form>
+            <h3>Blog Subscription</h3>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <input type="submit" value="Subscribe">
+        </form>
+    </section>
 
     <!-- Comments explaining sections -->
-    <!-- This is the main container for all content -->
-    <!-- Uses semantic elements and proper nesting -->
-    <!-- Demonstrates various HTML5 features and tags -->
+    <!-- Main navigation fixed at top with smooth section linking -->
+    <!-- Each section contains unique content and interactive forms -->
+    <!-- Basic CSS added for better presentation and usability -->
 </body>
 </html>
