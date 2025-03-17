@@ -2,165 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Advanced HTML5 Learning Platform">
+    <meta name="description" content="Comprehensive HTML5 Learning Platform">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML5 Learning Hub</title>
+    <title>Web Dev Learning Portal</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
+            padding: 20px;
+            background-color: #f5f5f5;
         }
         nav {
-            background-color: #333;
-            padding: 1rem;
+            background: linear-gradient(90deg, #2c3e50, #3498db);
+            padding: 15px 20px;
             position: fixed;
             top: 0;
-            width: 100%;
             left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 20px;
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
         nav a:hover {
-            color: #ffd700;
+            background-color: rgba(255,255,255,0.2);
         }
         section {
-            margin-top: 60px;
-            padding: 20px;
+            margin: 80px 0 40px;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        .profile-img {
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        h1 { color: #2c3e50; }
+        h2, h3 { color: #34495e; }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
         }
         button {
-            background-color: #4CAF50;
+            background-color: #e74c3c;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #c0392b;
         }
         form {
             margin: 20px 0;
-            padding: 15px;
-            background-color: #f9f9f9;
+            padding: 20px;
+            background: #ecf0f1;
             border-radius: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav li {
+                margin: 10px 0;
+            }
+            section {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Enhanced Navigation Bar -->
     <nav>
-        <a href="#section1">Section 1</a>
-        <a href="#section2">Section 2</a>
-        <a href="#myprofile">My Profile</a>
-        <a href="#blogpost">Blog Post</a>
+        <ul>
+            <li><a href="#welcome">Learning Hub</a></li>
+            <li><a href="#resources">Dev Resources</a></li>
+            <li><a href="#profile">About Developer</a></li>
+            <li><a href="#blog">Tech Blog</a></li>
+        </ul>
     </nav>
 
-    <!-- Section 1 -->
-    <section id="section1">
-        <h1>Welcome to Learning Zone</h1>
-        <h2>Introduction</h2>
-        <h3>Getting Started</h3>
-        <h4>Basic Concepts</h4>
-        <h5>Key Features</h5>
-        <h6>Quick Tips</h6>
+    <!-- Learning Hub Section -->
+    <section id="welcome">
+        <h1>Learning Hub</h1>
+        <h2>Web Development Basics</h2>
+        <h3>Start Your Journey</h3>
+        <p>Begin your web development adventure! Explore our 
+           <a href="#blog">tech articles</a> for expert insights.</p>
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="Laptop with code">
         
-        <p>Explore the world of web development with us! 
-           Visit our <a href="#blogpost">latest articles</a> for more insights.
-        </p>
-        
-        <!-- Form 1 -->
         <form>
-            <h3>Contact Form</h3>
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message"></textarea><br>
-            <input type="submit" value="Send">
+            <h3>Get in Touch</h3>
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname">
+            <label for="query">Your Query:</label>
+            <textarea id="query" name="query"></textarea>
+            <input type="submit" value="Submit Query">
         </form>
     </section>
 
     <hr>
 
-    <!-- Section 2 -->
-    <section id="section2">
-        <h1>Resources & Tools</h1>
-        <p>Discover <strong>essential</strong> tools and <em>resources</em> for developers.
-           Check out <a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a>.
-        </p>
+    <!-- Dev Resources Section -->
+    <section id="resources">
+        <h1>Developer Resources</h1>
+        <p>Access <strong>crucial</strong> tools and <em>tutorials</em>. 
+           Visit <a href="https://developer.mozilla.org" target="_blank">Mozilla Developer Network</a>.</p>
         
-        <!-- Favorite Resources Lists -->
-        <h3>Development Resources</h3>
+        <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97fd7" alt="Development tools">
+        
+        <h3>Essential Tools</h3>
         <ol>
-            <li>VS Code Editor</li>
-            <li>Git Version Control</li>
-            <li>Chrome DevTools</li>
+            <li>Sublime Text</li>
+            <li>GitHub</li>
+            <li>Firefox Developer Edition</li>
         </ol>
         
-        <h3>Learning Platforms</h3>
+        <h3>Learning Sites</h3>
         <ul>
-            <li>FreeCodeCamp</li>
-            <li>Codecademy</li>
-            <li>W3Schools</li>
+            <li>Udemy</li>
+            <li>Coursera</li>
+            <li>Pluralsight</li>
         </ul>
         
-        <!-- Form 2 -->
         <form>
-            <h3>Feedback Form</h3>
-            <label for="rating">Rate Us (1-5):</label><br>
-            <input type="number" id="rating" name="rating" min="1" max="5"><br>
-            <label for="comments">Comments:</label><br>
-            <textarea id="comments" name="comments"></textarea><br>
-            <input type="submit" value="Submit">
+            <h3>Rate Our Resources</h3>
+            <label for="score">Score (1-10):</label>
+            <input type="number" id="score" name="score" min="1" max="10">
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback"></textarea>
+            <input type="submit" value="Send Feedback">
         </form>
     </section>
 
     <hr>
 
-    <!-- My Profile -->
-    <section id="myprofile">
-        <h1>About Me</h1>
-        <img src="https://via.placeholder.com/200" alt="Developer portrait" class="profile-img">
-        <p>Hi! I'm passionate about <b>web technologies</b> and <i>modern design</i>. 
-           I specialize in creating <u>responsive</u> websites.
+    <!-- About Developer Section -->
+    <section id="profile">
+        <h1>About the Developer</h1>
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7" alt="Developer working">
+        <p>I'm dedicated to <b>innovative</b> coding and <i>clean</i> design. 
+           I build <u>user-friendly</u> websites.
            <br>
-           Contact me: <a href="mailto:dev@example.com">Send Email</a>
+           Reach me: <a href="mailto:developer@example.com">Contact Me</a>
         </p>
-        <button onclick="window.location.href='#blogpost'">View My Articles</button>
+        <button onclick="window.location.href='#blog'">Read My Blog</button>
     </section>
 
     <hr>
 
-    <!-- Blog Post -->
-    <section id="blogpost">
-        <h1>Tech Insights</h1>
-        <p>Welcome to my technology blog where I share development experiences:</p>
+    <!-- Tech Blog Section -->
+    <section id="blog">
+        <h1>Technology Blog</h1>
+        <p>Latest insights on web development trends:</p>
         <blockquote>
-            "Code is poetry when written with passion." 
-            - <cite>Jane Smith</cite>
+            "Technology evolves with every line of code." 
+            - <cite>Mike Johnson</cite>
         </blockquote>
         
-        <p>I focus on <strong>practical</strong> solutions and <em>innovative</em> approaches.</p>
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f45a133" alt="Tech blog writing">
         
-        <!-- Form 3 -->
+        <p>Focusing on <strong>modern</strong> techniques and <em>efficient</em> solutions.</p>
+        
         <form>
-            <h3>Blog Subscription</h3>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
-            <input type="submit" value="Subscribe">
+            <h3>Newsletter Signup</h3>
+            <label for="subscriber-email">Your Email:</label>
+            <input type="email" id="subscriber-email" name="subscriber-email">
+            <input type="submit" value="Join Now">
         </form>
     </section>
 
-    <!-- Comments explaining sections -->
-    <!-- Main navigation fixed at top with smooth section linking -->
-    <!-- Each section contains unique content and interactive forms -->
-    <!-- Basic CSS added for better presentation and usability -->
+    <!-- Comments -->
+    <!-- Enhanced nav bar with gradient and responsive design -->
+    <!-- Content optimized for all devices with meaningful images -->
+    <!-- Cross-browser compatible with modern CSS practices -->
 </body>
 </html>
