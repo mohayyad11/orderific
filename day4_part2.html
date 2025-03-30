@@ -20,7 +20,7 @@
         body {
             display: flex;
             flex-direction: row;
-            height: 100%;
+            height: 100vh;
             background: linear-gradient(67.75deg, #ffffff 19.18%, #ffebe7 75.31%);
             font-family: 'DM Sans', sans-serif;
         }
@@ -111,10 +111,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 16px 24px 0;
-            position: sticky;
-            top: 0;
-            background: linear-gradient(67.75deg, #ffffff 19.18%, #ffebe7 75.31%);
+            padding: 24px 16px;
+            background: #ffffff;
             z-index: 900;
         }
 
@@ -213,9 +211,9 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: 667px 383px;
+            grid-template-columns: 2fr 1fr;
             width: 100%;
-            height: calc(100% - 116px); /* 92px card + 24px margin */
+            height: calc(100% - 116px);
             gap: 16px;
             flex-grow: 1;
         }
@@ -223,24 +221,19 @@
         .section {
             display: flex;
             flex-direction: column;
+            border-radius: 24px;
+            background: #ffffff;
+            padding: 24px;
         }
 
         .section-preparing {
             width: 100%;
             height: 100%;
-            border-radius: 24px;
-            padding: 24px;
-            gap: 24px;
-            background: #ffffff;
         }
 
         .section-ready {
             width: 100%;
             height: 100%;
-            border-radius: 24px;
-            padding: 24px;
-            gap: 24px;
-            background: #ffffff;
         }
 
         .section h2 {
@@ -248,19 +241,19 @@
             font-weight: 700;
             font-size: 32px;
             letter-spacing: -3%;
+            margin-bottom: 24px;
         }
 
         .box-item {
             overflow-y: auto;
-            flex-grow: 2;
+            flex-grow: 1;
         }
 
         .items {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(106px, 1fr));
             gap: 8px;
             justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
             flex-grow: 1;
         }
 
@@ -283,11 +276,10 @@
         }
 
         .section-ready .item:first-child {
-            justify-content: center;
             width: 100%;
             height: 128px;
             font-size: 32px;
-            padding: 24px;
+            grid-column: 1 / -1;
         }
 
         /* Portrait mode (below 992px) */
@@ -473,15 +465,6 @@
                         <h2>Preparing</h2>
                         <div class="box-item">
                             <div class="items">
-                                <div class="item">3885</div>
-                                <div class="item">3885</div>
-                                <div class="item">3885</div>
-                                <div class="item">3885</div>
-                                <div class="item">3885</div>
-                                <div class="item">3885</div>
-                                <div class="item">3885</div>
-                                <div class="item">3885</div>
-                                <div class="item">3885</div>
                                 <div class="item">3885</div>
                                 <div class="item">3885</div>
                                 <div class="item">3885</div>
