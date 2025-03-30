@@ -25,6 +25,13 @@
             font-family: 'DM Sans', sans-serif;
         }
 
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100vh;
+        }
+
         .sidebar {
             display: flex;
             height: 100vh;
@@ -90,23 +97,21 @@
         }
 
         .main-content {
+            margin-left: 96px;
             flex: 1;
-            height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            margin-left: 96px;
+            height: 100vh;
             overflow-y: auto;
         }
 
         .header {
-            width: 1098px;
+            width: 100%;
             height: 96px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 24px 16px 24px 0;
-            align-self: stretch;
             position: sticky;
             top: 0;
             background: linear-gradient(67.75deg, #ffffff 19.18%, #ffebe7 75.31%);
@@ -119,7 +124,7 @@
             letter-spacing: -0.03em;
         }
 
-        . fullscreen-btn {
+        .fullscreen-btn {
             width: 124px;
             height: 48px;
             gap: 6px;
@@ -168,15 +173,14 @@
         .sub-content {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            height: 100%;
+            height: calc(100% - 96px);
             padding: 0 16px;
             margin-bottom: 16px;
         }
 
         .brand-card {
             display: flex;
-            width: 1066px;
+            width: 100%;
             height: 92px;
             padding: 16px;
             justify-content: space-between;
@@ -210,11 +214,10 @@
         .grid-container {
             display: grid;
             grid-template-columns: 667px 383px;
-            width: 1066px;
-            height: 614px;
+            width: 100%;
+            height: calc(100% - 116px); /* 92px card + 24px margin */
             gap: 16px;
             flex-grow: 1;
-            margin-top: 16px;
         }
 
         .section {
@@ -223,8 +226,8 @@
         }
 
         .section-preparing {
-            width: 667px;
-            height: 614px;
+            width: 100%;
+            height: 100%;
             border-radius: 24px;
             padding: 24px;
             gap: 24px;
@@ -232,8 +235,8 @@
         }
 
         .section-ready {
-            width: 383px;
-            height: 614px;
+            width: 100%;
+            height: 100%;
             border-radius: 24px;
             padding: 24px;
             gap: 24px;
@@ -290,6 +293,10 @@
         /* Portrait mode (below 992px) */
         @media (max-width: 992px) {
             body {
+                flex-direction: column;
+            }
+
+            .container {
                 flex-direction: column;
             }
 
@@ -405,114 +412,116 @@
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-logo">
-            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Logo%20(1).png" alt="Order Status Logo">
-        </div>
-        <nav class="black-sidebard">
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector.png" alt="Menu 1">
-            </a>
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(1).png" alt="Menu 2">
-            </a>
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(2).png" alt="Menu 3">
-            </a>
-            <a href="#" class="sidebar-icon active">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(3).png" alt="Menu 4">
-            </a>
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(4).png" alt="Menu 5">
-            </a>
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(8).png" alt="Menu 6">
-            </a>
-        </nav>
-        <div class="sidebar-profile">
-            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%208.png" alt="Profile">
-            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%207%20(1).png" alt="Notification">
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <header class="header">
-            <h1>Order Status</h1>
-            <button class="fullscreen-btn">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 16V20H8" stroke-linecap="square" stroke-linejoin="bevel"/>
-                    <path d="M20 8V4H16" stroke-linecap="square" stroke-linejoin="bevel"/>
-                </svg>
-                Fullscreen
-            </button>
-        </header>
-
-        <div class="sub-content">
-            <div class="brand-card">
-                <div class="brand-logo">
-                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%202.png" alt="McDonald's Logo">
-                    <span>McDonald's</span>
-                </div>
-                <div class="time">15:03</div>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Logo%20(1).png" alt="Order Status Logo">
             </div>
+            <nav class="black-sidebard">
+                <a href="#" class="sidebar-icon">
+                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector.png" alt="Menu 1">
+                </a>
+                <a href="#" class="sidebar-icon">
+                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(1).png" alt="Menu 2">
+                </a>
+                <a href="#" class="sidebar-icon">
+                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(2).png" alt="Menu 3">
+                </a>
+                <a href="#" class="sidebar-icon active">
+                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(3).png" alt="Menu 4">
+                </a>
+                <a href="#" class="sidebar-icon">
+                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(4).png" alt="Menu 5">
+                </a>
+                <a href="#" class="sidebar-icon">
+                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(8).png" alt="Menu 6">
+                </a>
+            </nav>
+            <div class="sidebar-profile">
+                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%208.png" alt="Profile">
+                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%207%20(1).png" alt="Notification">
+            </div>
+        </div>
 
-            <!-- Main Content -->
-            <div class="grid-container">
-                <!-- Preparing Section -->
-                <div class="section section-preparing">
-                    <h2>Preparing</h2>
-                    <div class="box-item">
-                        <div class="items">
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                <h1>Order Status</h1>
+                <button class="fullscreen-btn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 16V20H8" stroke-linecap="square" stroke-linejoin="bevel"/>
+                        <path d="M20 8V4H16" stroke-linecap="square" stroke-linejoin="bevel"/>
+                    </svg>
+                    Fullscreen
+                </button>
+            </header>
+
+            <div class="sub-content">
+                <div class="brand-card">
+                    <div class="brand-logo">
+                        <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%202.png" alt="McDonald's Logo">
+                        <span>McDonald's</span>
+                    </div>
+                    <div class="time">15:03</div>
+                </div>
+
+                <!-- Grid Container -->
+                <div class="grid-container">
+                    <!-- Preparing Section -->
+                    <div class="section section-preparing">
+                        <h2>Preparing</h2>
+                        <div class="box-item">
+                            <div class="items">
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Ready Section -->
-                <div class="section section-ready">
-                    <h2>Ready</h2>
-                    <div class="box-item">
-                        <div class="items">
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
+                    <!-- Ready Section -->
+                    <div class="section section-ready">
+                        <h2>Ready</h2>
+                        <div class="box-item">
+                            <div class="items">
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                                <div class="item">3885</div>
+                            </div>
                         </div>
                     </div>
                 </div>
