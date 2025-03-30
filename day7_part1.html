@@ -15,87 +15,108 @@
     <style>
       body {
         font-family: 'DM Sans', sans-serif;
+        background: linear-gradient(67.75deg, #FFFFFF 19.18%, #FFEBE7 75.31%);
+        padding-top: 16px; /* Spacing 4 = 16px */
+        padding-bottom: 16px; /* Spacing 4 = 16px */
+        margin: 0;
+        display: flex;
+        justify-content: center;
       }
-      /* Ensure grid stays in one row with two columns */
+      .page-container {
+        width: 1194px;
+        height: 834px;
+        position: absolute;
+        top: 83px;
+        left: 1363px;
+      }
       .grid-container {
         display: grid;
         grid-template-columns: 1fr 383px;
-        gap: 1rem;
+        gap: 16px; /* Spacing 4 = 16px */
+        height: calc(100% - 108px); /* Account for brand card height + margin */
       }
-      @media (max-width: 768px) {
-        .grid-container {
-          grid-template-columns: 1fr 1fr; /* Maintain two columns in portrait */
+      @media (max-width: 1194px) {
+        .page-container {
+          position: static;
           width: 100%;
+          padding: 0 16px;
+        }
+        .grid-container {
+          grid-template-columns: 1fr 1fr;
         }
       }
     </style>
   </head>
 
-  <body class="flex flex-col items-center min-h-screen bg-gradient-to-br from-white to-[#ffebe7] p-4">
-    <!-- Brand Card -->
-    <div class="flex w-full max-w-7xl h-[92px] p-4 justify-between items-center rounded-2xl bg-black/5 mb-4">
-      <div class="flex items-center gap-4 font-medium text-xl">
-        <img 
-          src="https://assessment-smoky.vercel.app/D4_T1/brand.png" 
-          alt="Brand Logo" 
-          class="w-[60px] h-[60px] rounded-2xl"
-        />
-        <span>McDonald's</span>
+  <body>
+    <div class="page-container">
+      <!-- Brand Card -->
+      <div class="flex w-full h-[92px] p-4 justify-between items-center rounded-2xl bg-black/5 mb-4">
+        <div class="flex items-center gap-4 font-medium text-xl">
+          <img 
+            src="https://assessment-smoky.vercel.app/D4_T1/brand.png" 
+            alt="Brand Logo" 
+            class="w-[60px] h-[60px] rounded-2xl"
+          />
+          <span>McDonald's</span>
+        </div>
+        <div class="font-bold text-3xl">15:03</div>
       </div>
-      <div class="font-bold text-3xl">15:03</div>
-    </div>
 
-    <!-- Grid Container -->
-    <div class="grid-container w-full max-w-7xl flex-1">
-      <!-- Preparing Section -->
-      <div class="shadow-md flex flex-col h-full rounded-3xl p-6 bg-white">
-        <h2 class="text-center font-bold text-3xl mb-6">Preparing</h2>
-        <div class="overflow-y-auto flex-1">
-          <div class="flex gap-2 justify-center items-start flex-wrap">
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+      <!-- Grid Container -->
+      <div class="grid-container">
+        <!-- Preparing Section -->
+        <div class="shadow-md flex flex-col rounded-3xl p-6 bg-white">
+          <h2 class="text-center font-bold text-3xl mb-6">Preparing</h2>
+          <div class="overflow-y-auto flex-1">
+            <div class="flex gap-2 justify-center items-start flex-wrap">
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-black/10 font-bold text-2xl justify-center">3885</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Ready Section -->
-      <div class="shadow-md flex flex-col h-full rounded-3xl p-6 bg-white">
-        <h2 class="text-center font-bold text-3xl mb-6">Ready</h2>
-        <div class="overflow-y-auto flex-1">
-          <div class="flex gap-2 justify-center items-start flex-wrap">
-            <div class="flex w-full h-32 items-center rounded-2xl bg-[#119717] text-white font-bold text-3xl justify-center p-6">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
-            <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+        <!-- Ready Section -->
+        <div class="shadow-md flex flex-col rounded-3xl p-6 bg-white">
+          <h2 class="text-center font-bold text-3xl mb-6">Ready</h2>
+          <div class="overflow-y-auto flex-1">
+            <div class="flex gap-2 justify-center items-start flex-wrap">
+              <div class="flex w-full h-32 items-center rounded-2xl bg-[#119717] text-white font-bold text-3xl justify-center p-6">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <
+```html
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+              <div class="flex w-[106px] h-16 items-center rounded-2xl bg-[#119717] text-white font-bold text-2xl justify-center">3885</div>
+            </div>
           </div>
         </div>
       </div>
