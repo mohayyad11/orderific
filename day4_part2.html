@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            font-size: 16px;
+            height: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            background: linear-gradient(67.75deg, #ffffff 19.18%, #ffebe7 75.31%);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .sidebar {
+            display: flex;
+            height: 100vh;
+            width: 96px;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 16px;
+            background: transparent;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .sidebar-logo {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 32px;
+        }
+
+        .black-sidebard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 64px;
+            height: 344px;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 48px;
+            background-color: black;
+        }
+
+        .sidebar-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .sidebar-icon.active {
+            background-color: #ff5634;
+        }
+
+        .sidebar-profile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 64px;
+            height: 120px;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 48px;
+            background: #ffffff;
+        }
+
+        .main-content {
+            flex: 1;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 96px;
+            overflow-y: auto;
+        }
+
+        .header {
+            width: 1098px;
+            height: 96px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 16px 24px 0;
+            align-self: stretch;
+            position: sticky;
+            top: 0;
+            background: linear-gradient(67.75deg, #ffffff 19.18%, #ffebe7 75.31%);
+            z-index: 900;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: -0.03em;
+        }
+
+        . fullscreen-btn {
+            width: 124px;
+            height: 48px;
+            gap: 6px;
+            padding: 14px 18px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            background: transparent;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .fullscreen-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 3;
+            stroke: black;
+        }
+
+        /* Fullscreen styles */
+        :fullscreen .sub-content {
+            width: 100% !important;
+            height: 100vh !important;
+            margin-left: 0 !important;
+            padding: 16px !important;
+        }
+
+        :fullscreen .main-content {
+            margin-left: 0 !important;
+        }
+
+        :fullscreen .sidebar {
+            display: none !important;
+        }
+
+        :fullscreen .header {
+            display: none !important;
+        }
+
+        .sub-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            padding: 0 16px;
+            margin-bottom: 16px;
+        }
+
+        .brand-card {
+            display: flex;
+            width: 1066px;
+            height: 92px;
+            padding: 16px;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: -1%;
+        }
+
+        .brand-logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+        }
+
+        .time {
+            font-weight: 700;
+            font-size: 32px;
+            letter-spacing: -3%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 667px 383px;
+            width: 1066px;
+            height: 614px;
+            gap: 16px;
+            flex-grow: 1;
+            margin-top: 16px;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-preparing {
+            width: 667px;
+            height: 614px;
+            border-radius: 24px;
+            padding: 24px;
+            gap: 24px;
+            background: #ffffff;
+        }
+
+        .section-ready {
+            width: 383px;
+            height: 614px;
+            border-radius: 24px;
+            padding: 24px;
+            gap: 24px;
+            background: #ffffff;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-weight: 700;
+            font-size: 32px;
+            letter-spacing: -3%;
+        }
+
+        .box-item {
+            overflow-y: auto;
+            flex-grow: 2;
+        }
+
+        .items {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            flex-grow: 1;
+        }
+
+        .item {
+            display: flex;
+            width: 106px;
+            height: 64px;
+            align-items: center;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: -0.48px;
+            justify-content: center;
+        }
+
+        .section-ready .item {
+            background: #119717;
+            color: white;
+        }
+
+        .section-ready .item:first-child {
+            justify-content: center;
+            width: 100%;
+            height: 128px;
+            font-size: 32px;
+            padding: 24px;
+        }
+
+        /* Portrait mode (below 992px) */
+        @media (max-width: 992px) {
+            body {
+                flex-direction: column;
+            }
+
+            .header {
+                padding: 16px 8px;
+            }
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .sub-content {
+                width: 100%;
+                padding: 16px;
+                margin-bottom: 16px;
+            }
+
+            .sidebar {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                height: 64px;
+                width: calc(100% - 32px);
+                padding: 8px 16px;
+                position: fixed;
+                top: 16px;
+                left: 16px;
+                right: 16px;
+                border-radius: 48px;
+                background: #fff;
+                box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.08);
+            }
+
+            .sidebar-logo {
+                padding: 0;
+                gap: 8px;
+            }
+
+            .sidebar-profile {
+                flex-direction: row;
+                padding: 0;
+            }
+
+            .black-sidebard {
+                position: fixed;
+                bottom: 32px;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                justify-content: center;
+                height: 64px;
+                width: auto;
+                box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.14);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding-top: 96px;
+                padding-bottom: 16px;
+            }
+
+            .brand-card {
+                width: 100%;
+                height: auto;
+                margin-bottom: 5px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+                width: 100%;
+                height: auto;
+                margin-top: 5px;
+            }
+
+            .section-preparing,
+            .section-ready {
+                width: 100%;
+                height: 100vh;
+                padding: 16px;
+            }
+        }
+
+        /* Mobile mode (below 480px) */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .sidebar-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .black-sidebard {
+                bottom: 24px;
+                max-width: 344px;
+                width: calc(100% - 32px);
+            }
+
+            .main-content {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                height: auto;
+                max-height: calc(100vh - 96px - 92px - 64px - 32px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Logo%20(1).png" alt="Order Status Logo">
+        </div>
+        <nav class="black-sidebard">
+            <a href="#" class="sidebar-icon">
+                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector.png" alt="Menu 1">
+            </a>
+            <a href="#" class="sidebar-icon">
+                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(1).png" alt="Menu 2">
+            </a>
+            <a href="#" class="sidebar-icon">
+                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(2).png" alt="Menu 3">
+            </a>
+            <a href="#" class="sidebar-icon active">
+                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(3).png" alt="Menu 4">
+            </a>
+            <a href="#" class="sidebar-icon">
+                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(4).png" alt="Menu 5">
+            </a>
+            <a href="#" class="sidebar-icon">
+                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(8).png" alt="Menu 6">
+            </a>
+        </nav>
+        <div class="sidebar-profile">
+            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%208.png" alt="Profile">
+            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%207%20(1).png" alt="Notification">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="header">
+            <h1>Order Status</h1>
+            <button class="fullscreen-btn">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 16V20H8" stroke-linecap="square" stroke-linejoin="bevel"/>
+                    <path d="M20 8V4H16" stroke-linecap="square" stroke-linejoin="bevel"/>
+                </svg>
+                Fullscreen
+            </button>
+        </header>
+
+        <div class="sub-content">
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%202.png" alt="McDonald's Logo">
+                    <span>McDonald's</span>
+                </div>
+                <div class="time">15:03</div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="grid-container">
+                <!-- Preparing Section -->
+                <div class="section section-preparing">
+                    <h2>Preparing</h2>
+                    <div class="box-item">
+                        <div class="items">
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ready Section -->
+                <div class="section section-ready">
+                    <h2>Ready</h2>
+                    <div class="box-item">
+                        <div class="items">
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
