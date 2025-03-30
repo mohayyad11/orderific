@@ -34,11 +34,13 @@
         .fullscreen-btn {
             width: 124px;
             height: 48px;
-            gap: 2px; /* Spacing between icon and text */
+            gap: 2px; /* Spacing between arrows and text */
             padding: 0 1rem; /* Adjusted padding to fit content */
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            left: -6px; /* Three steps to the left, assuming ~2px per step */
         }
         .fullscreen-text {
             width: 72px;
@@ -49,12 +51,16 @@
             line-height: 16px;
             letter-spacing: 0%;
         }
+        .fullscreen-arrows {
+            width: 20px; /* Combined width for two 10px arrows */
+            height: 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
         .fullscreen-arrow {
             width: 10px;
             height: 10px;
-            position: relative;
-            top: 5px;
-            left: 5px;
         }
     </style>
 </head>
@@ -94,10 +100,14 @@
         <header class="header w-full h-24 flex justify-between items-center p-6 pr-4 sticky top-0 bg-gradient-to-r from-white to-[#ffebe7] z-[900]">
             <h1 class="text-3xl font-bold tracking-tight">Order Status</h1>
             <button class="fullscreen-btn border border-black/10 rounded-[24px] bg-transparent cursor-pointer">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="fullscreen-arrow stroke-black stroke-[3]">
-                    <path d="M4 16V20H8" stroke-linecap="square" stroke-linejoin="bevel"/>
-                    <path d="M20 8V4H16" stroke-linecap="square" stroke-linejoin="bevel"/>
-                </svg>
+                <div class="fullscreen-arrows">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="fullscreen-arrow stroke-black stroke-[3]">
+                        <path d="M4 16V20H8" stroke-linecap="square" stroke-linejoin="bevel"/>
+                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="fullscreen-arrow stroke-black stroke-[3]">
+                        <path d="M20 8V4H16" stroke-linecap="square" stroke-linejoin="bevel"/>
+                    </svg>
+                </div>
                 <span class="fullscreen-text">FullScreen</span>
             </button>
         </header>
