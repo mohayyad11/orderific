@@ -34,8 +34,27 @@
         .fullscreen-btn {
             width: 124px;
             height: 48px;
-            padding: 0 1rem; /* Adjusted padding to fit content */
             gap: 2px; /* Spacing between icon and text */
+            padding: 0 1rem; /* Adjusted padding to fit content */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fullscreen-text {
+            width: 72px;
+            height: 16px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0%;
+        }
+        .fullscreen-arrow {
+            width: 10px;
+            height: 10px;
+            position: relative;
+            top: 5px;
+            left: 5px;
         }
     </style>
 </head>
@@ -74,12 +93,12 @@
     <div class="main-content flex-1 h-screen flex flex-col items-center ml-24 overflow-y-auto">
         <header class="header w-full h-24 flex justify-between items-center p-6 pr-4 sticky top-0 bg-gradient-to-r from-white to-[#ffebe7] z-[900]">
             <h1 class="text-3xl font-bold tracking-tight">Order Status</h1>
-            <button class="fullscreen-btn flex items-center justify-center border border-black/10 rounded-[24px] bg-transparent text-sm font-bold cursor-pointer">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 stroke-black stroke-[3]">
+            <button class="fullscreen-btn border border-black/10 rounded-[24px] bg-transparent cursor-pointer">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="fullscreen-arrow stroke-black stroke-[3]">
                     <path d="M4 16V20H8" stroke-linecap="square" stroke-linejoin="bevel"/>
                     <path d="M20 8V4H16" stroke-linecap="square" stroke-linejoin="bevel"/>
                 </svg>
-                FullScreen
+                <span class="fullscreen-text">FullScreen</span>
             </button>
         </header>
 
