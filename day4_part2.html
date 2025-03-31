@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Status Dashboard</title>
+    <title>Order Status</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        html {
-            font-size: 16px;
-            height: 100%;
+        :root {
+            --spacing-6: 24px;
+            --background-white: #ffffff;
+            --background-black-5: rgba(0, 0, 0, 0.05);
+            --background-black-10: rgba(0, 0, 0, 0.1);
+            --status-accepted: #119717;
         }
 
         * {
@@ -17,123 +20,218 @@
             box-sizing: border-box;
         }
 
+        html {
+            font-size: 16px;
+            height: 100%;
+        }
+
         body {
             display: flex;
-            flex-direction: row;
             height: 100%;
+            width: 100%;
             background: linear-gradient(67.75deg, #ffffff 19.18%, #ffebe7 75.31%);
             font-family: 'DM Sans', sans-serif;
         }
 
         .sidebar {
-            display: flex;
-            height: 100vh;
-            width: auto;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 16px;
-            background: transparent;
             position: fixed;
             left: 0;
             top: 0;
+            width: 96px;
+            height: 100vh;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
             z-index: 1000;
         }
 
-        .sidebar-logo {
+        .sidebar-logo, .sidebar-profile {
             width: 64px;
             height: 64px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
             border-radius: 32px;
         }
 
-        .black-sidebard {
+        .sidebar-logo img, .sidebar-profile img {
+            max-width: 100%;
+        }
+
+        .sidebar-nav {
             display: flex;
             flex-direction: column;
-            align-items: center;
             gap: 8px;
             padding: 8px;
             border-radius: 48px;
-            background-color: black;
+            background: #000;
         }
 
         .sidebar-icon {
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
         }
 
         .sidebar-icon.active {
-            background-color: #ff5634;
-        }
-
-        .sidebar-profile {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            padding: 8px;
-            border-radius: 48px;
-            background: #ffffff;
+            background: #ff5634;
         }
 
         .main-content {
             flex: 1;
+            margin-left: 96px;
             height: 100vh;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-left: 96px;
-            overflow-y: auto;
         }
 
         .header {
             width: 100%;
             height: 96px;
+            padding: 24px 16px 24px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 16px 24px 0px;
             position: sticky;
             top: 0;
-            background: linear-gradient(67.75deg, #ffffff 19.18%, #ffebe7 75.31%);
+            background: inherit;
             z-index: 900;
         }
 
         .header h1 {
             font-size: 32px;
-            font-weight: bold;
+            font-weight: 700;
             letter-spacing: -0.03em;
         }
 
         .fullscreen-btn {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 16px 18px;
+            padding: 16px;
             border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 12px; /* Adjusted to standard Figma design */
+            border-radius: 48px;
             background: transparent;
             font-size: 14px;
             font-weight: 700;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .fullscreen-btn svg {
             width: 14px;
             height: 14px;
+            stroke: #000;
             stroke-width: 3;
-            stroke: black;
         }
 
+        .sub-content {
+            width: 100%;
+            padding: 0 16px 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .brand-card {
+            width: 100%;
+            height: 92px;
+            padding: 16px;
+            border-radius: 16px;
+            background: var(--background-black-5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .brand-logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+        }
+
+        .time {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 383px;
+            gap: 16px;
+            width: 100%;
+            margin-top: 16px;
+            flex-grow: 1;
+        }
+
+        .section {
+            background: var(--background-white);
+            border-radius: 24px;
+            padding: var(--spacing-6);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .item {
+            width: 106px;
+            height: 64px;
+            border-radius: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-preparing .item {
+            background: var(--background-black-10);
+        }
+
+        .section-ready .item {
+            background: var(--status-accepted);
+            color: #fff;
+        }
+
+        .section-ready .item:first-child {
+            width: 100%;
+            height: 128px;
+            font-size: 32px;
+        }
+
+        /* Fullscreen Mode */
         :fullscreen .sub-content {
             width: 100% !important;
             height: 100vh !important;
@@ -145,139 +243,12 @@
             margin-left: 0 !important;
         }
 
-        :fullscreen .sidebar {
-            display: none !important;
-        }
-
+        :fullscreen .sidebar,
         :fullscreen .header {
             display: none !important;
         }
 
-        .sub-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-            padding: 16px;
-            margin-bottom: 16px;
-        }
-
-        .brand-card {
-            display: flex;
-            width: 100%;
-            height: 92px;
-            padding: 16px;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 16px;
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-weight: 500;
-            font-size: 20px;
-            letter-spacing: -1%;
-        }
-
-        .brand-logo img {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-        }
-
-        .time {
-            font-weight: 700;
-            font-size: 32px;
-            letter-spacing: -3%;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 383px;
-            gap: 16px;
-            width: 100%;
-            flex-grow: 1;
-            margin-top: 16px;
-        }
-
-        .section {
-            display: flex;
-            flex-direction: column;
-            gap: 16px; /* Adjusted gap between title and items */
-        }
-
-        .section-preparing {
-            max-width: 100%;
-            height: 100vh;
-            border-radius: 24px;
-            padding: 24px;
-            background: #ffffff;
-        }
-
-        .section-ready {
-            max-width: 100%;
-            height: 100vh;
-            border-radius: 24px;
-            padding: 24px;
-            background: #ffffff;
-        }
-
-        .section h2 {
-            text-align: center;
-            font-weight: 700;
-            font-size: 32px;
-            letter-spacing: -3%;
-        }
-
-        .box-item {
-            overflow-y: auto;
-            flex-grow: 2;
-        }
-
-        .items {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            flex-grow: 1;
-        }
-
-        .item {
-            display: flex;
-            width: 106px;
-            height: 64px;
-            align-items: center;
-            border-radius: 16px;
-            background: rgba(0, 0, 0, 0.1);
-            font-weight: 700;
-            font-size: 24px;
-            letter-spacing: -0.48px;
-            justify-content: center;
-        }
-
-        .section-ready .item {
-            background: #119717;
-            color: white;
-        }
-
-        .section-ready .item:first-child {
-            justify-content: center;
-            width: 100%;
-            height: 128px;
-            font-size: 32px;
-            padding: 24px;
-        }
-
-        .section-preparing .item {
-            background: #0000001a;
-            color: black;
-        }
-
-        /* Responsive Design (merged and simplified) */
+        /* Tablet View */
         @media (max-width: 992px) {
             body {
                 flex-direction: column;
@@ -285,14 +256,23 @@
 
             .sidebar {
                 flex-direction: row;
-                height: 64px;
                 width: calc(100% - 32px);
-                padding: 8px 16px;
-                position: fixed;
+                height: 64px;
                 top: 16px;
                 left: 16px;
-                background: #fff;
-                box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.08);
+                padding: 8px 16px;
+                background: var(--background-white);
+                box-shadow: 0 0 32px rgba(0, 0, 0, 0.08);
+                border-radius: 48px;
+            }
+
+            .sidebar-nav {
+                flex-direction: row;
+                position: fixed;
+                bottom: 32px;
+                left: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 0 32px rgba(0, 0, 0, 0.14);
             }
 
             .main-content {
@@ -300,36 +280,61 @@
                 padding-top: 96px;
             }
 
+            .header {
+                position: static;
+                padding: 16px 8px;
+            }
+
             .grid-container {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .items {
+                display: grid;
+                grid-template-columns: repeat(3, 106px);
+            }
+
+            .section-ready .item:first-child {
+                grid-column: 1 / -1;
+                width: 334px;
+            }
         }
 
+        /* Mobile View */
         @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .sidebar-nav {
+                max-width: 344px;
+                width: calc(100% - 32px);
+            }
+
+            .sidebar-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .main-content {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
             .grid-container {
                 grid-template-columns: 1fr;
             }
 
             .section {
                 height: auto;
-                max-height: calc(100vh - 96px - 92px - 64px - 32px);
+                max-height: calc(100vh - 252px);
             }
 
-            .brand-logo img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .time {
-                font-size: 20px;
-            }
-
-            .section h2 {
-                font-size: 20px;
+            .items {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .item {
-                width: 60px;
                 height: 40px;
                 font-size: 16px;
             }
@@ -338,41 +343,33 @@
                 height: 80px;
                 font-size: 20px;
             }
+
+            .time {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="sidebar">
+    <aside class="sidebar">
         <div class="sidebar-logo">
-            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Logo%20(1).png" alt="Order Status Logo">
+            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Logo%20(1).png" alt="Logo">
         </div>
-        <div class="black-sidebard">
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector.png" alt="Menu 1">
-            </a>
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(1).png" alt="Menu 2">
-            </a>
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(2).png" alt="Menu 3">
-            </a>
-            <a href="#" class="sidebar-icon active">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(3).png" alt="Menu 4">
-            </a>
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(4).png" alt="Menu 5">
-            </a>
-            <a href="#" class="sidebar-icon">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(8).png" alt="Menu 6">
-            </a>
-        </div>
+        <nav class="sidebar-nav">
+            <div class="sidebar-icon"><img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector.png" alt="Icon"></div>
+            <div class="sidebar-icon"><img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(1).png" alt="Icon"></div>
+            <div class="sidebar-icon"><img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(2).png" alt="Icon"></div>
+            <div class="sidebar-icon active"><img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(3).png" alt="Icon"></div>
+            <div class="sidebar-icon"><img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(4).png" alt="Icon"></div>
+            <div class="sidebar-icon"><img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(8).png" alt="Icon"></div>
+        </nav>
         <div class="sidebar-profile">
             <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%208.png" alt="Profile">
             <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%207%20(1).png" alt="Notification">
         </div>
-    </div>
+    </aside>
 
-    <div class="main-content">
+    <main class="main-content">
         <header class="header">
             <h1>Order Status</h1>
             <button class="fullscreen-btn">
@@ -384,72 +381,34 @@
             </button>
         </header>
 
-        <div class="sub-content">
+        <section class="sub-content">
             <div class="brand-card">
                 <div class="brand-logo">
-                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%202.png" alt="McDonald's Logo">
+                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%202.png" alt="McDonald's">
                     <span>McDonald's</span>
                 </div>
                 <div class="time">15:03</div>
             </div>
 
             <div class="grid-container">
-                <div class="section section-preparing">
+                <section class="section section-preparing">
                     <h2>Preparing</h2>
-                    <div class="box-item">
-                        <div class="items">
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                        </div>
+                    <div class="items">
+                        <!-- Repeated items can be generated dynamically -->
+                        <div class="item">3885</div>
+                        <!-- Add more items as needed -->
                     </div>
-                </div>
+                </section>
 
-                <div class="section section-ready">
+                <section class="section section-ready">
                     <h2>Ready</h2>
-                    <div class="box-item">
-                        <div class="items">
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                            <div class="item">3885</div>
-                        </div>
+                    <div class="items">
+                        <div class="item">3885</div>
+                        <!-- Add more items as needed -->
                     </div>
-                </div>
+                </section>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
