@@ -15,8 +15,8 @@
         /* Logo customization variables */
         --logo-height: 38.97px;
         --logo-width: auto;
-        --logo-position: 0px; /* Controls horizontal position from left */
-        --logo-align: flex-start; /* Can be 'flex-start' (left) or 'flex-end' (right) */
+        --logo-x-position: 0px; /* Controls position on x-axis (positive moves right, negative moves left) */
+        --logo-align: flex-start; /* Default left alignment */
       }
 
       * {
@@ -91,8 +91,8 @@
         width: var(--logo-width);
         position: relative;
         z-index: 3;
-        margin-left: var(--logo-position); /* Controls precise positioning */
-        align-self: var(--logo-align); /* Controls left or right alignment */
+        transform: translateX(var(--logo-x-position)); /* Moves logo on x-axis */
+        align-self: var(--logo-align); /* Maintains left/right alignment */
       }
 
       .introduction .content {
@@ -157,15 +157,10 @@
     <!-- Customization block for logo positioning -->
     <style>
       :root {
-        /* Examples of how to position the logo */
-        
-        /* For left alignment with offset: */
-        /* --logo-align: flex-start; */
-        /* --logo-position: 20px; */
-        
-        /* For right alignment with offset: */
-        --logo-align: flex-end;
-        --logo-position: -1px; /* Negative value moves it from right edge */
+        /* Default: Logo on left with ability to adjust x-axis position */
+        --logo-align: flex-start; /* Left alignment */
+        --logo-x-position: 20px;   /* Change this value to move logo on x-axis */
+                                  /* Positive values move right, negative move left */
         
         /* Optional: Adjust size if needed */
         --logo-height: 40px;
