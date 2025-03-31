@@ -12,10 +12,11 @@
         --radius-round-6: 32px;
         --colors-text-white-100: rgba(255, 255, 255, 1);
         --colors-background-brand-orange-100: rgba(255, 86, 52, 1);
-        /* New variables for logo customization */
+        /* Logo customization variables */
         --logo-height: 38.97px;
         --logo-width: auto;
-        --logo-position: left; /* Can be 'left' or 'right' */
+        --logo-position: 0px; /* Controls horizontal position from left */
+        --logo-align: flex-start; /* Can be 'flex-start' (left) or 'flex-end' (right) */
       }
 
       * {
@@ -90,7 +91,8 @@
         width: var(--logo-width);
         position: relative;
         z-index: 3;
-        align-self: var(--logo-position); /* Controls left or right alignment */
+        margin-left: var(--logo-position); /* Controls precise positioning */
+        align-self: var(--logo-align); /* Controls left or right alignment */
       }
 
       .introduction .content {
@@ -152,13 +154,22 @@
       </div>
     </div>
 
-    <!-- Optional: Add this style block to change logo size and position -->
+    <!-- Customization block for logo positioning -->
     <style>
-      /* Example customization - you can modify these values */
       :root {
-        --logo-height: 40px;    /* Change height as needed */
-        --logo-width: 160px;    /* Change width as needed, or set to 'auto' */
-        --logo-position: 70px; /* Moves logo 50 pixels from the left */      
+        /* Examples of how to position the logo */
+        
+        /* For left alignment with offset: */
+        /* --logo-align: flex-start; */
+        /* --logo-position: 20px; */
+        
+        /* For right alignment with offset: */
+        --logo-align: flex-end;
+        --logo-position: -50px; /* Negative value moves it from right edge */
+        
+        /* Optional: Adjust size if needed */
+        --logo-height: 40px;
+        --logo-width: 160px; /* or 'auto' */
       }
     </style>
   </body>
