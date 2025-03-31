@@ -16,6 +16,7 @@
         --logo-height: 38.97px;
         --logo-width: auto;
         --logo-x-position: 0px; /* Controls position on x-axis (positive moves right, negative moves left) */
+        --logo-y-position: 0px; /* Controls position on y-axis (positive moves down, negative moves up) */
         --logo-align: flex-start; /* Default left alignment */
       }
 
@@ -91,7 +92,7 @@
         width: var(--logo-width);
         position: relative;
         z-index: 3;
-        transform: translateX(var(--logo-x-position)); /* Moves logo on x-axis */
+        transform: translateX(var(--logo-x-position)) translateY(var(--logo-y-position)); /* Moves logo on both axes */
         align-self: var(--logo-align); /* Maintains left/right alignment */
       }
 
@@ -157,10 +158,12 @@
     <!-- Customization block for logo positioning -->
     <style>
       :root {
-        /* Default: Logo on left with ability to adjust x-axis position */
+        /* Default: Logo on left with ability to adjust both axes */
         --logo-align: flex-start; /* Left alignment */
-        --logo-x-position: 12px;   /* Change this value to move logo on x-axis */
-                                  /* Positive values move right, negative move left */
+        --logo-x-position: 12px;   /* Change this to move logo on x-axis (right/left) */
+        --logo-y-position: 10px;   /* Change this to move logo on y-axis (up/down) */
+                                  /* X: Positive moves right, negative moves left */
+                                  /* Y: Positive moves down, negative moves up */
         
         /* Optional: Adjust size if needed */
         --logo-height: 38px;
