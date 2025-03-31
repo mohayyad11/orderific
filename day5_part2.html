@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <title>Service Panel - Portrait</title>
+    <title>Service Panel - Landscape and Portrait</title>
 </head>
 <style>
     * {
@@ -17,18 +17,228 @@
 
     body {
         font-family: "DM Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
         background: linear-gradient(67.75deg, #FFFFFF 19.18%, #FFEBE7 75.31%);
+        width: 100%;
         min-height: 100vh;
+        overflow-x: hidden;
         display: flex;
         flex-direction: column;
-        overflow-x: hidden;
     }
 
+    /* Desktop Layout */
     .main-container {
         padding: 20px;
-        position: relative;
+    }
+
+    .table-container {
+        width: 100%;
         min-height: 100vh;
+        overflow: hidden;
+    }
+
+    .table-row {
+        display: grid;
+        grid-template-columns: 0.6fr 2fr;
+        gap: 0;
+        border-radius: 30px;
+        grid-template-rows: auto;
+        min-height: 0;
+        overflow: auto;
+    }
+
+    .parent-imgsec {
+        background-image: url('https://s3-alpha-sig.figma.com/img/97c5/77dd/b047dd3c09ed673e80bc7a6d07bed063?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HVwcohuuOmh-X7Qqo7uHWp9YRQEoc8lJNe65ZFvm3SYM0kwYAm9oSsA7budFfes6m7jFmwVSS7BAvpHsJFjwWOZQAAni9HStdxF4A3e2wyMYLzlmZv0b81b1eDuv72IzYx8o2oNcHwF1xc1waQI-otPK0tDnk3F-~j~YJk88MyArdXPhYcZl5u2OD5driF9hzdkqQCneoaiBUCilcgu1TlsOX9DD5SsSWbyMQv8hJtlnG9Z50gjSej5Z0qPIP~cc7ZKSrCtbhZt5XllsOj8Y~2yI~Op49I9eIIbioEDxmV6yg9Z5DizT8oSknJlP-KfcnOVI-0H4f4VgA1iAUDkKDg__');
+        background-size: cover;
+        position: relative;
+        padding: 40px;
+        border-radius: 30px;
+        background-color: #ff5524;
+        width: 480px;
+        max-width: 100%;
+        min-height: 300px;
+    }
+
+    .parent-imgsec::before {
+        content: '';
+        position: absolute;
+        border-radius: 30px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 86, 52, 0.5);
+        z-index: 1;
+    }
+
+    .left-side {
+        position: relative;
+        z-index: 5;
         display: flex;
+        flex-direction: column;
+        color: #FFFFFF;
+        min-height: 100%;
+    }
+
+    .desktop-logo {
+        width: 180px;
+    }
+
+    .text-title {
+        font-size: 64px;
+        font-weight: 700;
+        margin-top: auto;
+    }
+
+    .text {
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+    }
+
+    .parent-form {
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .right-side {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 360px;
+        width: 100%;
+    }
+
+    .right-side h3 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1A1A1A;
+        text-align: center;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.6);
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    .label1 {
+        color: rgba(0, 0, 0, 0.6);
+        margin-bottom: 8px;
+        display: block;
+        padding-left: 16px;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .right-side input[type="email"],
+    .right-side input[type="password"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #E0E0E0;
+        border-radius: 25px;
+        font-size: 1rem;
+        background-color: #F9F9F9;
+        margin-bottom: 16px;
+    }
+
+    .password-container {
+        position: relative;
+    }
+
+    .eye-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+    }
+
+    .eye-icon:hover {
+        opacity: 1;
+    }
+
+    .form-options {
+        display: flex;
+        justify-content: space-between;
+        font-size: 16px;
+        margin: 14px 0;
+    }
+
+    .form-options label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .form-options a {
+        color: #1A1A1A;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    .remember {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 16px;
+    }
+
+    .right-side input[type="checkbox"] {
+        appearance: none;
+        border-radius: 8px;
+        width: 20px;
+        height: 20px;
+        background-color: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        position: relative;
+        border: 1px solid #E6E6E6;
+    }
+
+    .right-side input[type="checkbox"]:checked {
+        background-color: #00A82D;
+        border-color: #00A82D;
+    }
+
+    .right-side input[type="checkbox"]:checked::after {
+        content: '✔';
+        position: absolute;
+        left: 4px;
+        top: 2px;
+        font-size: 12px;
+        color: #FFFFFF;
+    }
+
+    .right-side button {
+        background-color: #1A1A1A;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 100%;
+        margin-top: 26px;
+        height: 48px;
+    }
+
+    .right-side button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Portrait Layout */
+    .portrait-container {
+        display: none;
+        padding: 20px;
+        min-height: 100vh;
         flex-direction: column;
         align-items: center;
     }
@@ -39,11 +249,10 @@
         justify-content: center;
         gap: 8px;
         padding-top: 20px;
-        position: relative;
         width: 100%;
     }
 
-    .logo {
+    .portrait-logo {
         width: 53px;
         height: auto;
     }
@@ -63,148 +272,48 @@
         margin-bottom: 32px;
     }
 
-    .form-container {
-        width: 100%;
-        max-width: 360px;
-        padding: 0 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex-grow: 1;
-    }
+    /* Media Queries */
+    @media (max-width: 1024px) {
+        .main-container {
+            display: none;
+        }
 
-    .welcome-text {
-        text-align: center;
-        margin-bottom: 24px;
-    }
+        .portrait-container {
+            display: flex;
+        }
 
-    .welcome-text h1 {
-        font-size: 28px;
-        font-weight: 700;
-        color: #1A1A1A;
-        margin-bottom: 8px;
-    }
+        .right-side {
+            max-width: 360px;
+            padding: 0 20px;
+        }
 
-    .welcome-text p {
-        font-size: 16px;
-        color: rgba(0, 0, 0, 0.6);
-        line-height: 24px;
-    }
+        .right-side h3 {
+            font-size: 28px;
+        }
 
-    .form-group {
-        margin-bottom: 16px;
-    }
+        .subtitle {
+            font-size: 14px;
+        }
 
-    .form-label {
-        font-size: 13px;
-        font-weight: 700;
-        color: rgba(0, 0, 0, 0.6);
-        padding-left: 16px;
-        display: block;
-        margin-bottom: 8px;
-    }
+        .right-side input[type="email"],
+        .right-side input[type="password"] {
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            height: 48px;
+        }
 
-    .form-input {
-        width: 100%;
-        height: 48px;
-        padding: 0 16px;
-        border: 1px solid #E0E0E0;
-        border-radius: 25px;
-        background-color: #F9F9F9;
-        font-size: 16px;
-        color: #1A1A1A;
-    }
-
-    .password-container {
-        position: relative;
-    }
-
-    .eye-icon {
-        position: absolute;
-        right: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        opacity: 0.6;
-        transition: opacity 0.2s;
-    }
-
-    .eye-icon:hover {
-        opacity: 1;
-    }
-
-    .form-options {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 16px 0;
-    }
-
-    .remember-me {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .checkbox {
-        width: 20px;
-        height: 20px;
-        border-radius: 6px;
-        border: 1px solid #E6E6E6;
-        background-color: rgba(0, 0, 0, 0.1);
-        appearance: none;
-        cursor: pointer;
-    }
-
-    .checkbox:checked {
-        background-color: #00A82D;
-        border-color: #00A82D;
-    }
-
-    .checkbox:checked::after {
-        content: '✔';
-        color: white;
-        position: absolute;
-        left: 4px;
-        top: 2px;
-        font-size: 12px;
-    }
-
-    .remember-label {
-        font-size: 16px;
-        color: #1A1A1A;
-    }
-
-    .login-code {
-        font-size: 16px;
-        color: #1A1A1A;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    .signin-btn {
-        width: 100%;
-        height: 48px;
-        background-color: #1A1A1A;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        font-size: 16px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .signin-btn:hover {
-        background-color: rgba(0, 0, 0, 0.8);
+        .right-side button {
+            font-size: 16px;
+            height: 48px;
+        }
     }
 
     @media (max-width: 480px) {
-        .main-container {
+        .portrait-container {
             padding: 16px;
         }
 
-        .logo {
+        .portrait-logo {
             width: 40px;
         }
 
@@ -217,58 +326,92 @@
             margin-bottom: 24px;
         }
 
-        .welcome-text h1 {
+        .right-side h3 {
             font-size: 24px;
         }
 
-        .welcome-text p {
-            font-size: 14px;
+        .subtitle {
+            font-size: 12px;
         }
 
-        .form-input {
+        .right-side input[type="email"],
+        .right-side input[type="password"] {
             height: 44px;
         }
 
-        .signin-btn {
+        .right-side button {
             height: 44px;
         }
     }
 </style>
 
 <body>
+    <!-- Desktop Layout -->
     <div class="main-container">
+        <table class="table-container">
+            <tr class="table-row">
+                <td class="parent-imgsec">
+                    <div class="left-side">
+                        <img class="desktop-logo" src="./logo.svg" alt="logo">
+                        <h2 class="text-title">Service Panel</h2>
+                        <p class="text">Streamline your restaurant operations with BMS. Manage reservations, orders, inventory, and staff effortlessly, and focus on delivering exceptional dining experiences.</p>
+                    </div>
+                </td>
+                <td class="parent-form">
+                    <div class="right-side">
+                        <h3>Welcome Back</h3>
+                        <p class="subtitle">Manage, streamline, and thrive effortlessly.</p>
+                        <form action="OTP.html" method="post">
+                            <label class="label1">Email</label>
+                            <input type="email" placeholder="Enter your Email" value="samsmith@gmail.com" required>
+                            <label class="label1">Password</label>
+                            <div class="password-container">
+                                <input type="password" placeholder="••••••••" value="********" required>
+                                <span class="eye-icon">
+                                    <img src="./eye.svg" alt="eye icon" width="20" height="20">
+                                </span>
+                            </div>
+                            <div class="form-options">
+                                <label class="remember">
+                                    <input type="checkbox" name="rememberMe"> Remember me
+                                </label>
+                                <a href="#">Login with Code</a>
+                            </div>
+                            <button type="submit" name="submit">Sign In</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Portrait Layout -->
+    <div class="portrait-container">
         <div class="logo-container">
-            <img src="./Logo (1).png" alt="Logo" class="logo">
+            <img src="./Logo (1).png" alt="Logo" class="portrait-logo">
             <span class="brand-name">Orderific</span>
         </div>
         <h2 class="panel-title">Service Panel</h2>
-        <div class="form-container">
-            <div class="welcome-text">
-                <h1>Welcome Back</h1>
-                <p>Manage, streamline, and thrive effortlessly.</p>
-            </div>
+        <div class="right-side">
+            <h3>Welcome Back</h3>
+            <p class="subtitle">Manage, streamline, and thrive effortlessly.</p>
             <form action="OTP.html" method="post">
-                <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-input" placeholder="Enter email address" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <div class="password-container">
-                        <input type="password" class="form-input" placeholder="Password" required>
-                        <span class="eye-icon">
-                            <img src="./eyeoff.svg" alt="Show password" width="20" height="20">
-                        </span>
-                    </div>
+                <label class="label1">Email</label>
+                <input type="email" placeholder="Enter email address" required>
+                <label class="label1">Password</label>
+                <div class="password-container">
+                    <input type="password" placeholder="Password" required>
+                    <span class="eye-icon">
+                        <img src="./eyeoff.svg" alt="Show password" width="20" height="20">
+                    </span>
                 </div>
                 <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox" class="checkbox">
-                        <span class="remember-label">Remember me</span>
+                    <label class="remember">
+                        <input type="checkbox" name="rememberMe"> Remember me
                     </label>
-                    <a href="#" class="login-code">Login with Code</a>
+                    <a href="#">Login with Code</a>
                 </div>
-                <button type="submit" class="signin-btn">Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
     </div>
