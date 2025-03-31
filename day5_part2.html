@@ -1,716 +1,275 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <style>
-        :root {
-            --headline-font-family: "DM Sans", Helvetica;
-            --headline-font-weight: 500;
-            --headline-font-size: 20px;
-            --headline-letter-spacing: -0.2px;
-            --headline-line-height: 24px;
-            --headline-font-style: normal;
-            --title-1-font-family: "DM Sans", Helvetica;
-            --title-1-font-weight: 700;
-            --title-1-font-size: 32px;
-            --title-1-letter-spacing: -0.96px;
-            --title-1-line-height: 40px;
-            --title-1-font-style: normal;
-            --button-small-font-family: "DM Sans", Helvetica;
-            --button-small-font-weight: 700;
-            --button-small-font-size: 14px;
-            --button-small-letter-spacing: 0px;
-            --button-small-line-height: 16px;
-            --button-small-font-style: normal;
-            --title-2-font-family: "DM Sans", Helvetica;
-            --title-2-font-weight: 700;
-            --title-2-font-size: 24px;
-            --title-2-letter-spacing: -0.48px;
-            --title-2-line-height: 32px;
-            --title-2-font-style: normal;
-            --sticky-header: 0px 0px 32px 0px rgba(0, 0, 0, 0.08);
-            --spacing-1: 4px;
-            --spacing-spacing-0: 0px;
-            --spacing-spacing-6: 24px;
-            --spacing-spacing-2: 8px;
-            --spacing-spacing-4: 16px;
-            --colors-text-black-100: rgba(0, 0, 0, 1);
-            --colors-text-white-100: rgba(255, 255, 255, 1);
-            --colors-background-semantic-red-100: rgba(225, 14, 14, 1);
-            --colors-background-body-white-100: rgba(255, 255, 255, 1);
-            --colors-background-white-20: rgba(255, 255, 255, 0.2);
-            --colors-border-black-10: rgba(0, 0, 0, 0.1);
-            --colors-background-brand-orange-100: rgba(255, 86, 52, 1);
-            --colors-background-black-10: rgba(0, 0, 0, 0.1);
-            --colors-background-status-accepted: rgba(17, 151, 23, 1);
-            --colors-background-black-5: rgba(0, 0, 0, 0.05);
-            --colors-background-black-100: rgba(0, 0, 0, 1);
-            --colors-background-white-100: rgba(255, 255, 255, 1);
-            --radius-round-5: 24px;
-            --radius-round-3: 16px;
-            --radius-round-6: 32px;
-        }
-
-        * {
-            -webkit-font-smoothing: antialiased;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0px;
-            height: 100%;
-        }
-
-        button:focus-visible {
-            outline: 2px solid #4a90e2 !important;
-            outline: -webkit-focus-ring-color auto 5px !important;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* Desktop (Landscape) Styles */
-        .order-status-screen {
-            display: flex;
-            width: 1194px;
-            align-items: flex-start;
-            position: relative;
-            background-color: rgba(255, 255, 255, 1);
-            background: linear-gradient(68deg, rgba(255, 255, 255, 1) 15%, rgba(255, 235, 231, 1) 74%);
-            gap: var(--spacing-spacing-0);
-        }
-
-        .order-status-screen .background-of-body {
-            display: flex;
-            width: 1194px;
-            height: 834px;
-            align-items: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: var(--colors-background-body-white-100);
-            overflow: hidden;
-        }
-
-        .order-status-screen .colorful {
-            position: relative;
-            width: 1105px;
-            height: 1879.94px;
-            margin-top: -522.97px;
-            margin-bottom: -522.97px;
-            background-color: #ff56341f;
-            border-radius: 552.5px/939.97px;
-            transform: rotate(-42.41deg);
-            filter: blur(194px);
-        }
-
-        .order-status-screen .gray {
-            position: relative;
-            width: 1009.68px;
-            height: 1310.33px;
-            margin-top: -238.17px;
-            margin-bottom: -238.17px;
-            background-color: #00000014;
-            border-radius: 504.84px/655.17px;
-            transform: rotate(-37.86deg);
-            filter: blur(138px);
-        }
-
-        .order-status-screen .navigation {
-            display: inline-flex;
-            flex-direction: column;
-            height: 834px;
-            align-items: flex-start;
-            justify-content: space-between;
-            padding: 16px;
-            position: relative;
-            flex: 0 0 auto;
-        }
-
-        .order-status-screen .logo {
-            display: flex;
-            width: 64px;
-            height: 64px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            background-color: #ffffff;
-            border-radius: 32px;
-        }
-
-        .order-status-screen .img {
-            position: relative;
-            width: 32px;
-            height: 32px;
-        }
-
-        .order-status-screen .other-links {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-            padding: 8px;
-            position: relative;
-            flex: 0 0 auto;
-            background-color: var(--colors-background-white-100);
-            border-radius: 48px;
-        }
-
-        .order-status-screen .frame {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            border-radius: 48px;
-            background-image: url(./img/frame-8.png);
-            background-size: cover;
-            background-position: 50% 50%;
-        }
-
-        .order-status-screen .text-wrapper {
-            position: relative;
-            width: fit-content;
-            opacity: 0;
-            font-family: var(--headline-font-family);
-            font-weight: var(--headline-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--headline-font-size);
-            letter-spacing: var(--headline-letter-spacing);
-            line-height: var(--headline-line-height);
-            white-space: nowrap;
-            font-style: var(--headline-font-style);
-        }
-
-        .order-status-screen .div {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            background-color: var(--colors-background-black-10);
-            border-radius: 48px;
-        }
-
-        .order-status-screen .img-2 {
-            position: relative;
-            width: 20px;
-            height: 20px;
-        }
-
-        .order-status-screen .rectangle {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            top: 0;
-            left: 34px;
-            background-color: var(--colors-background-semantic-red-100);
-            border-radius: 31px;
-            border: 2px solid;
-            border-color: #ffffff;
-        }
-
-        .order-status-screen .main-menu {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 8px;
-            position: absolute;
-            top: 245px;
-            left: 16px;
-            background-color: var(--colors-background-black-100);
-            border-radius: 48px;
-        }
-
-        .order-status-screen .div-2 {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            background-color: var(--colors-background-white-20);
-            border-radius: var(--radius-round-5);
-        }
-
-        .order-status-screen .customer-display {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background-color: var(--colors-background-brand-orange-100);
-            border-radius: var(--radius-round-5);
-            gap: var(--spacing-spacing-0);
-        }
-
-        .order-status-screen .frame-2 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            position: relative;
-            flex: 1;
-            align-self: stretch;
-            flex-grow: 1;
-            gap: var(--spacing-spacing-0);
-        }
-
-        .order-status-screen .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 24px 16px 24px 0px;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-            background-color: transparent;
-        }
-
-        .order-status-screen .text-wrapper-2 {
-            position: relative;
-            width: fit-content;
-            font-family: "DM Sans-Bold", Helvetica;
-            font-weight: 700;
-            color: var(--colors-text-black-100);
-            font-size: 32px;
-            letter-spacing: -0.96px;
-            line-height: 40px;
-            white-space: nowrap;
-        }
-
-        .order-status-screen .frame-3 {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-spacing-2);
-            position: relative;
-            flex: 0 0 auto;
-        }
-
-        .order-status-screen .iconic-buttons-large {
-            display: inline-flex;
-            height: 48px;
-            align-items: center;
-            gap: 4px;
-            padding: 8px 16px 8px 12px;
-            position: relative;
-            flex: 0 0 auto;
-            border-radius: 48px;
-            border: 1px solid;
-            border-color: var(--colors-border-black-10);
-        }
-
-        .order-status-screen .text-button {
-            font-size: var(--button-small-font-size);
-            letter-spacing: var(--button-small-letter-spacing);
-            line-height: var(--button-small-line-height);
-            position: relative;
-            width: fit-content;
-            font-family: var(--button-small-font-family);
-            font-weight: var(--button-small-font-weight);
-            color: var(--colors-text-black-100);
-            white-space: nowrap;
-            font-style: var(--button-small-font-style);
-        }
-
-        .order-status-screen .frame-4 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-spacing-4);
-            padding: 0px var(--spacing-spacing-4) 0px var(--spacing-spacing-4);
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-        }
-
-        .order-status-screen .profile-widget {
-            display: flex;
-            height: 92px;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            background-color: var(--colors-background-black-5);
-            border-radius: 16px;
-        }
-
-        .order-status-screen .frame-5 {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            position: relative;
-            flex: 0 0 auto;
-        }
-
-        .order-status-screen .image {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-        }
-
-        .order-status-screen .mcdonald-s-wrapper {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-1);
-            position: relative;
-            flex: 0 0 auto;
-        }
-
-        .order-status-screen .mcdonald-s {
-            position: relative;
-            width: fit-content;
-            margin-top: -1px;
-            font-family: "DM Sans-Medium", Helvetica;
-            font-weight: 500;
-            color: var(--colors-text-black-100);
-            font-size: 20px;
-            letter-spacing: -0.2px;
-            line-height: 24px;
-            white-space: nowrap;
-        }
-
-        .order-status-screen .frame-6 {
-            display: flex;
-            height: 614px;
-            align-items: flex-start;
-            gap: var(--spacing-spacing-4);
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-        }
-
-        .order-status-screen .frame-7 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--spacing-spacing-6);
-            padding: var(--spacing-spacing-6);
-            position: relative;
-            flex: 1;
-            align-self: stretch;
-            flex-grow: 1;
-            background-color: var(--colors-background-white-100);
-            border-radius: 24px;
-            overflow: hidden;
-        }
-
-        .order-status-screen .text-wrapper-3 {
-            position: relative;
-            width: fit-content;
-            margin-top: -1px;
-            font-family: "DM Sans-Bold", Helvetica;
-            font-weight: 700;
-            color: var(--colors-text-black-100);
-            font-size: 32px;
-            letter-spacing: -0.96px;
-            line-height: 40px;
-            white-space: nowrap;
-        }
-
-        .order-status-screen .frame-8 {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            justify-content: center;
-            gap: var(--spacing-spacing-2);
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-        }
-
-        .order-status-screen .order-num {
-            display: flex;
-            width: 106px;
-            height: 64px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 8px var(--spacing-spacing-6) 8px var(--spacing-spacing-6);
-            position: relative;
-            background-color: var(--colors-background-black-10);
-            border-radius: var(--radius-round-3);
-        }
-
-        .order-status-screen .text-wrapper-4 {
-            position: relative;
-            width: fit-content;
-            margin-left: -0.5px;
-            margin-right: -0.5px;
-            font-family: var(--title-2-font-family);
-            font-weight: var(--title-2-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--title-2-font-size);
-            letter-spacing: var(--title-2-letter-spacing);
-            line-height: var(--title-2-line-height);
-            white-space: nowrap;
-            font-style: var(--title-2-font-style);
-        }
-
-        .order-status-screen .frame-9 {
-            display: flex;
-            flex-direction: column;
-            width: 383px;
-            align-items: center;
-            gap: var(--spacing-spacing-6);
-            padding: var(--spacing-spacing-6);
-            position: relative;
-            align-self: stretch;
-            background-color: var(--colors-background-white-100);
-            border-radius: 24px;
-            overflow: hidden;
-        }
-
-        .order-status-screen .div-wrapper {
-            width: 334px;
-            height: 128px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 8px var(--spacing-spacing-6) 8px var(--spacing-spacing-6);
-            position: relative;
-            background-color: var(--colors-background-status-accepted);
-            border-radius: var(--radius-round-3);
-        }
-
-        .order-status-screen .text-wrapper-7 {
-            font-size: 32px;
-            letter-spacing: -0.96px;
-            line-height: 40px;
-            position: relative;
-            width: fit-content;
-            font-family: "DM Sans-Bold", Helvetica;
-            font-weight: 700;
-            color: var(--colors-text-white-100);
-            white-space: nowrap;
-        }
-
-        .order-status-screen .order-num-2 {
-            width: 106px;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 8px var(--spacing-spacing-6) 8px var(--spacing-spacing-6);
-            position: relative;
-            background-color: var(--colors-background-status-accepted);
-            border-radius: var(--radius-round-3);
-        }
-
-        .order-status-screen .text-wrapper-8 {
-            margin-left: -0.5px;
-            margin-right: -0.5px;
-            font-size: var(--title-2-font-size);
-            letter-spacing: var(--title-2-letter-spacing);
-            line-height: var(--title-2-line-height);
-            position: relative;
-            width: fit-content;
-            font-family: var(--title-2-font-family);
-            font-weight: var(--title-2-font-weight);
-            color: var(--colors-text-white-100);
-            white-space: nowrap;
-            font-style: var(--title-2-font-style);
-        }
-
-        /* Portrait Mode Styles (Override Desktop Styles) */
-        @media (max-width: 900px) or (orientation: portrait) {
-            .order-status-screen {
-                width: 802px;
-                height: 1177px;
-                background: none;
-            }
-
-            .order-status-screen .background-of-body,
-            .order-status-screen .colorful,
-            .order-status-screen .gray {
-                display: none;
-            }
-
-            .order-status-screen .navigation {
-                display: flex;
-                width: 802px;
-                height: 96px;
-                align-items: flex-start;
-                padding: var(--spacing-spacing-4) var(--spacing-spacing-0);
-                position: absolute;
-                top: 0;
-                left: 0;
-                flex-direction: row;
-                justify-content: center;
-            }
-
-            .order-status-screen .navigation-frame {
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-                position: relative;
-                flex: 1;
-                flex-grow: 1;
-                background-color: var(--colors-background-white-100);
-                border-radius: var(--radius-round-6);
-                box-shadow: var(--sticky-header);
-            }
-
-            .order-status-screen .header {
-                width: 802px;
-                height: 80px;
-                padding: var(--spacing-spacing-2) var(--spacing-spacing-0) var(--spacing-spacing-6) var(--spacing-spacing-0);
-                position: absolute;
-                top: 101px;
-                left: 0;
-                border: 1px solid #000000;
-            }
-
-            .order-status-screen .left-section {
-                display: inline-flex;
-                align-items: center;
-                gap: var(--spacing-spacing-6);
-                position: relative;
-                flex: 0 0 auto;
-            }
-
-            .order-status-screen .frame-2 {
-                padding-top: 186px;
-            }
-
-            .order-status-screen .profile-widget {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 802px;
-            }
-
-            .order-status-screen .frame-4 {
-                padding-top: 97px;
-            }
-
-            .order-status-screen .frame-6 {
-                height: 894px;
-                flex-direction: column;
-            }
-
-            .order-status-screen .frame-7,
-            .order-status-screen .frame-9 {
-                width: 100%;
-                flex: none;
-            }
-
-            .order-status-screen .main-menu {
-                flex-direction: row;
-                position: absolute;
-                top: 1033px;
-                left: 229px;
-                box-shadow: var(--sticky-header);
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <title>Service Panel - Portrait</title>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "DM Sans", sans-serif;
+        background: linear-gradient(67.75deg, #FFFFFF 19.18%, #FFEBE7 75.31%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+
+    .main-container {
+        padding: 20px;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding-top: 20px;
+        position: relative;
+        width: 100%;
+    }
+
+    .logo {
+        width: 53px;
+        height: auto;
+    }
+
+    .brand-name {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1A1A1A;
+    }
+
+    .panel-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1A1A1A;
+        text-align: center;
+        margin-top: 16px;
+        margin-bottom: 32px;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 360px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .welcome-text {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .welcome-text h1 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1A1A1A;
+        margin-bottom: 8px;
+    }
+
+    .welcome-text p {
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.6);
+        line-height: 24px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.6);
+        padding-left: 16px;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .form-input {
+        width: 100%;
+        height: 48px;
+        padding: 0 16px;
+        border: 1px solid #E0E0E0;
+        border-radius: 25px;
+        background-color: #F9F9F9;
+        font-size: 16px;
+        color: #1A1A1A;
+    }
+
+    .password-container {
+        position: relative;
+    }
+
+    .eye-icon {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+    }
+
+    .eye-icon:hover {
+        opacity: 1;
+    }
+
+    .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 16px 0;
+    }
+
+    .remember-me {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .checkbox {
+        width: 20px;
+        height: 20px;
+        border-radius: 6px;
+        border: 1px solid #E6E6E6;
+        background-color: rgba(0, 0, 0, 0.1);
+        appearance: none;
+        cursor: pointer;
+    }
+
+    .checkbox:checked {
+        background-color: #00A82D;
+        border-color: #00A82D;
+    }
+
+    .checkbox:checked::after {
+        content: '✔';
+        color: white;
+        position: absolute;
+        left: 4px;
+        top: 2px;
+        font-size: 12px;
+    }
+
+    .remember-label {
+        font-size: 16px;
+        color: #1A1A1A;
+    }
+
+    .login-code {
+        font-size: 16px;
+        color: #1A1A1A;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    .signin-btn {
+        width: 100%;
+        height: 48px;
+        background-color: #1A1A1A;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .signin-btn:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    @media (max-width: 480px) {
+        .main-container {
+            padding: 16px;
+        }
+
+        .logo {
+            width: 40px;
+        }
+
+        .brand-name {
+            font-size: 20px;
+        }
+
+        .panel-title {
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .welcome-text h1 {
+            font-size: 24px;
+        }
+
+        .welcome-text p {
+            font-size: 14px;
+        }
+
+        .form-input {
+            height: 44px;
+        }
+
+        .signin-btn {
+            height: 44px;
+        }
+    }
+</style>
+
 <body>
-    <div class="order-status-screen">
-        <div class="background-of-body">
-            <div class="colorful"></div>
-            <div class="gray"></div>
+    <div class="main-container">
+        <div class="logo-container">
+            <img src="./Logo (1).png" alt="Logo" class="logo">
+            <span class="brand-name">Orderific</span>
         </div>
-        <div class="navigation">
-            <div class="navigation-frame">
-                <div class="logo"><img class="img" src="img/logo.svg" /></div>
-                <div class="other-links">
-                    <div class="frame"><div class="text-wrapper">S</div></div>
-                    <div class="div">
-                        <img class="img-2" src="img/notifications.svg" />
-                        <div class="rectangle"></div>
-                    </div>
-                </div>
+        <h2 class="panel-title">Service Panel</h2>
+        <div class="form-container">
+            <div class="welcome-text">
+                <h1>Welcome Back</h1>
+                <p>Manage, streamline, and thrive effortlessly.</p>
             </div>
-        </div>
-        <div class="frame-2">
-            <header class="header">
-                <div class="left-section"><div class="text-wrapper-2">Order Status</div></div>
-                <div class="frame-3">
-                    <div class="iconic-buttons-large">
-                        <img class="img-2" src="img/fullscreen.svg" />
-                        <div class="text-button">FullScreen</div>
+            <form action="OTP.html" method="post">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" placeholder="Enter email address" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div class="password-container">
+                        <input type="password" class="form-input" placeholder="Password" required>
+                        <span class="eye-icon">
+                            <img src="./eyeoff.svg" alt="Show password" width="20" height="20">
+                        </span>
                     </div>
                 </div>
-            </header>
-            <div class="frame-4">
-                <div class="profile-widget">
-                    <div class="frame-5">
-                        <img class="image" src="img/image-2.png" />
-                        <div class="mcdonald-s-wrapper"><div class="mcdonald-s">McDonald's</div></div>
-                    </div>
-                    <div class="text-wrapper-2">15:03</div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" class="checkbox">
+                        <span class="remember-label">Remember me</span>
+                    </label>
+                    <a href="#" class="login-code">Login with Code</a>
                 </div>
-                <div class="frame-6">
-                    <div class="frame-7">
-                        <div class="text-wrapper-3">Preparing</div>
-                        <div class="frame-8">
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div Naiad</div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
-                        </div>
-                    </div>
-                    <div class="frame-9">
-                        <div class="text-wrapper-3">Ready</div>
-                        <div class="frame-8">
-                            <div class="div-wrapper"><div class="text-wrapper-7">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="main-menu">
-            <div class="div-2"><img class="img-2" src="img/item-icon-3.svg" /></div>
-            <div class="div-2"><img class="img-2" src="img/image.svg" /></div>
-            <div class="div-2"><img class="img-2" src="img/item-icon-4.svg" /></div>
-            <div class="customer-display"><img class="img-2" src="img/item-icon.svg" /></div>
-            <div class="div-2"><img class="img-2" src="img/item-icon-5.svg" /></div>
-            <div class="div-2"><img class="img-2" src="img/item-icon-2.svg" /></div>
+                <button type="submit" class="signin-btn">Sign In</button>
+            </form>
         </div>
     </div>
 </body>
