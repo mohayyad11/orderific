@@ -1,175 +1,716 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>day4 task2</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <style>
-        @media (orientation: portrait) {
-            .sidebar {
-                flex-direction: row;
-                width: 100%;
-                height: auto;
-                bottom: 0;
-                top: auto;
-                padding: 1rem;
-                justify-content: center;
-                align-items: center;
-                gap: 1rem;
-            }
-            .main-content {
-                margin-left: 0;
-                margin-bottom: 100px; /* Space for sidebar */
-            }
-            .black-sidebard {
-                flex-direction: row;
-                padding: 0.5rem;
-            }
-            .sidebar-profile {
-                flex-direction: row;
-            }
+        :root {
+            --headline-font-family: "DM Sans", Helvetica;
+            --headline-font-weight: 500;
+            --headline-font-size: 20px;
+            --headline-letter-spacing: -0.2px;
+            --headline-line-height: 24px;
+            --headline-font-style: normal;
+            --title-1-font-family: "DM Sans", Helvetica;
+            --title-1-font-weight: 700;
+            --title-1-font-size: 32px;
+            --title-1-letter-spacing: -0.96px;
+            --title-1-line-height: 40px;
+            --title-1-font-style: normal;
+            --button-small-font-family: "DM Sans", Helvetica;
+            --button-small-font-weight: 700;
+            --button-small-font-size: 14px;
+            --button-small-letter-spacing: 0px;
+            --button-small-line-height: 16px;
+            --button-small-font-style: normal;
+            --title-2-font-family: "DM Sans", Helvetica;
+            --title-2-font-weight: 700;
+            --title-2-font-size: 24px;
+            --title-2-letter-spacing: -0.48px;
+            --title-2-line-height: 32px;
+            --title-2-font-style: normal;
+            --sticky-header: 0px 0px 32px 0px rgba(0, 0, 0, 0.08);
+            --spacing-1: 4px;
+            --spacing-spacing-0: 0px;
+            --spacing-spacing-6: 24px;
+            --spacing-spacing-2: 8px;
+            --spacing-spacing-4: 16px;
+            --colors-text-black-100: rgba(0, 0, 0, 1);
+            --colors-text-white-100: rgba(255, 255, 255, 1);
+            --colors-background-semantic-red-100: rgba(225, 14, 14, 1);
+            --colors-background-body-white-100: rgba(255, 255, 255, 1);
+            --colors-background-white-20: rgba(255, 255, 255, 0.2);
+            --colors-border-black-10: rgba(0, 0, 0, 0.1);
+            --colors-background-brand-orange-100: rgba(255, 86, 52, 1);
+            --colors-background-black-10: rgba(0, 0, 0, 0.1);
+            --colors-background-status-accepted: rgba(17, 151, 23, 1);
+            --colors-background-black-5: rgba(0, 0, 0, 0.05);
+            --colors-background-black-100: rgba(0, 0, 0, 1);
+            --colors-background-white-100: rgba(255, 255, 255, 1);
+            --radius-round-5: 24px;
+            --radius-round-3: 16px;
+            --radius-round-6: 32px;
         }
-        .fullscreen-btn {
-            width: 124px;
-            height: 48px;
-            gap: 2px; /* Spacing between arrow image and text */
-            padding: 0 1rem; /* Adjusted padding to fit content */
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0px;
+            height: 100%;
+        }
+
+        button:focus-visible {
+            outline: 2px solid #4a90e2 !important;
+            outline: -webkit-focus-ring-color auto 5px !important;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Desktop (Landscape) Styles */
+        .order-status-screen {
             display: flex;
+            width: 1194px;
+            align-items: flex-start;
+            position: relative;
+            background-color: rgba(255, 255, 255, 1);
+            background: linear-gradient(68deg, rgba(255, 255, 255, 1) 15%, rgba(255, 235, 231, 1) 74%);
+            gap: var(--spacing-spacing-0);
+        }
+
+        .order-status-screen .background-of-body {
+            display: flex;
+            width: 1194px;
+            height: 834px;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--colors-background-body-white-100);
+            overflow: hidden;
+        }
+
+        .order-status-screen .colorful {
+            position: relative;
+            width: 1105px;
+            height: 1879.94px;
+            margin-top: -522.97px;
+            margin-bottom: -522.97px;
+            background-color: #ff56341f;
+            border-radius: 552.5px/939.97px;
+            transform: rotate(-42.41deg);
+            filter: blur(194px);
+        }
+
+        .order-status-screen .gray {
+            position: relative;
+            width: 1009.68px;
+            height: 1310.33px;
+            margin-top: -238.17px;
+            margin-bottom: -238.17px;
+            background-color: #00000014;
+            border-radius: 504.84px/655.17px;
+            transform: rotate(-37.86deg);
+            filter: blur(138px);
+        }
+
+        .order-status-screen .navigation {
+            display: inline-flex;
+            flex-direction: column;
+            height: 834px;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 16px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .order-status-screen .logo {
+            display: flex;
+            width: 64px;
+            height: 64px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            background-color: #ffffff;
+            border-radius: 32px;
+        }
+
+        .order-status-screen .img {
+            position: relative;
+            width: 32px;
+            height: 32px;
+        }
+
+        .order-status-screen .other-links {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 8px;
+            position: relative;
+            flex: 0 0 auto;
+            background-color: var(--colors-background-white-100);
+            border-radius: 48px;
+        }
+
+        .order-status-screen .frame {
+            display: flex;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            border-radius: 48px;
+            background-image: url(./img/frame-8.png);
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        .order-status-screen .text-wrapper {
+            position: relative;
+            width: fit-content;
+            opacity: 0;
+            font-family: var(--headline-font-family);
+            font-weight: var(--headline-font-weight);
+            color: var(--colors-text-black-100);
+            font-size: var(--headline-font-size);
+            letter-spacing: var(--headline-letter-spacing);
+            line-height: var(--headline-line-height);
+            white-space: nowrap;
+            font-style: var(--headline-font-style);
+        }
+
+        .order-status-screen .div {
+            display: flex;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            background-color: var(--colors-background-black-10);
+            border-radius: 48px;
+        }
+
+        .order-status-screen .img-2 {
+            position: relative;
+            width: 20px;
+            height: 20px;
+        }
+
+        .order-status-screen .rectangle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            top: 0;
+            left: 34px;
+            background-color: var(--colors-background-semantic-red-100);
+            border-radius: 31px;
+            border: 2px solid;
+            border-color: #ffffff;
+        }
+
+        .order-status-screen .main-menu {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px;
+            position: absolute;
+            top: 245px;
+            left: 16px;
+            background-color: var(--colors-background-black-100);
+            border-radius: 48px;
+        }
+
+        .order-status-screen .div-2 {
+            display: flex;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            background-color: var(--colors-background-white-20);
+            border-radius: var(--radius-round-5);
+        }
+
+        .order-status-screen .customer-display {
+            display: flex;
+            width: 48px;
+            height: 48px;
             align-items: center;
             justify-content: center;
             position: relative;
-            left: -6px; /* Retained from previous request */
+            background-color: var(--colors-background-brand-orange-100);
+            border-radius: var(--radius-round-5);
+            gap: var(--spacing-spacing-0);
         }
-        .fullscreen-text {
-            width: 72px;
-            height: 16px;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 16px;
-            letter-spacing: 0%;
-        }
-        .fullscreen-arrow {
-            width: 10px;
-            height: 10px;
+
+        .order-status-screen .frame-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             position: relative;
-            top: 5px;
-            left: 5px;
+            flex: 1;
+            align-self: stretch;
+            flex-grow: 1;
+            gap: var(--spacing-spacing-0);
+        }
+
+        .order-status-screen .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 16px 24px 0px;
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            flex: 0 0 auto;
+            background-color: transparent;
+        }
+
+        .order-status-screen .text-wrapper-2 {
+            position: relative;
+            width: fit-content;
+            font-family: "DM Sans-Bold", Helvetica;
+            font-weight: 700;
+            color: var(--colors-text-black-100);
+            font-size: 32px;
+            letter-spacing: -0.96px;
+            line-height: 40px;
+            white-space: nowrap;
+        }
+
+        .order-status-screen .frame-3 {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-spacing-2);
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .order-status-screen .iconic-buttons-large {
+            display: inline-flex;
+            height: 48px;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 16px 8px 12px;
+            position: relative;
+            flex: 0 0 auto;
+            border-radius: 48px;
+            border: 1px solid;
+            border-color: var(--colors-border-black-10);
+        }
+
+        .order-status-screen .text-button {
+            font-size: var(--button-small-font-size);
+            letter-spacing: var(--button-small-letter-spacing);
+            line-height: var(--button-small-line-height);
+            position: relative;
+            width: fit-content;
+            font-family: var(--button-small-font-family);
+            font-weight: var(--button-small-font-weight);
+            color: var(--colors-text-black-100);
+            white-space: nowrap;
+            font-style: var(--button-small-font-style);
+        }
+
+        .order-status-screen .frame-4 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-spacing-4);
+            padding: 0px var(--spacing-spacing-4) 0px var(--spacing-spacing-4);
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            flex: 0 0 auto;
+        }
+
+        .order-status-screen .profile-widget {
+            display: flex;
+            height: 92px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            background-color: var(--colors-background-black-5);
+            border-radius: 16px;
+        }
+
+        .order-status-screen .frame-5 {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .order-status-screen .image {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        .order-status-screen .mcdonald-s-wrapper {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-1);
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .order-status-screen .mcdonald-s {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: "DM Sans-Medium", Helvetica;
+            font-weight: 500;
+            color: var(--colors-text-black-100);
+            font-size: 20px;
+            letter-spacing: -0.2px;
+            line-height: 24px;
+            white-space: nowrap;
+        }
+
+        .order-status-screen .frame-6 {
+            display: flex;
+            height: 614px;
+            align-items: flex-start;
+            gap: var(--spacing-spacing-4);
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+        }
+
+        .order-status-screen .frame-7 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-spacing-6);
+            padding: var(--spacing-spacing-6);
+            position: relative;
+            flex: 1;
+            align-self: stretch;
+            flex-grow: 1;
+            background-color: var(--colors-background-white-100);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .order-status-screen .text-wrapper-3 {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: "DM Sans-Bold", Helvetica;
+            font-weight: 700;
+            color: var(--colors-text-black-100);
+            font-size: 32px;
+            letter-spacing: -0.96px;
+            line-height: 40px;
+            white-space: nowrap;
+        }
+
+        .order-status-screen .frame-8 {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            gap: var(--spacing-spacing-2);
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            flex: 0 0 auto;
+        }
+
+        .order-status-screen .order-num {
+            display: flex;
+            width: 106px;
+            height: 64px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px var(--spacing-spacing-6) 8px var(--spacing-spacing-6);
+            position: relative;
+            background-color: var(--colors-background-black-10);
+            border-radius: var(--radius-round-3);
+        }
+
+        .order-status-screen .text-wrapper-4 {
+            position: relative;
+            width: fit-content;
+            margin-left: -0.5px;
+            margin-right: -0.5px;
+            font-family: var(--title-2-font-family);
+            font-weight: var(--title-2-font-weight);
+            color: var(--colors-text-black-100);
+            font-size: var(--title-2-font-size);
+            letter-spacing: var(--title-2-letter-spacing);
+            line-height: var(--title-2-line-height);
+            white-space: nowrap;
+            font-style: var(--title-2-font-style);
+        }
+
+        .order-status-screen .frame-9 {
+            display: flex;
+            flex-direction: column;
+            width: 383px;
+            align-items: center;
+            gap: var(--spacing-spacing-6);
+            padding: var(--spacing-spacing-6);
+            position: relative;
+            align-self: stretch;
+            background-color: var(--colors-background-white-100);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .order-status-screen .div-wrapper {
+            width: 334px;
+            height: 128px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px var(--spacing-spacing-6) 8px var(--spacing-spacing-6);
+            position: relative;
+            background-color: var(--colors-background-status-accepted);
+            border-radius: var(--radius-round-3);
+        }
+
+        .order-status-screen .text-wrapper-7 {
+            font-size: 32px;
+            letter-spacing: -0.96px;
+            line-height: 40px;
+            position: relative;
+            width: fit-content;
+            font-family: "DM Sans-Bold", Helvetica;
+            font-weight: 700;
+            color: var(--colors-text-white-100);
+            white-space: nowrap;
+        }
+
+        .order-status-screen .order-num-2 {
+            width: 106px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px var(--spacing-spacing-6) 8px var(--spacing-spacing-6);
+            position: relative;
+            background-color: var(--colors-background-status-accepted);
+            border-radius: var(--radius-round-3);
+        }
+
+        .order-status-screen .text-wrapper-8 {
+            margin-left: -0.5px;
+            margin-right: -0.5px;
+            font-size: var(--title-2-font-size);
+            letter-spacing: var(--title-2-letter-spacing);
+            line-height: var(--title-2-line-height);
+            position: relative;
+            width: fit-content;
+            font-family: var(--title-2-font-family);
+            font-weight: var(--title-2-font-weight);
+            color: var(--colors-text-white-100);
+            white-space: nowrap;
+            font-style: var(--title-2-font-style);
+        }
+
+        /* Portrait Mode Styles (Override Desktop Styles) */
+        @media (max-width: 900px) or (orientation: portrait) {
+            .order-status-screen {
+                width: 802px;
+                height: 1177px;
+                background: none;
+            }
+
+            .order-status-screen .background-of-body,
+            .order-status-screen .colorful,
+            .order-status-screen .gray {
+                display: none;
+            }
+
+            .order-status-screen .navigation {
+                display: flex;
+                width: 802px;
+                height: 96px;
+                align-items: flex-start;
+                padding: var(--spacing-spacing-4) var(--spacing-spacing-0);
+                position: absolute;
+                top: 0;
+                left: 0;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .order-status-screen .navigation-frame {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                position: relative;
+                flex: 1;
+                flex-grow: 1;
+                background-color: var(--colors-background-white-100);
+                border-radius: var(--radius-round-6);
+                box-shadow: var(--sticky-header);
+            }
+
+            .order-status-screen .header {
+                width: 802px;
+                height: 80px;
+                padding: var(--spacing-spacing-2) var(--spacing-spacing-0) var(--spacing-spacing-6) var(--spacing-spacing-0);
+                position: absolute;
+                top: 101px;
+                left: 0;
+                border: 1px solid #000000;
+            }
+
+            .order-status-screen .left-section {
+                display: inline-flex;
+                align-items: center;
+                gap: var(--spacing-spacing-6);
+                position: relative;
+                flex: 0 0 auto;
+            }
+
+            .order-status-screen .frame-2 {
+                padding-top: 186px;
+            }
+
+            .order-status-screen .profile-widget {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 802px;
+            }
+
+            .order-status-screen .frame-4 {
+                padding-top: 97px;
+            }
+
+            .order-status-screen .frame-6 {
+                height: 894px;
+                flex-direction: column;
+            }
+
+            .order-status-screen .frame-7,
+            .order-status-screen .frame-9 {
+                width: 100%;
+                flex: none;
+            }
+
+            .order-status-screen .main-menu {
+                flex-direction: row;
+                position: absolute;
+                top: 1033px;
+                left: 229px;
+                box-shadow: var(--sticky-header);
+            }
         }
     </style>
 </head>
-<body class="flex flex-row h-screen bg-gradient-to-r from-white to-[#ffebe7] font-['DM_Sans'] text-base">
-    <!-- Sidebar -->
-    <div class="sidebar flex flex-col justify-between h-screen w-auto p-4 fixed left-0 top-0 z-[1000] bg-transparent">
-        <div class="sidebar-logo w-16 h-16 flex items-center justify-center gap-2 rounded-full">
-            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Logo%20(1).png" alt="Order Status Logo" class="w-full h-full object-contain">
+<body>
+    <div class="order-status-screen">
+        <div class="background-of-body">
+            <div class="colorful"></div>
+            <div class="gray"></div>
         </div>
-        <div class="black-sidebard flex flex-col items-center gap-2 p-2 rounded-[48px] bg-black">
-            <a href="#" class="sidebar-icon w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector.png" alt="Dashboard">
-            </a>
-            <a href="#" class="sidebar-icon w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(1).png" alt="Menu">
-            </a>
-            <a href="#" class="sidebar-icon w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(2).png" alt="Orders">
-            </a>
-            <a href="#" class="sidebar-icon active w-12 h-12 rounded-full bg-[#ff5634] flex items-center justify-center">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(3).png" alt="Status">
-            </a>
-            <a href="#" class="sidebar-icon w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(4).png" alt="Settings">
-            </a>
-            <a href="#" class="sidebar-icon w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                <img src="https://fresher-repo-blob.vercel.app/wsp-bar/Vector%20(8).png" alt="Profile">
-            </a>
-        </div>
-        <div class="sidebar-profile flex flex-col justify-center items-center gap-2 p-2 rounded-[48px] bg-white">
-            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%208.png" alt="Profile" class="w-12 h-12">
-            <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%207%20(1).png" alt="Notification" class="w-12 h-12">
-        </div>
-    </div>
-    <!-- Main Content -->
-    <div class="main-content flex-1 h-screen flex flex-col items-center ml-24 overflow-y-auto">
-        <header class="header w-full h-24 flex justify-between items-center p-6 pr-4 sticky top-0 bg-gradient-to-r from-white to-[#ffebe7] z-[900]">
-            <h1 class="text-3xl font-bold tracking-tight">Order Status</h1>
-            <button class="fullscreen-btn border border-black/10 rounded-[24px] bg-transparent cursor-pointer">
-                <img src="YOUR_PNG_LINK_HERE" alt="Fullscreen Arrows" class="fullscreen-arrow">
-                <span class="fullscreen-text">FullScreen</span>
-            </button>
-        </header>
-
-        <div class="sub-content flex flex-col items-center h-full px-4 mb-4 w-full">
-            <div class="brand-card flex w-full h-[92px] p-4 justify-between items-center rounded-2xl bg-black/5">
-                <div class="brand-logo flex items-center gap-4 font-medium text-xl tracking-tight">
-                    <img src="https://fresher-repo-blob.vercel.app/wsp-bar/img%202.png" alt="McDonald's Logo" class="w-[60px] h-[60px] rounded-2xl">
-                    <span>McDonald's</span>
-                </div>
-                <div class="time font-bold text-3xl tracking-tight">15:03</div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="grid-container grid grid-cols-[1fr_383px] gap-4 w-full flex-grow mt-4">
-                <!-- Preparing Section -->
-                <div class="section section-preparing flex flex-col max-w-full h-screen rounded-3xl p-6 gap-6 bg-white">
-                    <h2 class="text-center font-bold text-3xl tracking-tight">Preparing</h2>
-                    <div class="box-item overflow-y-auto flex-grow">
-                        <div class="items flex gap-2 justify-center items-start flex-wrap">
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-black/10 font-bold text-2xl tracking-tight">3885</div>
-                        </div>
+        <div class="navigation">
+            <div class="navigation-frame">
+                <div class="logo"><img class="img" src="img/logo.svg" /></div>
+                <div class="other-links">
+                    <div class="frame"><div class="text-wrapper">S</div></div>
+                    <div class="div">
+                        <img class="img-2" src="img/notifications.svg" />
+                        <div class="rectangle"></div>
                     </div>
                 </div>
-
-                <!-- Ready Section -->
-                <div class="section section-ready flex flex-col max-w-full h-screen rounded-3xl p-6 gap-6 bg-white">
-                    <h2 class="text-center font-bold text-3xl tracking-tight">Ready</h2>
-                    <div class="box-item overflow-y-auto flex-grow">
-                        <div class="items flex gap-2 justify-center items-start flex-wrap">
-                            <div class="item flex w-full h-32 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-3xl tracking-tight p-6">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
-                            <div class="item flex w-[106px] h-16 items-center justify-center rounded-2xl bg-[#119717] text-white font-bold text-2xl tracking-tight">3885</div>
+            </div>
+        </div>
+        <div class="frame-2">
+            <header class="header">
+                <div class="left-section"><div class="text-wrapper-2">Order Status</div></div>
+                <div class="frame-3">
+                    <div class="iconic-buttons-large">
+                        <img class="img-2" src="img/fullscreen.svg" />
+                        <div class="text-button">FullScreen</div>
+                    </div>
+                </div>
+            </header>
+            <div class="frame-4">
+                <div class="profile-widget">
+                    <div class="frame-5">
+                        <img class="image" src="img/image-2.png" />
+                        <div class="mcdonald-s-wrapper"><div class="mcdonald-s">McDonald's</div></div>
+                    </div>
+                    <div class="text-wrapper-2">15:03</div>
+                </div>
+                <div class="frame-6">
+                    <div class="frame-7">
+                        <div class="text-wrapper-3">Preparing</div>
+                        <div class="frame-8">
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div Naiad</div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                            <div class="order-num"><div class="text-wrapper-4">3885</div></div>
+                        </div>
+                    </div>
+                    <div class="frame-9">
+                        <div class="text-wrapper-3">Ready</div>
+                        <div class="frame-8">
+                            <div class="div-wrapper"><div class="text-wrapper-7">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
+                            <div class="order-num-2"><div class="text-wrapper-8">3885</div></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="main-menu">
+            <div class="div-2"><img class="img-2" src="img/item-icon-3.svg" /></div>
+            <div class="div-2"><img class="img-2" src="img/image.svg" /></div>
+            <div class="div-2"><img class="img-2" src="img/item-icon-4.svg" /></div>
+            <div class="customer-display"><img class="img-2" src="img/item-icon.svg" /></div>
+            <div class="div-2"><img class="img-2" src="img/item-icon-5.svg" /></div>
+            <div class="div-2"><img class="img-2" src="img/item-icon-2.svg" /></div>
         </div>
     </div>
 </body>
