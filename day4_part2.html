@@ -12,7 +12,7 @@
             --fullscreen-btn-height: 48px;
             --fullscreen-btn-top: 24px;
             --fullscreen-btn-right: 16px;
-            --card-content-gap: 16px; /* Gap between title and items */
+            --card-content-gap: 16px;
         }
 
         html {
@@ -54,7 +54,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
             border-radius: 32px;
         }
 
@@ -115,7 +114,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 16px 24px 0px;
+            padding: 24px 16px;
             position: sticky;
             top: 0;
             background: linear-gradient(67.75deg, #ffffff 19.18%, #ffebe7 75.31%);
@@ -131,8 +130,9 @@
         .fullscreen-btn {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
-            padding: 16px 18px;
+            padding: 0 18px;
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             background: transparent;
@@ -176,6 +176,7 @@
             height: 100%;
             padding: 0 16px;
             margin-bottom: 16px;
+            width: 100%;
         }
 
         .brand-card {
@@ -227,7 +228,7 @@
 
         .section-preparing,
         .section-ready {
-            max-width: 100%;
+            width: 100%;
             height: 100vh;
             border-radius: 24px;
             padding: 24px;
@@ -243,7 +244,7 @@
 
         .box-item {
             overflow-y: auto;
-            flex-grow: 2;
+            flex-grow: 1;
         }
 
         .items {
@@ -252,7 +253,6 @@
             justify-content: center;
             align-items: flex-start;
             flex-wrap: wrap;
-            flex-grow: 1;
         }
 
         .item {
@@ -260,11 +260,11 @@
             width: 106px;
             height: 64px;
             align-items: center;
+            justify-content: center;
             border-radius: 16px;
             font-weight: 700;
             font-size: 24px;
             letter-spacing: -0.48px;
-            justify-content: center;
         }
 
         .section-preparing .item {
@@ -284,12 +284,19 @@
             padding: 24px;
         }
 
-        /* Media queries remain the same as in original code */
         @media (max-width: 992px) {
-            body { flex-direction: column; }
-            .header { padding: 16px 8px; }
-            .header h1 { font-size: 32px; }
-            .sub-content { width: 100%; padding: 16px; margin-bottom: 16px; }
+            body {
+                flex-direction: column;
+            }
+
+            .header {
+                padding: 16px 8px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
             .sidebar {
                 flex-direction: row;
                 height: 64px;
@@ -301,6 +308,7 @@
                 background: #fff;
                 box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.08);
             }
+
             .black-sidebard {
                 flex-direction: row;
                 position: fixed;
@@ -308,20 +316,109 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
-            .main-content { margin-left: 0; padding-top: 96px; padding-bottom: 16px; }
-            .grid-container { grid-template-columns: 1fr 1fr; }
-            .section { width: 100%; height: 100vh; padding: 16px; }
-            .items { display: grid; grid-template-columns: repeat(3, 106px); }
+
+            .main-content {
+                margin-left: 0;
+                padding-top: 96px;
+                padding-bottom: 16px;
+            }
+
+            .sub-content {
+                padding: 16px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-preparing,
+            .section-ready {
+                height: 100vh;
+                padding: 16px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+
+            .items {
+                display: grid;
+                grid-template-columns: repeat(3, 106px);
+            }
+
+            .item {
+                padding: 8px 24px;
+            }
+
+            .section-ready .item:first-child {
+                width: 334px;
+                grid-column: 1 / -1;
+            }
         }
 
         @media (max-width: 480px) {
-            .header h1 { font-size: 24px; }
-            .sidebar-icon { width: 40px; height: 40px; }
-            .main-content { padding-top: 80px; padding-bottom: 80px; }
-            .grid-container { grid-template-columns: 1fr; }
-            .section { height: auto; max-height: calc(100vh - 96px - 92px - 64px - 32px); }
-            .items { grid-template-columns: repeat(3, minmax(64px, 1fr)); }
-            .item { width: 100%; height: 40px; font-size: 16px; }
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .sidebar-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .black-sidebard {
+                bottom: 24px;
+                width: calc(100% - 32px);
+                max-width: 344px;
+            }
+
+            .main-content {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
+            .brand-card {
+                height: auto;
+            }
+
+            .brand-logo img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .time {
+                font-size: 20px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-preparing,
+            .section-ready {
+                height: auto;
+                max-height: calc(100vh - 96px - 92px - 64px - 32px);
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            .items {
+                grid-template-columns: repeat(3, minmax(64px, 1fr));
+            }
+
+            .item {
+                width: 100%;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .section-ready .item:first-child {
+                max-width: 334px;
+                height: 80px;
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -383,7 +480,34 @@
                     <div class="box-item">
                         <div class="items">
                             <div class="item">3885</div>
-                            <!-- Other items remain the same -->
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
                         </div>
                     </div>
                 </div>
@@ -393,7 +517,15 @@
                     <div class="box-item">
                         <div class="items">
                             <div class="item">3885</div>
-                            <!-- Other items remain the same -->
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
+                            <div class="item">3885</div>
                         </div>
                     </div>
                 </div>
