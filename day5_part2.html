@@ -25,7 +25,6 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        flex-wrap: nowrap;
     }
 
     .main-container {
@@ -98,16 +97,14 @@
     }
 
     .parent-form {
-        padding-left: 40px;
-        padding-right: 40px;
-        align-content: center;
+        padding: 40px;
         color: rgba(255, 255, 255, 1);
         min-height: 100%;
-        justify-content: center;
-        width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     .right-side {
@@ -137,7 +134,7 @@
         margin-bottom: 8px;
         display: block;
         padding-left: 16px;
-        font-family: DM Sans;
+        font-family: "DM Sans", sans-serif;
         font-weight: 700;
         font-size: 13px;
         line-height: 16px;
@@ -152,7 +149,6 @@
         font-size: 1rem;
         background-color: #F9F9F9;
         margin-bottom: 16px;
-        margin-top: 0px;
     }
 
     .password-container {
@@ -187,20 +183,15 @@
         text-decoration: none;
         font-size: 16px;
         font-weight: 500;
-        text-decoration: underline;
-        text-decoration-thickness: 0px;
     }
 
-    .Remember {
-        color: #000000; /* Changed to black */
-        padding-left: 0px;
-        font-size: 16px;
+    .form-options a:hover {
+        text-decoration: underline;
     }
 
     .right-side input[type="checkbox"] {
         appearance: none;
         border-radius: 8px;
-        border: none;
         width: 28px;
         height: 28px;
         background-color: rgba(0, 0, 0, 0.1);
@@ -208,24 +199,27 @@
         position: relative;
     }
 
-    .form-options a:hover {
-        text-decoration: underline;
+    .right-side input[type="checkbox"]:checked::after {
+        content: '✔';
+        position: absolute;
+        left: 8px;
+        top: 4px;
+        font-size: 16px;
+        color: #000;
     }
 
     .right-side button {
         background-color: rgba(0, 0, 0, 1);
         color: rgba(255, 255, 255, 1);
-        padding-left: 32px;
-        padding-right: 32px;
+        padding: 12px 32px;
         border: none;
         border-radius: 25px;
-        font-family: DM Sans;
+        font-family: "DM Sans", sans-serif;
         font-weight: 700;
         font-size: 16px;
         line-height: 24px;
         cursor: pointer;
         transition: background-color 0.3s;
-        text-align: center;
         width: 100%;
         margin-top: 26px;
         height: 48px;
@@ -244,21 +238,11 @@
         display: none;
     }
 
-    .right-side input[type="checkbox"]:checked::after {
-        content: '✔';
-        position: absolute;
-        left: 8px;
-        top: 4px;
-        font-size: 16px;
-        color: #000;
-    }
-
     @media (max-width: 1024px) {
         .main-container {
             max-width: 100vw;
             height: auto;
-            padding-left: 48px;
-            padding-right: 48px;
+            padding: 48px;
         }
 
         .table-container {
@@ -304,24 +288,30 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 180px; /* Matching desktop logo size */
+            top: 20px;
         }
 
         .logo2 img {
             display: block;
-            width: 100%;
-            height: auto;
+            height: 40px;
+            width: auto;
         }
 
         .panel {
             display: block;
-            font-size: 32px; /* Matching desktop size */
-            font-weight: 600; /* Matching desktop weight */
+            width: 189px;
+            height: 40px;
+            font-family: "DM Sans", sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 40px;
+            letter-spacing: -3%;
+            text-align: center;
             color: #1A1A1A;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            margin-top: 68px; /* Adjusted for better spacing with larger logo */
+            margin-top: 70px;
         }
 
         .text-title {
@@ -334,18 +324,17 @@
         }
 
         .parent-form {
-            padding-left: 20px;
-            padding-right: 20px;
+            padding: 20px;
             border-radius: 0 0 20px 20px;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            width: 100%;
         }
 
         .right-side {
             max-width: 360px;
             padding: 0 10px;
-            margin-left: 0px;
         }
 
         .right-side h3 {
@@ -383,23 +372,18 @@
             display: none;
         }
 
-        .parent-form {
-            width: 100%;
-        }
-
         .logo2 {
-            width: 150px; /* Slightly smaller for very small screens */
-            left: 50%;
+            top: 10px;
         }
 
         .logo2 img {
-            display: block;
+            height: 40px;
+            width: auto;
         }
 
         .panel {
-            font-size: 32px; /* Keeping consistent with desktop */
-            font-weight: 600;
-            margin-top: 58px;
+            font-size: 32px;
+            margin-top: 60px;
         }
 
         .right-side h3 {
@@ -421,8 +405,8 @@
 <body>
     <div class="main-container">
         <div class="logo2">
-            <img src="https://orderific.com/ord-website/assets/img/company-logo/logo-black-2.webp" alt="logo2">
-        </div>        
+            <img src="https://orderific.com/ord-website/assets/img/company-logo/logo-black-2.webp" alt="logo2" class="lg">
+        </div>
         <b class="panel">Service Panel</b>
         <table class="table-container">
             <tr class="table-row">
