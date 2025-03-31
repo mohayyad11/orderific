@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
       @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
@@ -21,6 +23,10 @@
       body {
         margin: 0px;
         height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to bottom, #FEF4F2, #FFEAE6);
       }
 
       button:focus-visible {
@@ -43,9 +49,9 @@
         position: relative;
         border-radius: var(--radius-round-6);
         overflow: hidden;
-        background-image: url(./img/introduction.png);
+        background-image: url(https://s3-alpha-sig.figma.com/img/97c5/77dd/b047dd3c09ed673e80bc7a6d07bed063?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HVwcohuuOmh-X7Qqo7uHWp9YRQEoc8lJNe65ZFvm3SYM0kwYAm9oSsA7budFfes6m7jFmwVSS7BAvpHsJFjwWOZQAAni9HStdxF4A3e2wyMYLzlmZv0b81b1eDuv72IzYx8o2oNcHwF1xc1waQI-otPK0tDnk3F-~j~YJk88MyArdXPhYcZl5u2OD5driF9hzdkqQCneoaiBUCilcgu1TlsOX9DD5SsSWbyMQv8hJtlnG9Z50gjSej5Z0qPIP~cc7ZKSrCtbhZt5XllsOj8Y~2yI~Op49I9eIIbioEDxmV6yg9Z5DizT8oSknJlP-KfcnOVI-0H4f4VgA1iAUDkKDg__);
         background-size: cover;
-        background-position: 50% 50%;
+        background-position: center;
       }
 
       .introduction .BG {
@@ -76,7 +82,7 @@
       .introduction .logo {
         position: relative;
         width: 168px;
-        height: 58.86px;
+        height: 38.97px;
         margin-top: -460px;
       }
 
@@ -96,7 +102,7 @@
         position: relative;
         align-self: stretch;
         margin-top: -1.00px;
-        font-family: "DM Sans-Bold", Helvetica;
+        font-family: "DM Sans", sans-serif;
         font-weight: 700;
         color: var(--colors-text-white-100);
         font-size: 64px;
@@ -107,7 +113,7 @@
       .introduction .description {
         position: relative;
         align-self: stretch;
-        font-family: "DM Sans-Regular", Helvetica;
+        font-family: "DM Sans", sans-serif;
         font-weight: 400;
         color: var(--colors-text-white-100);
         font-size: 16px;
@@ -128,7 +134,7 @@
     <div class="introduction">
       <div class="BG"></div>
       <div class="div"></div>
-      <img class="logo" src="img/type-4.svg" />
+      <img class="logo" src="./logo.svg" alt="Logo" />
       <div class="content">
         <div class="big-title">Service Panel</div>
         <p class="description">
