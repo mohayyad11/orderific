@@ -237,39 +237,42 @@
     /* Portrait Layout */
     .portrait-container {
         display: none;
-        padding: 20px;
+        padding: 24px;
         min-height: 100vh;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        background: linear-gradient(33.85deg, #FDE8E4 37.88%, #ECECEC 73.61%);
     }
 
     .logo-container {
+        position: absolute;
+        top: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        padding-top: 20px;
         width: 100%;
     }
 
     .portrait-logo {
-        width: 53px;
+        width: 48px;
         height: auto;
     }
 
     .brand-name {
-        font-size: 24px;
+        font-size: 28px;
         font-weight: 700;
         color: #1A1A1A;
     }
 
     .panel-title {
-        font-size: 32px;
+        font-size: 36px;
         font-weight: 700;
         color: #1A1A1A;
         text-align: center;
-        margin-top: 16px;
-        margin-bottom: 32px;
+        margin-top: 80px;
+        margin-bottom: 40px;
     }
 
     /* Media Queries */
@@ -283,28 +286,28 @@
         }
 
         .right-side {
-            max-width: 360px;
-            padding: 0 20px;
+            max-width: 400px;
+            padding: 0 24px;
         }
 
         .right-side h3 {
-            font-size: 28px;
+            font-size: 32px;
         }
 
         .subtitle {
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .right-side input[type="email"],
         .right-side input[type="password"] {
-            padding: 10px 12px;
-            font-size: 0.9rem;
-            height: 48px;
+            padding: 14px 16px;
+            font-size: 1rem;
+            height: 52px;
         }
 
         .right-side button {
-            font-size: 16px;
-            height: 48px;
+            font-size: 18px;
+            height: 52px;
         }
     }
 
@@ -318,12 +321,18 @@
         }
 
         .brand-name {
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .panel-title {
-            font-size: 24px;
-            margin-bottom: 24px;
+            font-size: 28px;
+            margin-top: 72px;
+            margin-bottom: 32px;
+        }
+
+        .right-side {
+            max-width: 100%;
+            padding: 0 16px;
         }
 
         .right-side h3 {
@@ -331,16 +340,18 @@
         }
 
         .subtitle {
-            font-size: 12px;
+            font-size: 14px;
         }
 
         .right-side input[type="email"],
         .right-side input[type="password"] {
-            height: 44px;
+            height: 48px;
+            padding: 12px 14px;
         }
 
         .right-side button {
-            height: 44px;
+            height: 48px;
+            font-size: 16px;
         }
     }
 </style>
