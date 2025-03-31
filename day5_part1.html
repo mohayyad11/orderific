@@ -82,11 +82,9 @@
       }
 
       .introduction .logo {
-        position: relative;
-        width: 168px;
         height: 38.97px;
-        margin-top: -460px;
-        z-index: 3;
+        position: relative;
+        z-index: 3; /* Ensure logo is above overlay */
       }
 
       .introduction .content {
@@ -138,7 +136,7 @@
     <div class="introduction">
       <div class="BG"></div>
       <div class="div"></div>
-      <img class="logo" src="./logo.svg" alt="Logo" />
+      <img src="./logo.svg" alt="Logo" class="logo">
       <div class="content">
         <div class="big-title">Service Panel</div>
         <p class="description">
