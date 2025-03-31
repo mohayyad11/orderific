@@ -13,6 +13,7 @@
         --radius-round-6: 32px;
         --colors-text-white-100: rgba(255, 255, 255, 1);
         --colors-background-brand-orange-100: rgba(255, 86, 52, 1);
+        /* Adjustable logo properties */
         --logo-height: 38px;
         --logo-width: 150px;
         --logo-x-position: 12px;
@@ -29,6 +30,8 @@
 
     body {
         font-family: "DM Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
         background: linear-gradient(67.75deg, #FFFFFF 19.18%, #FFEBE7 75.31%);
         width: 100%;
         min-height: 100vh;
@@ -184,7 +187,7 @@
     }
 
     .Remember {
-        color: #000;
+        color: rgba(0, 0, 0, 0.6);
         font-size: 16px;
     }
 
@@ -258,8 +261,8 @@
         }
 
         .logo2 img {
-            height: 38px;
-            width: 150px;
+            height: var(--logo-height);
+            width: var(--logo-width);
         }
 
         .panel {
