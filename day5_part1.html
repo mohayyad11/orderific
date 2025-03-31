@@ -12,6 +12,10 @@
         --radius-round-6: 32px;
         --colors-text-white-100: rgba(255, 255, 255, 1);
         --colors-background-brand-orange-100: rgba(255, 86, 52, 1);
+        /* New variables for logo customization */
+        --logo-height: 38.97px;
+        --logo-width: auto;
+        --logo-position: left; /* Can be 'left' or 'right' */
       }
 
       * {
@@ -82,9 +86,11 @@
       }
 
       .introduction .logo {
-        height: 38.97px;
+        height: var(--logo-height);
+        width: var(--logo-width);
         position: relative;
-        z-index: 3; /* Ensure logo is above overlay */
+        z-index: 3;
+        align-self: var(--logo-position); /* Controls left or right alignment */
       }
 
       .introduction .content {
@@ -145,5 +151,15 @@
         </p>
       </div>
     </div>
+
+    <!-- Optional: Add this style block to change logo size and position -->
+    <style>
+      /* Example customization - you can modify these values */
+      :root {
+        --logo-height: 50px;    /* Change height as needed */
+        --logo-width: 200px;    /* Change width as needed, or set to 'auto' */
+        --logo-position: right; /* Change to 'left' or 'right' */
+      }
+    </style>
   </body>
 </html>
