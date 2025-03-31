@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --Background-Brand-Orange-100: #FF5634;
+            --Text-White-100: #FFFFFF;
+            --spacing-xs: 8px; /* Assuming XS padding is 8px */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #FEF4F2, #FFEAE6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gcard {
+            width: 496px;
+            height: 834px;
+            border-radius: 32px;
+            background-image: url(https://s3-alpha-sig.figma.com/img/97c5/77dd/b047dd3c09ed673e80bc7a6d07bed063?Expires=1743984000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HVwcohuuOmh-X7Qqo7uHWp9YRQEoc8lJNe65ZFvm3SYM0kwYAm9oSsA7budFfes6m7jFmwVSS7BAvpHsJFjwWOZQAAni9HStdxF4A3e2wyMYLzlmZv0b81b1eDuv72IzYx8o2oNcHwF1xc1waQI-otPK0tDnk3F-~j~YJk88MyArdXPhYcZl5u2OD5driF9hzdkqQCneoaiBUCilcgu1TlsOX9DD5SsSWbyMQv8hJtlnG9Z50gjSej5Z0qPIP~cc7ZKSrCtbhZt5XllsOj8Y~2yI~Op49I9eIIbioEDxmV6yg9Z5DizT8oSknJlP-KfcnOVI-0H4f4VgA1iAUDkKDg__);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .goverlay {
+            position: absolute;
+            inset: 0;
+            width: 480px;
+            height: 976px;
+            background: var(--Background-Brand-Orange-100, #FF5634);
+            border-radius: 32px;
+            opacity: 0.5;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .glogo {
+            width: 168px;
+            height: 58.85575866699219px;
+            padding: var(--spacing-xs);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 6.15px;
+        }
+
+        .gtext-container {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+            color: var(--Text-White-100, #FFFFFF);
+            text-align: left;
+            z-index: 1;
+        }
+
+        .gtitle {
+            width: 400px;
+            height: 56px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 56px;
+            letter-spacing: -3%;
+            margin-bottom: 14px;
+            color: var(--Text-White-100, #FFFFFF);
+        }
+
+        .gdescription {
+            width: 400px;
+            height: 80px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: -1%;
+            color: var(--Text-White-100, #FFFFFF);
+        }
+    </style>
+</head>
+<body>
+    <div class="gcard">
+        <div class="goverlay"></div>
+        <img src="./logo.svg" alt="Orderific Logo" class="glogo">
+        <div class="gtext-container">
+            <p class="gtitle">Service Panel</p>
+            <p class="gdescription">
+                Streamline your restaurant operations with BMS.<br>
+                Manage reservations, orders, inventory, and staff<br>
+                effortlessly, and focus on delivering exceptional dining<br>
+                experiences.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
