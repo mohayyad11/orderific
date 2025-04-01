@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6: Popup Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .task-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        h2 {
+            background: linear-gradient(to right, #6b7280, #111827);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        .answer-text {
+            font-size: 1.1rem;
+            color: #374151;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="task-content">
+        <h2>Task 6: Popup Modal</h2>
+        <div class="bg-white p-6 rounded-2xl shadow-2xl w-80">
+            <h2 class="text-xl font-bold text-black">Cancel Item</h2>
+            <p class="text-gray-600 mt-1 text-sm">Are you sure to cancel this item?</p>
+            <div class="border border-gray-300 rounded-lg p-3 mt-4 bg-gray-50">
+                <p class="font-semibold text-base text-black">Tasty Burger</p>
+                <p class="text-gray-500 text-xs">Size: Small, Cheese: A little bit, Salt: No</p>
+            </div>
+            <div class="w-full block bg-red-600 text-white font-semibold py-3 rounded-full mt-4 shadow-md text-center hover:bg-red-700 text-lg">
+                Cancel Items
+            </div>
+        </div>
+        <p class="answer-text">Answer: This modal uses absolute positioning and shadows to create a popup effect, with interactive elements styled for user engagement.</p>
+    </div>
+</body>
+</html>
