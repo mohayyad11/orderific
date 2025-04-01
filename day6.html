@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive CSS Tasks - Popup Links</title>
+    <title>Interactive CSS Tasks - External Links</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -27,77 +27,13 @@
             box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
             transition: all 0.4s ease;
             cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
         }
         .task-button:hover {
             transform: scale(1.1) rotate(2deg);
             box-shadow: 0 12px 35px rgba(139, 92, 246, 0.7);
             background: linear-gradient(45deg, #d946ef, #8b5cf6);
-        }
-        .task-container {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.8);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-        }
-        .task-container.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .task-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            max-width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            transform: scale(0.8);
-            transition: transform 0.4s ease;
-            position: relative;
-            width: 80vw;
-            height: 80vh;
-        }
-        .task-container.active .task-content {
-            transform: scale(1);
-        }
-        .close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 2.5rem;
-            height: 2.5rem;
-            background: #ef4444;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .close-btn:hover {
-            background: #dc2626;
-        }
-        h2 {
-            background: linear-gradient(to right, #6b7280, #111827);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
-        iframe {
-            width: 100%;
-            height: calc(100% - 4rem); /* Adjust height to account for h2 and padding */
-            border: none;
         }
     </style>
 </head>
@@ -107,96 +43,15 @@
             Interactive CSS Tasks
         </h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <label for="task1" class="task-button">Task 1</label>
-            <label for="task2" class="task-button">Task 2</label>
-            <label for="task3" class="task-button">Task 3</label>
-            <label for="task4" class="task-button">Task 4</label>
-            <label for="task5" class="task-button">Task 5</label>
-            <label for="task6" class="task-button">Task 6</label>
-            <label for="task7" class="task-button">Task 7</label>
-            <label for="task8" class="task-button">Task 8</label>
+            <a href="https://orderific-ashen.vercel.app/day6_task1.html" target="_blank" class="task-button">Task 1</a>
+            <a href="https://orderific-ashen.vercel.app/day6_task2.html" target="_blank" class="task-button">Task 2</a>
+            <a href="https://orderific-ashen.vercel.app/day6_task3.html" target="_blank" class="task-button">Task 3</a>
+            <a href="https://orderific-ashen.vercel.app/day6_task4.html" target="_blank" class="task-button">Task 4</a>
+            <a href="https://orderific-ashen.vercel.app/day6_task5.html" target="_blank" class="task-button">Task 5</a>
+            <a href="https://orderific-ashen.vercel.app/day6_task6.html" target="_blank" class="task-button">Task 6</a>
+            <a href="https://orderific-ashen.vercel.app/day6_task7.html" target="_blank" class="task-button">Task 7</a>
+            <a href="https://orderific-ashen.vercel.app/day6_task8.html" target="_blank" class="task-button">Task 8</a>
         </div>
     </div>
-
-    <!-- Task 1: CSS Box Model -->
-    <input type="checkbox" id="task1" class="hidden peer">
-    <div class="task-container peer-checked:active">
-        <div class="task-content relative">
-            <label for="task1" class="close-btn">×</label>
-            <h2>Task 1: CSS Box Model</h2>
-            <iframe src="https://orderific-ashen.vercel.app/day6_task1.html"></iframe>
-        </div>
-    </div>
-
-    <!-- Task 2: CSS Display Properties -->
-    <input type="checkbox" id="task2" class="hidden peer">
-    <div class="task-container peer-checked:active">
-        <div class="task-content relative">
-            <label for="task2" class="close-btn">×</label>
-            <h2>Task 2: CSS Display Properties</h2>
-            <iframe src="https://orderific-ashen.vercel.app/day6_task2.html"></iframe>
-        </div>
-    </div>
-
-    <!-- Task 3: CSS Positioning and Float -->
-    <input type="checkbox" id="task3" class="hidden peer">
-    <div class="task-container peer-checked:active">
-        <div class="task-content relative">
-            <label for="task3" class="close-btn">×</label>
-            <h2>Task 3: CSS Positioning and Float</h2>
-            <iframe src="https://orderific-ashen.vercel.app/day6_task3.html"></iframe>
-        </div>
-    </div>
-
-    <!-- Task 4: Flexbox - Modern Layout -->
-    <input type="checkbox" id="task4" class="hidden peer">
-    <div class="task-container peer-checked:active">
-        <div class="task-content relative">
-            <label for="task4" class="close-btn">×</label>
-            <h2>Task 4: Flexbox - Modern Layout</h2>
-            <iframe src="https://orderific-ashen.vercel.app/day6_task4.html"></iframe>
-        </div>
-    </div>
-
-    <!-- Task 5: Card with Shadow -->
-    <input type="checkbox" id="task5" class="hidden peer">
-    <div class="task-container peer-checked:active">
-        <div class="task-content relative">
-            <label for="task5" class="close-btn">×</label>
-            <h2>Task 5: Card with Shadow</h2>
-            <iframe src="https://orderific-ashen.vercel.app/day6_task5.html"></iframe>
-        </div>
-    </div>
-
-    <!-- Task 6: Popup Modal -->
-    <input type="checkbox" id="task6" class="hidden peer">
-    <div class="task-container peer-checked:active">
-        <div class="task-content relative">
-            <label for="task6" class="close-btn">×</label>
-            <h2>Task 6: Popup Modal</h2>
-            <iframe src="https://orderific-ashen.vercel.app/day6_task6.html"></iframe>
-        </div>
-    </div>
-
-    <!-- Task 7: Flexbox Layout -->
-    <input type="checkbox" id="task7" class="hidden peer">
-    <div class="task-container peer-checked:active">
-        <div class="task-content relative">
-            <label for="task7" class="close-btn">×</label>
-            <h2>Task 7: Flexbox Layout</h2>
-            <iframe src="https://orderific-ashen.vercel.app/day6_task7.html"></iframe>
-        </div>
-    </div>
-
-    <!-- Task 8: Popular Items Grid -->
-    <input type="checkbox" id="task8" class="hidden peer">
-    <div class="task-container peer-checked:active">
-        <div class="task-content relative">
-            <label for="task8" class="close-btn">×</label>
-            <h2>Task 8: Popular Items Grid</h2>
-            <iframe src="https://orderific-ashen.vercel.app/day6_task8.html"></iframe>
-        </div>
-    </div>
-
 </body>
 </html>
