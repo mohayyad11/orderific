@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Tasks Demo - Interactive Layouts</title>
+    <title>Interactive CSS Tasks with Answers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -91,12 +91,17 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
         }
+        .answer-text {
+            font-size: 1.1rem;
+            color: #374151;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
     <div class="container mx-auto text-center">
         <h1 class="text-4xl font-bold text-white mb-12" style="text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);">
-            Interactive CSS Tasks
+            Interactive CSS Tasks with Answers
         </h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             <label for="task1" class="task-button">Task 1</label>
@@ -110,12 +115,12 @@
         </div>
     </div>
 
-    <!-- Task 1 -->
+    <!-- Task 1: CSS Box Model -->
     <input type="checkbox" id="task1" class="hidden peer">
     <div class="task-container peer-checked:active">
         <div class="task-content relative">
             <label for="task1" class="close-btn">×</label>
-            <h2>CSS Box Model</h2>
+            <h2>Task 1: CSS Box Model</h2>
             <div class="p-4 border-l-4 border-purple-500 bg-gray-50 rounded-lg">
                 <div class="w-64 h-64 flex items-center justify-center text-center font-semibold text-lg 
                             border-t-8 border-t-purple-600 
@@ -126,27 +131,29 @@
                     This is a box with different border widths and colors.
                 </div>
             </div>
+            <p class="answer-text">Answer: This demonstrates the CSS Box Model, showing how borders of varying widths and colors affect the content area, with padding and margin influencing the overall size.</p>
         </div>
     </div>
 
-    <!-- Task 2 -->
+    <!-- Task 2: CSS Display Properties -->
     <input type="checkbox" id="task2" class="hidden peer">
     <div class="task-container peer-checked:active">
         <div class="task-content relative">
             <label for="task2" class="close-btn">×</label>
-            <h2>CSS Display Properties</h2>
+            <h2>Task 2: CSS Display Properties</h2>
             <div class="p-8 bg-indigo-300 text-center text-lg font-semibold shadow-lg rounded-lg">
                 Added padding to a "div" to observe the changes!
             </div>
+            <p class="answer-text">Answer: This shows how the 'display' property (default block) with added padding expands the element's inner spacing, affecting its layout without altering its outer dimensions unless specified.</p>
         </div>
     </div>
 
-    <!-- Task 3 -->
+    <!-- Task 3: CSS Positioning and Float -->
     <input type="checkbox" id="task3" class="hidden peer">
     <div class="task-container peer-checked:active">
         <div class="task-content relative">
             <label for="task3" class="close-btn">×</label>
-            <h2>CSS Positioning and Float</h2>
+            <h2>Task 3: CSS Positioning and Float</h2>
             <div class="flex flex-col items-center">
                 <div class="bg-teal-400 text-black text-lg font-bold p-6 rounded-lg m-4">
                     Task 3:
@@ -155,42 +162,45 @@
                     Adjustment
                 </div>
             </div>
+            <p class="answer-text">Answer: This uses Flexbox positioning (flex-col) to stack elements vertically with centered alignment, replacing older float techniques for modern layout control.</p>
         </div>
     </div>
 
-    <!-- Task 4 -->
+    <!-- Task 4: Flexbox - Modern Layout -->
     <input type="checkbox" id="task4" class="hidden peer">
     <div class="task-container peer-checked:active">
         <div class="task-content relative">
             <label for="task4" class="close-btn">×</label>
-            <h2>Flexbox - Modern Layout</h2>
+            <h2>Task 4: Flexbox - Modern Layout</h2>
             <div class="w-64 p-6 border-4 border-green-600 bg-gray-200 text-center text-lg font-semibold box-border">
                 Task 4: Using box-sizing: border-box; to control width calculations.
             </div>
+            <p class="answer-text">Answer: This demonstrates Flexbox with 'box-sizing: border-box', ensuring the border and padding are included in the element's total width, simplifying layout calculations.</p>
         </div>
     </div>
 
-    <!-- Task 5 -->
+    <!-- Task 5: Card with Shadow -->
     <input type="checkbox" id="task5" class="hidden peer">
     <div class="task-container peer-checked:active">
         <div class="task-content relative">
             <label for="task5" class="close-btn">×</label>
-            <h2>Card with Shadow</h2>
+            <h2>Task 5: Card with Shadow</h2>
             <div class="relative p-6 w-72 rounded-2xl shadow-xl border border-gray-100" style="background: linear-gradient(to bottom right, #f9e9e6, #f2dede); box-shadow: -8px 0px 0px rgba(0, 0, 0, 0.1);">
                 <h3 class="text-2xl font-bold text-gray-800">#2001</h3>
                 <p class="text-gray-600 font-semibold mt-1">Ralph Edwards</p>
                 <p class="font-semibold mt-4 text-gray-800">Ordered</p>
                 <p class="text-gray-500 text-sm">8 min ago</p>
             </div>
+            <p class="answer-text">Answer: This card uses shadows and gradients to create a visually appealing design, with CSS properties like 'box-shadow' and 'border-radius' enhancing depth and style.</p>
         </div>
     </div>
 
-    <!-- Task 6 -->
+    <!-- Task 6: Popup Modal -->
     <input type="checkbox" id="task6" class="hidden peer">
     <div class="task-container peer-checked:active">
         <div class="task-content relative">
             <label for="task6" class="close-btn">×</label>
-            <h2>Popup Modal</h2>
+            <h2>Task 6: Popup Modal</h2>
             <div class="bg-white p-6 rounded-2xl shadow-2xl w-80">
                 <h2 class="text-xl font-bold text-black">Cancel Item</h2>
                 <p class="text-gray-600 mt-1 text-sm">Are you sure to cancel this item?</p>
@@ -202,15 +212,16 @@
                     Cancel Items
                 </div>
             </div>
+            <p class="answer-text">Answer: This modal uses absolute positioning and shadows to create a popup effect, with interactive elements styled for user engagement.</p>
         </div>
     </div>
 
-    <!-- Task 7 -->
+    <!-- Task 7: Flexbox Layout -->
     <input type="checkbox" id="task7" class="hidden peer">
     <div class="task-container peer-checked:active">
         <div class="task-content relative">
             <label for="task7" class="close-btn">×</label>
-            <h2>Flexbox Layout</h2>
+            <h2>Task 7: Flexbox Layout</h2>
             <div class="p-6 rounded-xl shadow-lg flex flex-col gap-4 w-fit" style="background: linear-gradient(to bottom right, #f9e9e6, #d9d9d9);">
                 <div class="flex gap-3 flex-wrap">
                     <div class="w-16 h-10 flex items-center justify-center bg-white rounded-lg shadow-md border-l-4 border-red-500 hover:bg-red-50">A1</div>
@@ -237,15 +248,16 @@
                     <div class="w-16 h-10 flex items-center justify-center bg-white rounded-lg shadow-md hover:bg-gray-50">D1</div>
                 </div>
             </div>
+            <p class="answer-text">Answer: This Flexbox layout uses 'flex-wrap' and 'gap' to create a responsive grid of items, with color-coded borders for visual distinction.</p>
         </div>
     </div>
 
-    <!-- Task 8 -->
+    <!-- Task 8: Popular Items Grid -->
     <input type="checkbox" id="task8" class="hidden peer">
     <div class="task-container peer-checked:active">
         <div class="task-content relative">
             <label for="task8" class="close-btn">×</label>
-            <h2>Popular Items Grid</h2>
+            <h2>Task 8: Popular Items Grid</h2>
             <div class="p-6 rounded-xl shadow-lg w-[28rem] h-[34rem]" style="background: linear-gradient(to bottom right, #f2f2f2, #e5e5e5);">
                 <h1 class="text-xl font-semibold mb-6 text-black">Popular Items</h1>
                 <div class="grid grid-cols-2 gap-4 w-[24rem]">
@@ -275,6 +287,7 @@
                     </div>
                 </div>
             </div>
+            <p class="answer-text">Answer: This grid layout uses CSS Grid to display popular items in a 2-column format, with hover effects and shadows for interactivity and visual appeal.</p>
         </div>
     </div>
 
