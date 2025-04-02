@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Import Statements */
+        @import url('https://fonts.cdnfonts.com/css/metropolis-2');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
+        @import url('fonts.css');
+
+        /* CSS Variables */
+        :root {
+            --orderificcomcod-gray: rgba(18, 18, 18, 1);
+            --orderific-com-color-black-solid: rgba(0, 0, 0, 1);
+            --orderific-com-color-grey-40: rgba(101, 101, 101, 1);
+            --orderific-com-color-grey-93: rgba(237, 237, 237, 1);
+            --orderific-com-color-red-60: rgba(255, 86, 52, 1);
+            --orderific-com-color-white-solid: rgba(255, 255, 255, 1);
+
+            --orderific-com-metropolis-bold-font-family: "Metropolis", Helvetica;
+            --orderific-com-metropolis-bold-font-weight: 700;
+            --orderific-com-metropolis-bold-font-size: 22px;
+            --orderific-com-metropolis-bold-letter-spacing: 0px;
+            --orderific-com-metropolis-bold-line-height: 20px;
+            --orderific-com-metropolis-bold-font-style: normal;
+
+            --orderific-com-metropolis-medium-font-family: "Metropolis", Helvetica;
+            --orderific-com-metropolis-medium-font-weight: 500;
+            --orderific-com-metropolis-medium-font-size: 17.859375px;
+            --orderific-com-metropolis-medium-letter-spacing: 0px;
+            --orderific-com-metropolis-medium-line-height: 30px;
+            --orderific-com-metropolis-medium-font-style: normal;
+
+            --orderific-com-semantic-heading-4-font-family: "Metropolis", Helvetica;
+            --orderific-com-semantic-heading-4-font-weight: 700;
+            --orderific-com-semantic-heading-4-font-size: 28px;
+            --orderific-com-semantic-heading-4-letter-spacing: 0px;
+            --orderific-com-semantic-heading-4-line-height: 33.599998474121094px;
+            --orderific-com-semantic-heading-4-font-style: normal;
+
+            --orderific-com-semantic-link-title-font-family: "Metropolis", Helvetica;
+            --orderific-com-semantic-link-title-font-weight: 700;
+            --orderific-com-semantic-link-title-font-size: 16px;
+            --orderific-com-semantic-link-title-letter-spacing: 0px;
+            --orderific-com-semantic-link-title-line-height: 18px;
+            --orderific-com-semantic-link-title-font-style: normal;
+        }
+
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button:focus-visible {
+            outline: 2px solid #4a90e2 !important;
+            outline: -webkit-focus-ring-color auto 5px !important;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Section Styles */
+        .section {
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .section .background-border-wrapper {
+            width: 100%;
+            max-width: 626px;
+            padding: 0 15px;
+        }
+
+        .section .background-border {
+            position: relative;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #ededed;
+            box-shadow: 0px 2px 12px #10101014;
+            padding: 30px 20px;
+            height: auto;
+        }
+
+        .section .png {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            margin: 0 auto 20px;
+            background-image: url(./icon4-png.png);
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        .section .overlap-group {
+            position: relative;
+            width: 100%;
+            max-width: 156px;
+            height: 64px;
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+
+        .section .text-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 115px;
+            height: 30px;
+            margin: 0 auto;
+            font-family: "Metropolis-Bold", Helvetica;
+            font-weight: 700;
+            color: #656565;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: 29.7px;
+            white-space: nowrap;
+        }
+
+        .section .heading-month {
+            position: relative;
+            width: 100%;
+            max-width: 156px;
+            height: 34px;
+            margin: 0 auto;
+            font-family: var(--orderific-com-semantic-heading-4-font-family);
+            font-weight: var(--orderific-com-semantic-heading-4-font-weight);
+            color: var(--orderificcomcod-gray);
+            font-size: var(--orderific-com-semantic-heading-4-font-size);
+            letter-spacing: var(--orderific-com-semantic-heading-4-letter-spacing);
+            line-height: var(--orderific-com-semantic-heading-4-line-height);
+            white-space: nowrap;
+            font-style: var(--orderific-com-semantic-heading-4-font-style);
+        }
+
+        .section .become-a-culinary {
+            position: relative;
+            width: 100%;
+            max-width: 516px;
+            height: auto;
+            margin: 20px auto;
+            font-family: "Metropolis-Medium", Helvetica;
+            font-weight: 500;
+            color: #656565;
+            font-size: 17.7px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: 29.7px;
+        }
+
+        .section .group-basic-example {
+            display: flex;
+            width: 100%;
+            max-width: 282px;
+            align-items: center;
+            justify-content: center;
+            padding: 26px 38px;
+            position: relative;
+            margin: 20px auto;
+            background-color: #ff5634;
+            border-radius: 12px;
+        }
+
+        .section .get-started {
+            position: relative;
+            width: fit-content;
+            font-family: "Metropolis-Bold", Helvetica;
+            font-weight: var(--orderific-com-semantic-link-title-font-weight);
+            color: #ffffff;
+            font-size: var(--orderific-com-semantic-link-title-font-size);
+            text-align: center;
+            letter-spacing: var(--orderific-com-semantic-link-title-letter-spacing);
+            line-height: var(--orderific-com-semantic-link-title-line-height);
+            white-space: nowrap;
+        }
+
+        .section .div {
+            position: relative;
+            width: 100%;
+            max-width: 146px;
+            height: 37px;
+            margin: 30px 0 20px;
+            font-family: "Metropolis-Black";
+            font-weight: 700;
+            color: var(--orderificcomcod-gray);
+            font-size: 22px;
+            letter-spacing: 0;
+            line-height: 36.3px;
+            white-space: nowrap;
+        }
+
+        .section .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .section .check-svg-fill {
+            display: flex;
+            flex-direction: column;
+            width: 20px;
+            height: 20px;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .section .img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .section .feature-text {
+            flex: 1;
+        }
+
+        .section .feature-title {
+            font-family: "Metropolis-Bold", Helvetica;
+            font-weight: 700;
+            color: var(--orderificcomcod-gray);
+            font-size: 18px;
+            letter-spacing: 0;
+            line-height: 20px;
+            margin-bottom: 5px;
+            white-space: normal;
+        }
+
+        .section .feature-desc {
+            font-family: "Metropolis-Medium", Helvetica;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--orderificcomcod-gray);
+            font-size: 15.8px;
+            letter-spacing: 0;
+            line-height: 20px;
+            white-space: normal;
+        }
+
+        .section .text-wrapper-23 {
+            position: relative;
+            width: 100%;
+            max-width: 154px;
+            height: 30px;
+            margin: 20px auto;
+            font-family: "Metropolis-Medium", Helvetica;
+            font-weight: 500;
+            color: #000000;
+            font-size: 17.7px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: 29.7px;
+            white-space: nowrap;
+        }
+
+        .section .text-wrapper-24 {
+            position: relative;
+            width: 100%;
+            max-width: 362px;
+            height: auto;
+            margin: 20px 0 10px;
+            font-family: var(--orderific-com-metropolis-bold-font-family);
+            font-weight: var(--orderific-com-metropolis-bold-font-weight);
+            color: var(--orderificcomcod-gray);
+            font-size: var(--orderific-com-metropolis-bold-font-size);
+            letter-spacing: var(--orderific-com-metropolis-bold-letter-spacing);
+            line-height: var(--orderific-com-metropolis-bold-line-height);
+            white-space: normal;
+        }
+
+        .section .choose-this-plan-to {
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            margin: 0 auto 20px;
+            font-family: var(--orderific-com-metropolis-medium-font-family);
+            font-weight: var(--orderific-com-metropolis-medium-font-weight);
+            color: var(--orderificcomcod-gray);
+            font-size: var(--orderific-com-metropolis-medium-font-size);
+            letter-spacing: var(--orderific-com-metropolis-medium-letter-spacing);
+            line-height: var(--orderific-com-metropolis-medium-line-height);
+            font-style: var(--orderific-com-metropolis-medium-font-style);
+            white-space: normal;
+        }
+
+        .section .icon-png {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            top: -55px;
+            left: -55px;
+            background-image: url(./icon7.png);
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 768px) {
+            .section {
+                padding: 15px;
+            }
+
+            .section .background-border {
+                padding: 20px 15px;
+            }
+
+            .section .png {
+                width: 36px;
+                height: 36px;
+            }
+
+            .section .text-wrapper {
+                font-size: 16px;
+            }
+
+            .section .heading-month {
+                font-size: 24px;
+            }
+
+            .section .become-a-culinary {
+                font-size: 16px;
+            }
+
+            .section .group-basic-example {
+                padding: 20px 30px;
+            }
+
+            .section .div {
+                font-size: 20px;
+            }
+
+            .section .feature-title {
+                font-size: 16px;
+            }
+
+            .section .feature-desc {
+                font-size: 14px;
+            }
+
+            .section .text-wrapper-24 {
+                font-size: 20px;
+            }
+
+            .section .icon-png {
+                width: 120px;
+                height: 120px;
+                top: -40px;
+                left: -40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="background-border-wrapper">
+            <div class="background-border">
+                <!-- Header Section -->
+                <div class="png"></div>
+                <div class="overlap-group">
+                    <div class="text-wrapper">Full/Pro Plan</div>
+                    <div class="heading-month">$99/month</div>
+                </div>
+                <p class="become-a-culinary">
+                    Become a culinary sensation with Orderific's Full Plan at just<br />99$/month.
+                </p>
+                <a href="#"><div class="group-basic-example">
+                    <div class="get-started">Get Started</div>
+                </div></a>
+
+                <!-- Features Section -->
+                <div class="div">Key features:</div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Digital Smart Menu</div>
+                        <p class="feature-desc">Interactive menu system with real-time updates.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Loyalty Program</div>
+                        <p class="feature-desc">Features for rewarding and retaining customers.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Business Analytics</div>
+                        <p class="feature-desc">Tools for analyzing and strategizing business data.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Website Builder</div>
+                        <p class="feature-desc">Tools for creating a dynamic online presence.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Integrated Payment Options</div>
+                        <p class="feature-desc">Diverse payment methods for customer convenience.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Delivery System Setup</div>
+                        <p class="feature-desc">Tools for establishing and managing delivery services.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Marketing Tools</div>
+                        <p class="feature-desc">Resources to enhance marketing reach and effectiveness.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Menu Translation</div>
+                        <p class="feature-desc">Feature to translate menus into multiple languages.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Clear Reporting</div>
+                        <p class="feature-desc">Stay informed with straightforward analytics.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check-svg-fill"><img class="img" src="check-svg.svg" /></div>
+                    <div class="feature-text">
+                        <div class="feature-title">Seamless POS Integration</div>
+                        <p class="feature-desc">Efficient integration with point-of-sale systems.</p>
+                    </div>
+                </div>
+
+                <!-- Footer Section -->
+                <div class="text-wrapper-23">...and much more!</div>
+                <div class="text-wrapper-24">Ideal for Visionary Restaurateurs:</div>
+                <p class="choose-this-plan-to">
+                    Choose this plan to elevate your dining experience and set your restaurant apart. Ideal for combining technology and insights to grow your business.
+                </p>
+                <div class="icon-png"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
