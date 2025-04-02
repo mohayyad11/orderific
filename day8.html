@@ -120,18 +120,22 @@
             --colors-background-black-5: rgba(0, 0, 0, 0.05);
         }
 
+        /* Desktop Mode (Default) */
         .OTP-confirmation {
             display: flex;
             flex-direction: column;
+            width: 834px;
             align-items: flex-start;
             position: relative;
-            background-color: var(--colors-background-white-100);
+            background: linear-gradient(58deg, rgba(253, 232, 228, 1) 38%, rgba(236, 236, 236, 1) 87%);
             gap: var(--spacing-spacing-0);
+            margin: 0 auto;
         }
 
         .OTP-confirmation .navigation {
             display: flex;
             align-items: flex-start;
+            padding: var(--spacing-spacing-4);
             position: relative;
             align-self: stretch;
             width: 100%;
@@ -146,6 +150,8 @@
             flex: 1;
             flex-grow: 1;
             background-color: var(--colors-background-white-100);
+            border-radius: var(--radius-round-6);
+            box-shadow: var(--sticky-header);
         }
 
         .OTP-confirmation .logo {
@@ -238,6 +244,8 @@
         .OTP-confirmation .header {
             display: flex;
             align-items: center;
+            gap: 282px;
+            padding: 24px 16px;
             position: relative;
             align-self: stretch;
             width: 100%;
@@ -261,10 +269,13 @@
 
         .OTP-confirmation .frame-2 {
             display: flex;
+            height: 986px;
             align-items: flex-start;
+            padding: 0 16px;
             position: relative;
             align-self: stretch;
             width: 100%;
+            border-radius: 24px;
             overflow: hidden;
             gap: var(--spacing-spacing-0);
         }
@@ -272,8 +283,11 @@
         .OTP-confirmation .messages-left {
             display: flex;
             flex-direction: column;
+            width: 320px;
+            height: 986px;
             align-items: flex-start;
             gap: var(--spacing-spacing-6);
+            padding: var(--spacing-4) var(--spacing-spacing-0);
             position: relative;
             background-color: var(--colors-background-white-60);
         }
@@ -282,6 +296,7 @@
             display: flex;
             align-items: center;
             gap: var(--spacing-spacing-4);
+            padding: 0 var(--spacing-spacing-4);
             position: relative;
             align-self: stretch;
             width: 100%;
@@ -315,8 +330,10 @@
             display: inline-flex;
             flex-direction: column;
             min-width: 16px;
+            height: 16px;
             align-items: center;
             justify-content: center;
+            padding: var(--spacing-spacing-0) var(--spacing-spacing-1);
             position: relative;
             background-color: var(--colors-background-black-100);
             border-radius: 16px;
@@ -405,6 +422,7 @@
             display: flex;
             align-items: center;
             gap: var(--spacing-spacing-2);
+            padding: 0 var(--spacing-spacing-4) 0 16px;
             position: relative;
             align-self: stretch;
             width: 100%;
@@ -503,6 +521,7 @@
             display: flex;
             align-items: center;
             gap: var(--spacing-spacing-2);
+            padding: 0 16px;
             position: relative;
             align-self: stretch;
             width: 100%;
@@ -512,11 +531,15 @@
         .OTP-confirmation .messages-right {
             display: flex;
             flex-direction: column;
+            width: 482px;
             align-items: center;
             justify-content: center;
             gap: var(--spacing-spacing-8);
+            padding: 0 80px;
             position: relative;
+            align-self: stretch;
             background-color: var(--colors-background-white-100);
+            border-left: 1px solid var(--colors-border-black-10);
         }
 
         .OTP-confirmation .frame-7 {
@@ -696,6 +719,8 @@
             gap: 8px;
             padding: 8px;
             position: absolute;
+            top: 1074px;
+            left: 245px;
             background-color: var(--colors-background-black-100);
             border-radius: 48px;
             box-shadow: var(--sticky-header);
@@ -755,65 +780,23 @@
             font-style: var(--caption-bold-font-style);
         }
 
-        /* Desktop Styles (834px and above) */
-        @media screen and (min-width: 834px) {
-            .OTP-confirmation {
-                width: 834px;
-                background: linear-gradient(58deg, rgba(253, 232, 228, 1) 38%, rgba(236, 236, 236, 1) 87%);
-            }
-
-            .OTP-confirmation .navigation {
-                padding: var(--spacing-spacing-4);
-            }
-
-            .OTP-confirmation .navigation-frame {
-                border-radius: var(--radius-round-6);
-                box-shadow: var(--sticky-header);
-            }
-
-            .OTP-confirmation .header {
-                gap: 282px;
-                padding: 24px 16px;
-            }
-
-            .OTP-confirmation .frame-2 {
-                height: 986px;
-                padding: 0 16px;
-                border-radius: 24px;
-                flex-direction: row;
-            }
-
-            .OTP-confirmation .messages-left {
-                width: 320px;
-                height: 986px;
-                padding: var(--spacing-4) var(--spacing-spacing-0);
-            }
-
-            .OTP-confirmation .messages-title {
-                padding: 0 var(--spacing-spacing-4);
-            }
-
-            .OTP-confirmation .frame-4 {
-                padding: 0 var(--spacing-spacing-4) 0 16px;
-            }
-
-            .OTP-confirmation .messages-right {
-                width: 482px;
-                padding: 0 80px;
-                border-left: 1px solid var(--colors-border-black-10);
-            }
-
-            .OTP-confirmation .main-menu {
-                top: 1074px;
-                left: 245px;
-                flex-direction: row;
-            }
+        .mode-link {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 8px 16px;
+            background-color: var(--colors-background-black-100);
+            color: var(--colors-text-white-100);
+            border-radius: 24px;
+            z-index: 1000;
         }
 
-        /* Mobile Portrait Styles (below 834px) */
+        /* Mobile Portrait Mode (below 834px) */
         @media screen and (max-width: 833px) {
             .OTP-confirmation {
                 width: 100%;
+                background: var(--colors-background-white-100);
+                margin: 0;
             }
 
             .OTP-confirmation .navigation {
@@ -824,6 +807,8 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 8px;
+                border-radius: var(--radius-round-0);
+                box-shadow: none;
             }
 
             .OTP-confirmation .other-links {
@@ -831,10 +816,12 @@
             }
 
             .OTP-confirmation .header {
+                gap: 0;
                 padding: 24px 16px 24px 0;
             }
 
             .OTP-confirmation .frame-2 {
+                height: auto;
                 flex-direction: column;
                 padding: 0 var(--spacing-spacing-4) 0 0;
             }
@@ -856,6 +843,12 @@
             .OTP-confirmation .messages-right {
                 width: 100%;
                 padding: 0 16px;
+                border-left: none;
+            }
+
+            .OTP-confirmation .ellipse-3 {
+                width: 80px;
+                height: 80px;
             }
 
             .OTP-confirmation .main-menu {
@@ -863,16 +856,12 @@
                 left: 16px;
                 flex-direction: column;
             }
-
-            .OTP-confirmation .ellipse-3 {
-                width: 80px;
-                height: 80px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="OTP-confirmation">
+    <a href="#desktop" class="mode-link">Desktop Mode</a>
+    <div class="OTP-confirmation" id="desktop">
         <div class="navigation">
             <div class="navigation-frame">
                 <div class="logo"><img class="img" src="img/logo.svg" /></div>
