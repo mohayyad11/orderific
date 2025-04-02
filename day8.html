@@ -29,7 +29,8 @@
         }
 
         :root {
-            --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            /* Tailwind-inspired variables */
+            --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
             --color-red-500: oklch(0.637 0.237 25.331);
             --color-gray-100: oklch(0.967 0.003 264.542);
@@ -47,7 +48,7 @@
             --radius-md: 0.375rem;
             --radius-2xl: 1rem;
 
-            /* Custom Variables from First Code */
+            /* Custom variables from second snippet */
             --headline-font-family: "DM Sans", Helvetica;
             --headline-font-weight: 500;
             --headline-font-size: 20px;
@@ -77,17 +78,11 @@
             --body-normal-font-size: 16px;
             --body-normal-letter-spacing: -0.16px;
             --body-normal-line-height: 24px;
-            --button-large-font-family: "DM Sans", Helvetica;
-            --button-large-font-weight: 700;
-            --button-large-font-size: 16px;
-            --button-large-letter-spacing: -0.16px;
-            --button-large-line-height: 24px;
             --body-link-bold-font-family: "DM Sans", Helvetica;
             --body-link-bold-font-weight: 500;
             --body-link-bold-font-size: 16px;
             --body-link-bold-letter-spacing: -0.16px;
             --body-link-bold-line-height: 20px;
-            --sticky-header: 0px 0px 32px 0px rgba(0, 0, 0, 0.08);
             --spacing-4: 16px;
             --spacing-spacing-0: 0px;
             --spacing-spacing-1: 4px;
@@ -111,10 +106,8 @@
             --colors-background-black-5: rgba(0, 0, 0, 0.05);
             --radius-round-0: 0px;
             --radius-round-5: 24px;
-            --radius-round-6: 32px;
         }
 
-        /* Tailwind Base Layer */
         html {
             line-height: 1.5;
             -webkit-text-size-adjust: 100%;
@@ -135,7 +128,7 @@
             height: auto;
         }
 
-        /* Desktop Mode (Default) */
+        /* Main Container */
         .OTP-confirmation {
             display: flex;
             flex-direction: column;
@@ -163,8 +156,8 @@
             justify-content: space-between;
             flex: 1;
             background-color: var(--colors-background-white-100);
-            border-radius: var(--radius-round-6);
-            box-shadow: var(--sticky-header);
+            border-radius: var(--radius-round-5);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
         }
 
         .OTP-confirmation .logo {
@@ -349,11 +342,11 @@
         }
 
         .OTP-confirmation .product-name-2 {
-            font-family: var(--caption-normal-font-family);
-            font-weight: var(--caption-normal-font-weight);
+            font-family: var(--body-normal-font-family);
+            font-weight: var(--body-normal-font-weight);
             color: var(--colors-text-black-60);
-            font-size: var(--caption-normal-font-size);
-            line-height: var(--caption-normal-line-height);
+            font-size: var(--body-normal-font-size);
+            line-height: var(--body-normal-line-height);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -482,11 +475,11 @@
         }
 
         .OTP-confirmation .text-button {
-            font-family: var(--button-large-font-family);
-            font-weight: var(--button-large-font-weight);
+            font-family: var(--body-bold-font-family);
+            font-weight: var(--body-bold-font-weight);
             color: var(--colors-text-black-40);
-            font-size: var(--button-large-font-size);
-            line-height: var(--button-large-line-height);
+            font-size: var(--body-bold-font-size);
+            line-height: var(--body-bold-line-height);
         }
 
         .OTP-confirmation .simple-BTN {
@@ -515,7 +508,7 @@
             transform: translateX(-50%);
             background-color: var(--colors-background-black-100);
             border-radius: 48px;
-            box-shadow: var(--sticky-header);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
             z-index: 20;
         }
 
@@ -562,18 +555,6 @@
             line-height: var(--caption-bold-line-height);
         }
 
-        .mode-link {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            padding: 8px 16px;
-            background-color: var(--colors-background-black-100);
-            color: var(--colors-text-white-100);
-            border-radius: 24px;
-            z-index: 1000;
-        }
-
-        /* Search Overlay */
         .search-overlay {
             display: none;
             width: 100%;
@@ -589,10 +570,10 @@
             padding: 8px 16px;
             border-radius: 24px;
             border: none;
-            box-shadow: var(--sticky-header);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
         }
 
-        /* Mobile Portrait Mode (below 834px) */
+        /* Responsive Design (Mobile Portrait) */
         @media screen and (max-width: 833px) {
             .OTP-confirmation {
                 width: 100%;
@@ -649,8 +630,7 @@
     </style>
 </head>
 <body class="font-['DM_Sans'] min-h-screen w-full max-w-[100vw] overflow-x-hidden flex flex-col">
-    <a href="#desktop" class="mode-link">Desktop Mode</a>
-    <div class="OTP-confirmation" id="desktop">
+    <div class="OTP-confirmation">
         <div class="navigation">
             <div class="navigation-frame">
                 <div class="logo"><img class="img" src="img/unnamed.webp" alt="brandLogo" /></div>
