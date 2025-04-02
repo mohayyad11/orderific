@@ -121,47 +121,7 @@
         .OTP-confirmation .logo {
             width: 64px;
             height: 64px;
-        }
-
-        .OTP-confirmation .other-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 8px;
-            background-color: var(--colors-background-white-100);
-            border-radius: 48px;
-        }
-
-        .OTP-confirmation .frame {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border-radius: 48px;
-            background-image: url(./img/frame-8.png);
-            background-size: cover;
-            background-position: 50% 50%;
-        }
-
-        .OTP-confirmation .text-wrapper {
-            width: fit-content;
-            opacity: 0;
-            font-family: var(--headline-font-family);
-            font-weight: var(--headline-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--headline-font-size);
-            letter-spacing: var(--headline-letter-spacing);
-            line-height: var(--headline-line-height);
-            white-space: nowrap;
-            font-style: var(--headline-font-style);
-        }
-
-        .OTP-confirmation .img {
-            width: 48px;
-            height: 48px;
+            border-radius: 32px; /* Make circular */
         }
 
         .OTP-confirmation .main-menu {
@@ -183,22 +143,12 @@
             gap: 8px;
             background-color: var(--colors-background-white-20);
             border-radius: var(--radius-round-5);
+            position: relative;
         }
 
         .OTP-confirmation .item-icon {
             width: 20px;
             height: 20px;
-        }
-
-        .OTP-confirmation .customer-display {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--colors-background-brand-orange-100);
-            border-radius: var(--radius-round-5);
-            position: relative;
         }
 
         .OTP-confirmation .card-indicator {
@@ -226,6 +176,48 @@
             line-height: var(--caption-bold-line-height);
             white-space: nowrap;
             font-style: var(--caption-bold-font-style);
+        }
+
+        .OTP-confirmation .other-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            background-color: var(--colors-background-white-100);
+            border-radius: 48px;
+        }
+
+        .OTP-confirmation .frame {
+            display: flex;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 24px; /* Make circular */
+            background-image: url(./img/frame-8.png);
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        .OTP-confirmation .text-wrapper {
+            width: fit-content;
+            opacity: 0;
+            font-family: var(--headline-font-family);
+            font-weight: var(--headline-font-weight);
+            color: var(--colors-text-black-100);
+            font-size: var(--headline-font-size);
+            letter-spacing: var(--headline-letter-spacing);
+            line-height: var(--headline-line-height);
+            white-space: nowrap;
+            font-style: var(--headline-font-style);
+        }
+
+        .OTP-confirmation .img {
+            width: 48px;
+            height: 48px;
+            border-radius: 24px; /* Make circular */
         }
 
         .OTP-confirmation .frame-2 {
@@ -390,6 +382,7 @@
             width: 40px;
             height: 40px;
             object-fit: cover;
+            border-radius: 20px; /* Make circular */
         }
 
         .OTP-confirmation .frame-6 {
@@ -495,6 +488,7 @@
             width: 120px;
             height: 120px;
             object-fit: cover;
+            border-radius: 60px; /* Make circular */
         }
 
         .OTP-confirmation .frame-9 {
@@ -581,7 +575,7 @@
         .OTP-confirmation .product-name-9 {
             width: 100%;
             font-family: var(--title-1-font-family);
-            font-font-weight: var(--title-1-font-weight);
+            font-weight: var(--title-1-font-weight);
             color: var(--colors-text-black-100);
             font-size: var(--title-1-font-size);
             text-align: center;
@@ -652,20 +646,19 @@
     <div class="OTP-confirmation">
         <div class="navigation">
             <img class="logo" src="unnamed.webp" />
-            <div class="other-links">
-                <div class="frame"><div class="text-wrapper">S</div></div>
-                <img class="img" src="img/frame-7.png" />
-            </div>
             <div class="main-menu">
                 <div class="div"><img class="item-icon" src="img/item-icon-2.svg" /></div>
-                <div class="div"><img class="item-icon" src="img/image.svg" /></div>
+                <div class="div">
+                    <img class="item-icon" src="img/image.svg" />
+                    <div class="card-indicator"><div class="element">1</div></div>
+                </div>
                 <div class="div"><img class="item-icon" src="img/item-icon-5.svg" /></div>
                 <div class="div"><img class="item-icon" src="img/item-icon.svg" /></div>
                 <div class="div"><img class="item-icon" src="img/item-icon-3.svg" /></div>
-                <div class="customer-display">
-                    <img class="item-icon" src="img/item-icon-4.svg" />
-                    <div class="card-indicator"><div class="element">1</div></div>
-                </div>
+            </div>
+            <div class="other-links">
+                <div class="frame"><div class="text-wrapper">S</div></div>
+                <img class="img" src="img/frame-7.png" />
             </div>
         </div>
         <div class="frame-2">
