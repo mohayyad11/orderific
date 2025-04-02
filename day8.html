@@ -1,930 +1,188 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <style>
-        @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-
-        :root {
-            --headline-font-family: "DM Sans", Helvetica;
-            --headline-font-weight: 500;
-            --headline-font-size: 20px;
-            --headline-letter-spacing: -0.2px;
-            --headline-line-height: 24px;
-            --headline-font-style: normal;
-            --caption-bold-font-family: "DM Sans", Helvetica;
-            --caption-bold-font-weight: 700;
-            --caption-bold-font-size: 13px;
-            --caption-bold-letter-spacing: 0px;
-            --caption-bold-line-height: 16px;
-            --caption-bold-font-style: normal;
-            --title-1-font-family: "DM Sans", Helvetica;
-            --title-1-font-weight: 700;
-            --title-1-font-size: 32px;
-            --title-1-letter-spacing: -0.96px;
-            --title-1-line-height: 40px;
-            --title-1-font-style: normal;
-            --body-bold-font-family: "DM Sans", Helvetica;
-            --body-bold-font-weight: 500;
-            --body-bold-font-size: 16px;
-            --body-bold-letter-spacing: -0.16px;
-            --body-bold-line-height: 24px;
-            --body-bold-font-style: normal;
-            --caption-normal-font-family: "DM Sans", Helvetica;
-            --caption-normal-font-weight: 400;
-            --caption-normal-font-size: 13px;
-            --caption-normal-letter-spacing: 0px;
-            --caption-normal-line-height: 16px;
-            --caption-normal-font-style: normal;
-            --body-normal-font-family: "DM Sans", Helvetica;
-            --body-normal-font-weight: 400;
-            --body-normal-font-size: 16px;
-            --body-normal-letter-spacing: -0.16px;
-            --body-normal-line-height: 24px;
-            --body-normal-font-style: normal;
-            --body-link-bold-font-family: "DM Sans", Helvetica;
-            --body-link-bold-font-weight: 500;
-            --body-link-bold-font-size: 16px;
-            --body-link-bold-letter-spacing: -0.16px;
-            --body-link-bold-line-height: 20px;
-            --body-link-bold-font-style: normal;
-            --spacing-4: 16px;
-            --spacing-spacing-0: 0px;
-            --spacing-spacing-2: 8px;
-            --spacing-spacing-1: 4px;
-            --spacing-spacing-4: 16px;
-            --spacing-spacing-8: 40px;
-            --spacing-spacing-6: 24px;
-            --colors-text-black-100: rgba(0, 0, 0, 1);
-            --colors-text-white-100: rgba(255, 255, 255, 1);
-            --colors-text-black-60: rgba(0, 0, 0, 0.6);
-            --colors-background-brand-orange-100: rgba(255, 86, 52, 1);
-            --colors-background-semantic-red-100: rgba(225, 14, 14, 1);
-            --colors-border-black-10: rgba(0, 0, 0, 0.1);
-            --colors-background-white-20: rgba(255, 255, 255, 0.2);
-            --colors-background-white-100: rgba(255, 255, 255, 1);
-            --colors-background-black-100: rgba(0, 0, 0, 1);
-            --colors-border-black-100: rgba(0, 0, 0, 1);
-            --colors-background-white-60: rgba(255, 255, 255, 0.6);
-            --colors-text-black-40: rgba(0, 0, 0, 0.4);
-            --colors-text-black-100-duplicate: rgba(0, 0, 0, 1);
-            --colors-background-black-5: rgba(0, 0, 0, 0.05);
-            --radius-round-5: 24px;
-            --radius-round-0: 0px;
-        }
-
-        * {
-            -webkit-font-smoothing: antialiased;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0px;
-            height: 100%;
-        }
-
-        button:focus-visible {
-            outline: 2px solid #4a90e2 !important;
-            outline: -webkit-focus-ring-color auto 5px !important;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .OTP-confirmation {
-            display: flex;
-            width: 1194px;
-            align-items: flex-start;
-            position: relative;
-            background-color: rgba(255, 255, 255, 1.0);
-            background: linear-gradient(68deg, rgba(255, 255, 255, 1) 15%, rgba(255, 235, 231, 1) 74%);
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .navigation {
-            display: inline-flex;
-            flex-direction: column;
-            height: 834px;
-            align-items: flex-start;
-            justify-content: space-between;
-            padding: 16px;
-            position: relative;
-            flex: 0 0 auto;
-        }
-
-        .OTP-confirmation .logo {
-            position: relative;
-            width: 64px;
-            height: 64px;
-        }
-
-        .OTP-confirmation .other-links {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-            padding: 8px;
-            position: relative;
-            flex: 0 0 auto;
-            background-color: var(--colors-background-white-100);
-            border-radius: 48px;
-        }
-
-        .OTP-confirmation .frame {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            border-radius: 48px;
-            background-image: url(./img/frame-8.png);
-            background-size: cover;
-            background-position: 50% 50%;
-        }
-
-        .OTP-confirmation .text-wrapper {
-            position: relative;
-            width: fit-content;
-            opacity: 0;
-            font-family: var(--headline-font-family);
-            font-weight: var(--headline-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--headline-font-size);
-            letter-spacing: var(--headline-letter-spacing);
-            line-height: var(--headline-line-height);
-            white-space: nowrap;
-            font-style: var(--headline-font-style);
-        }
-
-        .OTP-confirmation .img {
-            position: relative;
-            width: 48px;
-            height: 48px;
-        }
-
-        .OTP-confirmation .main-menu {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 8px;
-            position: absolute;
-            top: 245px;
-            left: 16px;
-            background-color: var(--colors-background-black-100);
-            border-radius: 48px;
-        }
-
-        .OTP-confirmation .div {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            background-color: var(--colors-background-white-20);
-            border-radius: var(--radius-round-5);
-        }
-
-        .OTP-confirmation .item-icon {
-            position: relative;
-            width: 20px;
-            height: 20px;
-        }
-
-        .OTP-confirmation .customer-display {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background-color: var(--colors-background-brand-orange-100);
-            border-radius: var(--radius-round-5);
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .card-indicator {
-            display: inline-flex;
-            flex-direction: column;
-            min-width: 16px;
-            height: 20px;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-spacing-0) var(--spacing-spacing-1) var(--spacing-spacing-0) var(--spacing-spacing-1);
-            position: absolute;
-            top: -4px;
-            left: 32px;
-            background-color: var(--colors-background-semantic-red-100);
-            border-radius: 16px;
-            border: 2px solid;
-            border-color: var(--colors-border-black-100);
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .element {
-            position: relative;
-            width: fit-content;
-            font-family: var(--caption-bold-font-family);
-            font-weight: var(--caption-bold-font-weight);
-            color: var(--colors-text-white-100);
-            font-size: var(--caption-bold-font-size);
-            letter-spacing: var(--caption-bold-letter-spacing);
-            line-height: var(--caption-bold-line-height);
-            white-space: nowrap;
-            font-style: var(--caption-bold-font-style);
-        }
-
-        .OTP-confirmation .frame-2 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            position: relative;
-            flex: 1;
-            align-self: stretch;
-            flex-grow: 1;
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .header {
-            display: flex;
-            align-items: center;
-            gap: 282px;
-            padding: 24px 16px 24px 0px;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-            background-color: transparent;
-        }
-
-        .OTP-confirmation .title {
-            position: relative;
-            width: fit-content;
-            margin-top: -1.00px;
-            font-family: var(--title-1-font-family);
-            font-weight: var(--title-1-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--title-1-font-size);
-            letter-spacing: var(--title-1-letter-spacing);
-            line-height: var(--title-1-line-height);
-            white-space: nowrap;
-            font-style: var(--title-1-font-style);
-        }
-
-        .OTP-confirmation .frame-3 {
-            display: flex;
-            align-items: flex-start;
-            padding: 0px var(--spacing-spacing-4) 0px 0px;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-            border-radius: 24px;
-            overflow: hidden;
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .messages-left {
-            display: flex;
-            flex-direction: column;
-            width: 320px;
-            height: 722px;
-            align-items: flex-start;
-            gap: var(--spacing-spacing-6);
-            padding: var(--spacing-4) var(--spacing-spacing-0) var(--spacing-4) var(--spacing-spacing-0);
-            position: relative;
-            background-color: var(--colors-background-white-60);
-            overflow: hidden;
-        }
-
-        .OTP-confirmation .messages-title {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-spacing-4);
-            padding: 0px var(--spacing-spacing-4) 0px var(--spacing-spacing-4);
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-        }
-
-        .OTP-confirmation .title-label {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-spacing-2);
-            position: relative;
-            flex: 1;
-            flex-grow: 1;
-        }
-
-        .OTP-confirmation .unread {
-            position: relative;
-            width: fit-content;
-            margin-top: -1.00px;
-            font-family: var(--headline-font-family);
-            font-weight: var(--headline-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--headline-font-size);
-            letter-spacing: var(--headline-letter-spacing);
-            line-height: var(--headline-line-height);
-            white-space: nowrap;
-            font-style: var(--headline-font-style);
-        }
-
-        .OTP-confirmation .element-wrapper {
-            display: inline-flex;
-            flex-direction: column;
-            min-width: 16px;
-            height: 16px;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-spacing-0) var(--spacing-spacing-1) var(--spacing-spacing-0) var(--spacing-spacing-1);
-            position: relative;
-            flex: 0 0 auto;
-            background-color: var(--colors-background-black-100);
-            border-radius: 16px;
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .element-2 {
-            position: relative;
-            width: fit-content;
-            margin-top: -1.00px;
-            font-family: var(--caption-bold-font-family);
-            font-weight: var(--caption-bold-font-weight);
-            color: var(--colors-text-white-100);
-            font-size: var(--caption-bold-font-size);
-            letter-spacing: var(--caption-bold-letter-spacing);
-            line-height: var(--caption-bold-line-height);
-            white-space: nowrap;
-            font-style: var(--caption-bold-font-style);
-        }
-
-        .OTP-confirmation .right-section {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: flex-start;
-            gap: var(--spacing-spacing-2);
-            position: relative;
-        }
-
-        .OTP-confirmation .search-button {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            border-radius: 48px;
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .iconic-buttons-large {
-            display: flex;
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            border-radius: 48px;
-            border: 1px solid;
-            border-color: var(--colors-border-black-10);
-        }
-
-        .OTP-confirmation .element-search {
-            position: relative;
-            width: 24px;
-            height: 24px;
-        }
-
-        .OTP-confirmation .frame-4 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-            margin-bottom: -16.00px;
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .OTP-lists {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-spacing-2);
-            padding: 12px 0px;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-            background-color: var(--colors-background-white-100);
-            border-bottom-width: 1px;
-            border-bottom-style: solid;
-            border-color: var(--colors-border-black-10);
-        }
-
-        .OTP-confirmation .frame-5 {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-spacing-2);
-            padding: 0px 16px;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-        }
-
-        .OTP-confirmation .ellipse {
-            position: relative;
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
-        }
-
-        .OTP-confirmation .frame-6 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            position: relative;
-            flex: 1;
-            flex-grow: 1;
-        }
-
-        .OTP-confirmation .product-name {
-            position: relative;
-            align-self: stretch;
-            margin-top: -1.00px;
-            font-family: var(--body-bold-font-family);
-            font-weight: var(--body-bold-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--body-bold-font-size);
-            letter-spacing: var(--body-bold-letter-spacing);
-            line-height: var(--body-bold-line-height);
-            font-style: var(--body-bold-font-style);
-        }
-
-        .OTP-confirmation .product-name-2 {
-            position: relative;
-            align-self: stretch;
-            font-family: var(--caption-normal-font-family);
-            font-weight: var(--caption-normal-font-weight);
-            color: var(--colors-text-black-60);
-            font-size: var(--caption-normal-font-size);
-            letter-spacing: var(--caption-normal-letter-spacing);
-            line-height: var(--caption-normal-line-height);
-            font-style: var(--caption-normal-font-style);
-        }
-
-        .OTP-confirmation .ellipse-2 {
-            position: relative;
-            width: 8px;
-            height: 8px;
-            background-color: var(--colors-background-semantic-red-100);
-            border-radius: 4px;
-        }
-
-        .OTP-confirmation .product-name-3 {
-            position: relative;
-            width: fit-content;
-            font-family: var(--body-bold-font-family);
-            font-weight: var(--body-bold-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--body-bold-font-size);
-            letter-spacing: var(--body-bold-letter-spacing);
-            line-height: var(--body-bold-line-height);
-            white-space: nowrap;
-            font-style: var(--body-bold-font-style);
-        }
-
-        .OTP-confirmation .frame-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-spacing-2);
-            padding: 12px 0px;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-            border-bottom-width: 1px;
-            border-bottom-style: solid;
-            border-color: var(--colors-border-black-10);
-        }
-
-        .OTP-confirmation .frame-7 {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-spacing-2);
-            padding: 0px var(--spacing-spacing-4) 0px 16px;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-        }
-
-        .OTP-confirmation .product-name-4 {
-            position: relative;
-            align-self: stretch;
-            margin-top: -1.00px;
-            font-family: var(--body-normal-font-family);
-            font-weight: var(--body-normal-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--body-normal-font-size);
-            letter-spacing: var(--body-normal-letter-spacing);
-            line-height: var(--body-normal-line-height);
-            font-style: var(--body-normal-font-style);
-        }
-
-        .OTP-confirmation .ellipse-3 {
-            width: 40px;
-            height: 40px;
-            margin-top: -828.00px;
-            margin-left: -96.00px;
-            position: relative;
-            object-fit: cover;
-        }
-
-        .OTP-confirmation .messages-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-spacing-8);
-            padding: 0px 80px;
-            position: relative;
-            flex: 1;
-            align-self: stretch;
-            flex-grow: 1;
-            background-color: var(--colors-background-white-100);
-            border-left-width: 1px;
-            border-left-style: solid;
-            border-color: var(--colors-border-black-10);
-        }
-
-        .OTP-confirmation .frame-8 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--spacing-spacing-2);
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-        }
-
-        .OTP-confirmation .ellipse-4 {
-            width: 120px;
-            height: 120px;
-            position: relative;
-            object-fit: cover;
-        }
-
-        .OTP-confirmation .frame-9 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .product-name-5 {
-            position: relative;
-            align-self: stretch;
-            margin-top: -1.00px;
-            font-family: "DM Sans-Bold", Helvetica;
-            font-weight: 700;
-            color: var(--colors-text-black-100);
-            font-size: 22px;
-            text-align: center;
-            letter-spacing: -0.22px;
-            line-height: 24px;
-        }
-
-        .OTP-confirmation .product-name-6 {
-            position: relative;
-            align-self: stretch;
-            font-family: var(--body-normal-font-family);
-            font-weight: var(--body-normal-font-weight);
-            color: var(--colors-text-black-60);
-            font-size: var(--body-normal-font-size);
-            text-align: center;
-            letter-spacing: var(--body-normal-letter-spacing);
-            line-height: var(--body-normal-line-height);
-            font-style: var(--body-normal-font-style);
-        }
-
-        .OTP-confirmation .frame-10 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--spacing-spacing-4);
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-        }
-
-        .OTP-confirmation .product-name-7 {
-            position: relative;
-            align-self: stretch;
-            margin-top: -1.00px;
-            font-family: var(--title-1-font-family);
-            font-weight: var(--title-1-font-weight);
-            color: var(--colors-background-brand-orange-100);
-            font-size: var(--title-1-font-size);
-            text-align: center;
-            letter-spacing: var(--title-1-letter-spacing);
-            line-height: var(--title-1-line-height);
-            font-style: var(--title-1-font-style);
-        }
-
-        .OTP-confirmation .p {
-            position: relative;
-            align-self: stretch;
-            font-family: var(--body-normal-font-family);
-            font-weight: var(--body-normal-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--body-normal-font-size);
-            text-align: center;
-            letter-spacing: var(--body-normal-letter-spacing);
-            line-height: var(--body-normal-line-height);
-            font-style: var(--body-normal-font-style);
-        }
-
-        .OTP-confirmation .frame-11 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            position: relative;
-            align-self: stretch;
-            width: 100%;
-            flex: 0 0 auto;
-            gap: var(--spacing-spacing-0);
-        }
-
-        .OTP-confirmation .product-name-8 {
-            position: relative;
-            align-self: stretch;
-            margin-top: -1.00px;
-            font-family: var(--body-normal-font-family);
-            font-weight: var(--body-normal-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--body-normal-font-size);
-            text-align: center;
-            letter-spacing: var(--body-normal-letter-spacing);
-            line-height: var(--body-normal-line-height);
-            font-style: var(--body-normal-font-style);
-        }
-
-        .OTP-confirmation .product-name-9 {
-            position: relative;
-            align-self: stretch;
-            font-family: var(--title-1-font-family);
-            font-weight: var(--title-1-font-weight);
-            color: var(--colors-text-black-100);
-            font-size: var(--title-1-font-size);
-            text-align: center;
-            letter-spacing: var(--title-1-letter-spacing);
-            line-height: var(--title-1-line-height);
-            font-style: var(--title-1-font-style);
-        }
-
-        .OTP-confirmation .standard-buttons {
-            display: inline-flex;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 0px 32px;
-            position: relative;
-            background-color: var(--colors-background-black-5);
-            border-radius: 32px;
-        }
-
-        .OTP-confirmation .text-button {
-            position: relative;
-            width: fit-content;
-            font-family: "DM Sans-Bold", Helvetica;
-            font-weight: 700;
-            color: var(--colors-text-black-40);
-            font-size: 16px;
-            letter-spacing: -0.16px;
-            line-height: 24px;
-            white-space: nowrap;
-        }
-
-        .OTP-confirmation .simple-BTN {
-            display: inline-flex;
-            height: 48px;
-            align-items: center;
-            gap: 8px;
-            position: absolute;
-            top: 16px;
-            left: 16px;
-        }
-
-        .OTP-confirmation .simple-button {
-            position: relative;
-            width: fit-content;
-            font-family: var(--body-link-bold-font-family);
-            font-weight: var(--body-link-bold-font-weight);
-            color: var(--colors-text-black-100-duplicate);
-            font-size: var(--body-link-bold-font-size);
-            letter-spacing: var(--body-link-bold-letter-spacing);
-            line-height: var(--body-link-bold-line-height);
-            text-decoration: underline;
-            white-space: nowrap;
-            font-style: var(--body-link-bold-font-style);
-        }
-
-        [data-colors-mode="dark-mode"] {
-            --colors-text-black-40: rgba(238, 238, 238, 0.4);
-            --colors-text-black-100-duplicate: rgba(238, 238, 238, 1);
-            --colors-background-black-5: rgba(221, 221, 221, 0.05);
-        }
-
-        [data-colors-mode="light-mode"] {
-            --colors-text-black-40: rgba(0, 0, 0, 0.4);
-            --colors-text-black-100-duplicate: rgba(0, 0, 0, 1);
-            --colors-background-black-5: rgba(0, 0, 0, 0.05);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 </head>
-<body data-colors-mode="light-mode">
-    <div class="OTP-confirmation">
-        <div class="navigation">
-            <img class="logo" src="unnamed.webp" />
-            <div class="other-links">
-                <div class="frame"><div class="text-wrapper">S</div></div>
-                <img class="img" src="img/frame-7.png" />
-            </div>
-            <div class="main-menu">
-                <div class="div"><img class="item-icon" src="img/item-icon-2.svg" /></div>
-                <div class="div"><img class="item-icon" src="img/image.svg" /></div>
-                <div class="div"><img class="item-icon" src="img/item-icon-5.svg" /></div>
-                <div class="div"><img class="item-icon" src="img/item-icon.svg" /></div>
-                <div class="div"><img class="item-icon" src="img/item-icon-3.svg" /></div>
-                <div class="customer-display">
-                    <img class="item-icon" src="img/item-icon-4.svg" />
-                    <div class="card-indicator"><div class="element">1</div></div>
-                </div>
-            </div>
+
+<body class="font-['DM_Sans'] min-h-screen w-full max-w-[100vw] overflow-x-hidden flex flex-col" style="background: linear-gradient(67.75deg, #FFFFFF 19.18%, #FFEBE7 75.31%)">
+  <div class="flex h-full flex-col lg:flex-row">
+    <!-- Sidebar -->
+    <div class="lg:w-auto md:w-full w-[95%] lg:left-0 top-1 lg:h-screen h-auto flex px-4 py-2 items-center mt-6 lg:ml-0 ml-auto lg:flex-col sm:flex-row flex-row lg:space-y-8 space-y-4 lg:fixed sticky z-20">
+      <!-- Logo -->
+      <div class="bg-white h-16 w-16 rounded-full flex items-center justify-center">
+        <img src="unnamed.webp" alt="brandLogo" class="w-8 h-8 object-contain">
+      </div>
+      
+      <!-- Other Links -->
+      <div class="flex lg:flex-col flex-row gap-2">
+        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+          <span class="text-black opacity-0 text-xl font-medium">S</span>
         </div>
-        <div class="frame-2">
-            <header class="header"><div class="title">OTP Confirmation</div></header>
-            <div class="frame-3">
-                <div class="messages-left">
-                    <div class="messages-title">
-                        <div class="title-label">
-                            <div class="unread">Pending</div>
-                            <div class="element-wrapper"><div class="element-2">1</div></div>
-                        </div>
-                        <div class="right-section">
-                            <div class="search-button">
-                                <div class="iconic-buttons-large"><img class="element-search" src="searcc.svg" /></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="frame-4">
-                        <div class="OTP-lists">
-                            <div class="frame-5">
-                                <img class="ellipse" src="nasser.png" />
-                                <div class="frame-6">
-                                    <div class="product-name">Nasser Alsubai</div>
-                                    <p class="product-name-2">9 Feb 2024 — 10:24</p>
-                                </div>
-                                <div class="ellipse-2"></div>
-                                <div class="product-name-3">674951</div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-7">
-                                <img class="ellipse" src="76c29c3974ca2943f2f77b5e0544f484.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Nguyen, Shane</div>
-                                    <p class="product-name-2">9 Feb 2024 — 10:20</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-7">
-                                <img class="ellipse" src="db97e1ca6fed7991ee043f68dedada2f.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Flores, Juanita</div>
-                                    <p class="product-name-2">9 Feb 2024 — 10:04</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-7">
-                                <img class="ellipse" src="7a53e28c8e0fb3041bea3c00aa660a58.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Miles, Esther</div>
-                                    <p class="product-name-2">9 Feb 2024 — 09:30</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-7">
-                                <img class="ellipse" src="b2df27fc83f170007341358a821fa3bd.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Miles, Esther</div>
-                                    <p class="product-name-2">9 Feb 2024 — 09:26</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-7">
-                                <img class="ellipse" src="91ff9a60558873cde74916290a286e84.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Black, Marvin</div>
-                                    <p class="product-name-2">9 Feb 2024 — 09:20</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-7">
-                                <img class="ellipse" src="fa1be286e3b17627a17bbb20e41bbdc5.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Cooper, Kristin</div>
-                                    <p class="product-name-2">9 Feb 2024 — 09:18</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-7">
-                                <img class="ellipse" src="5952fe808473ca364d45dfb6d88c433f.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Flores, Juanita</div>
-                                    <p class="product-name-2">9 Feb 2024 — 09:07</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-7">
-                                <img class="ellipse" src="bd99690039f35eb8f13e58adae118810.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Black, Marvin</div>
-                                    <div class="product-name-2">8 Feb 2024 — 22:20</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-7">
-                                <img class="ellipse" src="dd7e73a85c1a6716fa387cae6e0d5302.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Henry, Arthur</div>
-                                    <div class="product-name-2">8 Feb 2024 — 22:17</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper">
-                            <div class="frame-5">
-                                <img class="ellipse-3" src="432a756d1ebdc6151dac288cfa3ef1f7.png" />
-                                <div class="frame-6">
-                                    <div class="product-name-4">Nasser Alsubai</div>
-                                    <div class="product-name-2">9 Feb 2024</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="messages-right">
-                    <div class="frame-8">
-                        <img class="ellipse-4" src="432a756d1ebdc6151dac288cfa3ef1f7.png" />
-                        <div class="frame-9">
-                            <div class="product-name-5">Nasser Alsubai</div>
-                            <div class="product-name-6">ID: 296571905</div>
-                        </div>
-                    </div>
-                    <div class="frame-10">
-                        <div class="frame-9"><div class="product-name-7">674951</div></div>
-                        <p class="p">To accept cash transfers, the rider must enter this 4-digit code in their app before you can accept the transaction.</p>
-                    </div>
-                    <div class="frame-10">
-                        <div class="frame-11">
-                            <p class="product-name-8">The amount you should receive:</p>
-                            <div class="product-name-9">$86.60</div>
-                        </div>
-                        <div class="standard-buttons"><div class="text-button">Accept Cash Transfer</div></div>
-                    </div>
-                    <div class="simple-BTN"><div class="simple-button">Close</div></div>
-                </div>
-            </div>
+        <div class="w-12 h-12 rounded-full overflow-hidden">
+          <img src="img/frame-7.png" alt="profile" class="w-full h-full object-cover">
         </div>
+      </div>
+
+      <!-- Main Menu -->
+      <div class="bg-black rounded-full p-2 hidden lg:flex flex-col gap-2">
+        <a href="/dashboard" class="w-12 h-12 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+          <img src="img/item-icon-2.svg" alt="Dashboard" class="w-5 h-5">
+        </a>
+        <a href="/transactions" class="w-12 h-12 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+          <img src="img/image.svg" alt="Transactions" class="w-5 h-5">
+        </a>
+        <a href="/users" class="w-12 h-12 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+          <img src="img/item-icon-5.svg" alt="Users" class="w-5 h-5">
+        </a>
+        <a href="/settings" class="w-12 h-12 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+          <img src="img/item-icon.svg" alt="Settings" class="w-5 h-5">
+        </a>
+        <a href="/reports" class="w-12 h-12 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+          <img src="img/item-icon-3.svg" alt="Reports" class="w-5 h-5">
+        </a>
+        <a href="/notifications" class="w-12 h-12 bg-[rgba(255,86,52,1)] rounded-[24px] relative flex items-center justify-center hover:bg-gray-100 transition-colors">
+          <img src="img/item-icon-4.svg" alt="Notifications" class="w-5 h-5">
+          <span class="absolute -top-1 -right-1 bg-[rgba(225,14,14,1)] text-white w-5 h-5 rounded-full border-2 border-black text-xs flex items-center justify-center">1</span>
+        </a>
+      </div>
     </div>
+
+    <!-- Main Content -->
+    <div class="flex flex-grow flex-col h-full lg:ml-20">
+      <!-- Header -->
+      <div id="mainHeader" class="w-full pt-4 md:pt-6 pr-4 md:pb-6 pb-4 pl-4 lg:top-0 top-16 sticky z-10 bg-transparent transition-colors duration-300">
+        <h2 class="font-bold text-2xl md:text-[32px] leading-10 text-center md:text-left">OTP Confirmation</h2>
+      </div>
+
+      <!-- Content Area -->
+      <div class="flex flex-col md:flex-row min-h-screen mx-2 gap-0 rounded-3xl overflow-hidden">
+        <!-- Messages List -->
+        <div class="w-full md:w-[320px] h-screen md:h-full bg-white/60 flex flex-col">
+          <div class="flex justify-between items-center p-4">
+            <div class="flex items-center gap-4">
+              <h3 class="text-xl font-medium">Pending</h3>
+              <span class="bg-black text-white text-xs w-6 h-6 flex items-center justify-center rounded-full">1</span>
+            </div>
+            <div class="w-12 h-12 border border-black/10 rounded-full flex items-center justify-center hidden md:flex cursor-pointer" id="searchBtn">
+              <img src="searcc.svg" alt="search" class="w-6 h-6">
+            </div>
+          </div>
+          
+          <!-- Search Overlay -->
+          <div class="p-4 hidden" id="searchOverlay">
+            <div class="bg-white rounded-full p-2 flex items-center w-full">
+              <input type="text" placeholder="Search..." class="w-full p-2 rounded-full border-none focus:outline-none">
+              <button class="ml-2 text-black/60 hover:text-black text-2xl font-bold" id="searchCloseBtn">×</button>
+            </div>
+          </div>
+
+          <!-- Messages -->
+          <div class="flex-1 overflow-y-auto border-r border-black/10">
+            <div class="p-3 border-b border-black/10 flex items-center justify-between hover:bg-gray-100 cursor-pointer">
+              <div class="flex items-center gap-2">
+                <img src="nasser.png" alt="user" class="w-10 h-10 rounded-full object-cover">
+                <div>
+                  <p class="font-medium">Nasser Alsubai</p>
+                  <p class="text-xs text-black/60">9 Feb 2024 — 10:24</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-[rgba(225,14,14,1)] rounded-full"></span>
+                <span class="font-medium">674951</span>
+              </div>
+            </div>
+            <!-- Additional list items -->
+            <div class="p-3 border-b border-black/10 flex items-center justify-between hover:bg-gray-100 cursor-pointer">
+              <div class="flex items-center gap-2">
+                <img src="76c29c3974ca2943f2f77b5e0544f484.png" alt="user" class="w-10 h-10 rounded-full object-cover">
+                <div>
+                  <p class="font-medium">Nguyen, Shane</p>
+                  <p class="text-xs text-black/60">9 Feb 2024 — 10:20</p>
+                </div>
+              </div>
+            </div>
+            <!-- Add more list items as needed -->
+          </div>
+        </div>
+
+        <!-- OTP Details -->
+        <div class="flex-1 bg-white border-l border-black/10 p-6 flex flex-col">
+          <button class="self-start text-black font-medium text-base underline mb-6">Close</button>
+          <div class="flex-1 flex flex-col items-center justify-center gap-10 max-w-[600px] mx-auto">
+            <div class="text-center">
+              <img src="432a756d1ebdc6151dac288cfa3ef1f7.png" alt="user" class="w-[120px] h-[120px] rounded-full object-cover mx-auto mb-2">
+              <h3 class="text-[22px] font-bold">Nasser Alsubai</h3>
+              <p class="text-black/60">ID: 296571905</p>
+            </div>
+            <div class="text-center">
+              <h1 class="text-[32px] font-bold text-[rgba(255,86,52,1)]">674951</h1>
+              <p class="text-base mt-4">To accept cash transfers, the rider must enter this 4-digit code in their app before you can accept the transaction.</p>
+            </div>
+            <div class="text-center">
+              <p class="text-base">The amount you should receive:</p>
+              <p class="text-[32px] font-bold my-4">$86.60</p>
+              <button class="bg-black/5 text-black/40 px-8 py-3 rounded-full font-bold">Accept Cash Transfer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-black rounded-full p-2 flex gap-2 lg:hidden z-20">
+    <a href="/dashboard" class="w-10 h-10 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+      <img src="img/item-icon-2.svg" alt="Dashboard" class="w-5 h-5">
+    </a>
+    <a href="/transactions" class="w-10 h-10 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+      <img src="img/image.svg" alt="Transactions" class="w-5 h-5">
+    </a>
+    <a href="/users" class="w-10 h-10 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+      <img src="img/item-icon-5.svg" alt="Users" class="w-5 h-5">
+    </a>
+    <a href="/settings" class="w-10 h-10 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+      <img src="img/item-icon.svg" alt="Settings" class="w-5 h-5">
+    </a>
+    <a href="/reports" class="w-10 h-10 bg-[rgba(255,255,255,0.2)] rounded-[24px] flex items-center justify-center hover:bg-gray-100 transition-colors">
+      <img src="img/item-icon-3.svg" alt="Reports" class="w-5 h-5">
+    </a>
+    <a href="/notifications" class="w-10 h-10 bg-[rgba(255,86,52,1)] rounded-[24px] relative flex items-center justify-center hover:bg-gray-100 transition-colors">
+      <img src="img/item-icon-4.svg" alt="Notifications" class="w-5 h-5">
+      <span class="absolute -top-1 -right-1 bg-[rgba(225,14,14,1)] text-white w-5 h-5 rounded-full border-2 border-black text-xs flex items-center justify-center">1</span>
+    </a>
+  </div>
 </body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchBtn = document.getElementById('searchBtn');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchCloseBtn = document.getElementById('searchCloseBtn');
+
+    searchBtn.addEventListener('click', () => {
+      searchOverlay.classList.remove('hidden');
+      searchBtn.parentElement.classList.add('hidden');
+    });
+
+    searchCloseBtn.addEventListener('click', () => {
+      searchOverlay.classList.add('hidden');
+      searchOverlay.previousElementSibling.classList.remove('hidden');
+    });
+  });
+
+  document.addEventListener('scroll', () => {
+    const header = document.getElementById('mainHeader');
+    if (window.scrollY > 0) {
+      header.classList.remove('bg-transparent');
+      header.classList.add('bg-white', 'rounded-3xl');
+    } else {
+      header.classList.remove('bg-white', 'rounded-3xl');
+      header.classList.add('bg-transparent');
+    }
+  });
+</script>
 </html>
